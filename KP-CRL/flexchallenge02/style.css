@@ -1,0 +1,157 @@
+/* 
+////// For this challenge ///////
+
+- All text is in the text.md file
+
+// Requirements
+1. Refer to the design specs for the
+   overall layout 
+2. The image should line up with
+   the sidebar in the section
+   below
+
+*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1:first-of-type {
+    margin: 0;
+    font-size: max(2rem, 5vmin);
+}
+
+.container {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.flex {
+    /* display: flex => flex container */
+    display: flex;
+    justify-content: space-between;;
+    /* border: solid red 2px; */
+    /* can't use yet */
+    /* gap: 100px; */
+}
+
+.col {
+    /* these are now flex items */
+    width: 100%;
+}
+
+.col + .col {
+    margin-left: 30px;
+}
+
+.hero {
+    padding: 100px 0;
+    background-color: #23424A;
+    color: #FFF;
+    border: solid green 2px;
+}
+
+.hero-text { 
+    display: flex;
+    flex-direction: column;
+    width: 58%;
+    margin-right: 3rem;
+    justify-content: space-between;
+}
+
+.hero-img {
+    width: 42%;
+    align-self: flex-start;
+    min-width: 290px;
+}
+
+.hero p {
+    margin-bottom: 2em;
+    font-size: max(1rem, 2vmin);
+}
+
+.container:nth-child(2) {
+    margin-top: min(7vmin,4rem);
+}
+
+.main-content {
+    width: 58%;
+}
+
+.sidebar {
+    width: 42%;
+    margin-left: 30px;
+    padding: 0 1em 2em 1em;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar h3 ~ h3 {
+    margin-top: 2em;
+}
+
+.dark {
+    background: #136C72;
+    color: white;
+}
+
+.accent {
+    color: #136C72;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase; 
+    color: #23424A;
+    font-weight: 900;
+    background-color: #38CFD9;
+    padding: .75em 2em;
+    border-radius: 100px;
+    align-self: start;
+    font-size: max(1rem, 1.75vmin);
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: .75; 
+}
+
+@media screen and (max-width: 750px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+    .rev {
+        flex-wrap: wrap-reverse;
+    }
+    .hero-text {
+        width: 100%;
+    }
+    .hero-img {
+        width: 100%;
+        min-width: 0px;
+        padding-bottom: 25px;
+    }
+    .hero {
+        padding: 4rem 0;
+    }
+    .main-content {
+        width: 100%;
+    }
+    .sidebar {
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+}

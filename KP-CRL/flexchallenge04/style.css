@@ -1,0 +1,147 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow: auto;
+}
+
+img {
+  object-fit: contain;
+  max-width: 100%;
+}
+
+h1, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #824936;
+}
+
+p {
+  font-weight: 300;
+}
+
+.hero {
+  background: #F3EED9;
+  text-align: center;
+  padding: 15% clamp(1em, 15%, 15em);
+}
+
+.hero-text {
+  font-size: clamp(3rem, 5vw, 4rem);
+  margin-top: 0;
+}
+
+.topline {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.nav-container {
+  position: sticky;
+  top: 0;
+  background-color: #824936;
+}
+
+.nav {
+  padding: 1rem clamp(1em, 15%, 10em) 1rem clamp(1em, 15%, 10em);
+  margin: 0 auto;
+  max-width: 1100px;
+  color: #F3EED9;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  cursor: pointer;
+  background-color: #824936;
+  box-shadow: 0 0 0 0 #F3EED9;
+  transition: box-shadow .25s ease;
+}
+
+.nav li:hover {
+  /* color: white; */
+  font-weight: 700;
+  box-shadow: 0 3px 0 0 #F3EED9;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1em, 5vw, 4em);
+}
+
+@media (max-width: 485px) {
+  .nav-wrap {
+    flex-direction: column;
+  }
+  .nav-flex {
+    justify-content: start;
+  gap: 1.15em;
+  }
+}
+
+.container {
+  padding: 5em clamp(1em, 15%, 10em) 5em clamp(1em, 15%, 10em);
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-top: 0;
+}
+
+.main-content h3 {
+  text-align: center;
+}
+
+.cols {
+  columns: 200px 2;
+  column-gap: 4rem;
+  break-inside: avoid;
+}
+
+.cols p:first-child {
+  /* display: inline-block; */
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  gap: 4rem;
+}
+
+.flex > * {
+  width: 50%;
+}
+@media (max-width: 800px) {
+  .flex {
+    flex-direction: column-reverse;
+    gap: 2.5em;
+  }
+  .rev {
+    flex-direction: column;
+  }
+  .flex > * {
+    width: 100%;
+  }
+}
+
+.dark-one {
+  background: #222C2A;
+}
+
+.dark-two {
+  background: #824936;
+}
+
+.accent {
+  color: #F3EED9;
+}
