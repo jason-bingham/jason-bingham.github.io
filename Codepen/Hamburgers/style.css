@@ -19,6 +19,7 @@ button {
   background: transparent;
   border-radius: .5rem;
   border: 4px solid var(--button-color, pink);
+  cursor: pointer;
 }
 
 .ham {
@@ -117,6 +118,49 @@ button {
   stroke-dasharray: .1 70;
 }
 
+
+/* Button 3 */
+
+#ham3 {
+  --trans-timing: 500ms;
+  --button-color: hsl(75 30% 20%);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 60 31 35 200;
+  stroke-dashoffset: 0;
+  transition: var(--trans-timing) ease-out;
+}
+
+#ham3 svg path {
+  stroke: var(--button-color);
+}
+
+.rightsideup {
+  position: absolute;
+  transition: var(--trans-timing) ease-out;
+}
+.upsidedown {
+  rotate: 180deg;
+  transition: var(--trans-timing) ease-out;
+}
+
+#ham3[aria-expanded = "true"] {
+  stroke-dasharray: 30 100 200;
+  stroke-dashoffset: -91;
+}
+
+#ham3[aria-expanded ="true"] {
+  --button-color: hsl(75 100% 25%);
+}
+
+#ham3[aria-expanded = "true"] .upsidedown {
+  rotate: 45deg;
+}
+
+#ham3[aria-expanded = "true"] .rightsideup {
+  rotate: -135deg;
+}
+
 @keyframes to-dots {
   0% {
     stroke-dashoffset: 0;
@@ -188,9 +232,6 @@ button {
   transition: 1s;
 }
 
-
-/* Button 1 */
-
-#ham3 {
-  --button-color: hsl(40, 70%, 40%);
+button:hover {
+  opacity: 85%;
 }
