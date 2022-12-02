@@ -1,0 +1,196 @@
+html {
+  background-color: antiquewhite;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.preload * {
+  transition: none !important;
+  animation: none !important;
+}
+
+button {
+  background: transparent;
+  border-radius: .5rem;
+  border: 4px solid var(--button-color, pink);
+}
+
+.ham {
+  fill: var(--button-color)
+}
+
+
+/* Button 1 */
+
+#ham1 {
+  --button-color: #333;
+}
+
+#ham1 .line {
+  transition: rotate 800ms ease,
+              y 200ms ease 800ms,
+              opacity 0s 800ms,
+              fill 800ms ease;
+  transform-origin: center;
+}
+
+#ham1[aria-expanded = "true"] .line {
+  transition: y 200ms ease,
+              rotate 800ms ease 200ms,
+              opacity 0s 200ms,
+              fill 800ms ease 200ms;
+}
+
+#ham1[aria-expanded = "true"] .top {
+  y: 45%;
+  rotate: 405deg;
+}
+
+#ham1[aria-expanded = "true"] .middle {
+  opacity: 0;
+}
+
+#ham1[aria-expanded = "true"] .bottom {
+  y: 45%;
+  rotate: -405deg;
+}
+
+#ham1 {
+  transition: 600ms ease;
+}
+
+#ham1[aria-expanded = "true"] {
+  transition: 600ms ease 400ms;
+  --button-color: blueviolet;
+}
+
+/* #ham1[aria-expanded="true"] .top{
+
+} */
+
+
+/* Button 2 */
+
+#ham2 {
+  --button-color: hsl(15 70% 25%);
+}
+
+#ham2 .line {
+  transition: stroke 1s;
+}
+
+#ham2[aria-expanded = "true"] .bottom,
+#ham2[aria-expanded = "true"] .top {
+  animation: to-dots .5s forwards;
+}
+
+.bottom,
+.top {
+  animation: to-dots-r .5s both .5s;
+}
+
+#ham2[aria-expanded = "true"] .middle {
+  animation: to-dots-mid .5s forwards;
+  stroke-dasharray: 70;
+}
+
+.middle {
+  animation: to-dots-mid-r .5s both .5s;
+  stroke-dasharray: 70;
+}
+
+#ham2[aria-expanded = "true"] .x {
+  animation: to-x .5s forwards .5s;
+}
+
+.x {
+  animation: to-x-r .5s both;
+}
+
+.x {
+  stroke-dasharray: .1 70;
+}
+
+@keyframes to-dots {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  100% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-dots-r {
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  0% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-x {
+  0% {
+    stroke-dasharray: .1 70;
+  }
+  100% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-x-r {
+  100% {
+    stroke-dasharray: .1 70;
+  }
+  0% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-dots-mid {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+@keyframes to-dots-mid-r {
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  0% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+#ham2[aria-expanded = "true"] {
+  transition: 1s;
+  --button-color: hsl(15 60% 45%);
+}
+
+#ham2 {
+  transition: 1s;
+}
+
+
+/* Button 1 */
+
+#ham3 {
+  --button-color: hsl(40, 70%, 40%);
+}

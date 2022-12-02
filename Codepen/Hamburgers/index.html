@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Hamburgers</title>
+</head>
+<body>
+
+  <button id="ham1" aria-controls="primary-nav" aria-expanded="false">
+    <svg class="ham" viewBox="0 0 100 100" width="100"">
+      <rect class="line top" 
+            width="80" height="10" 
+            x="10" y="25" rx="5">
+      </rect>
+      <rect class="line middle" 
+            width="80" height="10" 
+            x="10" y="45" rx="5">
+      </rect>
+      <rect class="line bottom" 
+            width="80" height="10" 
+            x="10" y="65" rx="5">
+      </rect>
+    </svg>
+  </button>
+
+  <button id="ham2" aria-controls="primary-nav" aria-expanded="false" class="preload">
+    <svg class="ham" viewBox="0 0 100 100" width="100"">
+      <line class="line top"
+            x1="15" x2="85" y1="30" y2="30"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line top right"
+            x1="85" x2="15" y1="30" y2="30"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line middle"
+            x1="15" x2="85" y1="50" y2="50"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line bottom"
+            x1="15" x2="85" y1="70" y2="70"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line bottom right"
+            x1="85" x2="15" y1="70" y2="70"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line x"
+            x1="70" x2="30" y1="30" y2="70"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line x"
+            x1="30" x2="70" y1="70" y2="30"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line x"
+            x1="30" x2="70" y1="30" y2="70"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+      <line class="line x"
+            x1="70" x2="30" y1="70" y2="30"
+            stroke="var(--button-color)"
+            stroke-width="10"
+            stroke-linecap="round">
+      </line>
+    </svg>
+  </button>
+
+  <button id="ham3" aria-controls="primary-nav" aria-expanded="false">
+    <svg class="ham" viewBox="0 0 100 100" width="100"">
+      <rect class="line top" 
+            width="80" height="10" 
+            x="10" y="25" rx="5">
+      </rect>
+      <rect class="line middle" 
+            width="80" height="10" 
+            x="10" y="45" rx="5">
+      </rect>
+      <rect class="line bottom" 
+            width="80" height="10" 
+            x="10" y="65" rx="5">
+      </rect>
+    </svg>
+  </button>
+
+  <script src="master.js"></script>
+
+</body>
+</html>
