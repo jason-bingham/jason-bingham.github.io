@@ -1,0 +1,56 @@
+* {
+  color: hsl(240, 50%, 90%);
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: hsl(200, 50%, 10%);
+  padding: 1rem;
+}
+
+.is-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.desc {
+  position: absolute;
+  top: -300px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 200%;
+  background: linear-gradient(
+    hsl(200, 50%, 10%),
+    hsl(200, 50%, 10%, 90%) 10%,
+    hsl(200, 50%, 10%, 70%) 30%,
+    transparent 47%
+  );
+  transition: top 0.25s;
+}
+
+.card:hover .desc {
+  opacity: 1;
+  top: 0;
+}
+
+.desc p {
+  width: 95%;
+}
+
+div > h2 {
+  font: italic 2em "Open Sans";
+  margin: 0.5rem 0 0 0;
+}
+
+div > p {
+  margin: 0.5rem 0 1rem 0;
+}

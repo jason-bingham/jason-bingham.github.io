@@ -1,0 +1,109 @@
+* {
+  color: hsl(240, 50%, 90%);
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: hsl(200, 50%, 10%);
+  padding: 1rem;
+/*   background: linear-gradient(90deg,
+    hsl(200, 50%, 10%),
+    hsl(200, 50%, 10%, 90%) 40%,
+    hsl(200, 50%, 10%, 70%) 70%,
+    transparent 100%
+  ); */
+}
+
+.is-flex {
+  display: flex;
+  flex-flow: column;
+  width: 600px;
+}
+
+.card {
+  position: relative;
+  height: 30px;
+  width: 300px;
+  margin: 2px;
+  border: 1px solid hsl(180, 50%, 50%);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: height .5s, width .5s, margin-top 1s;
+  cursor: pointer;
+  filter: drop-shadow(0 0 .5rem hsl(180, 50%, 50%) )
+}
+
+.card:hover {
+  height: 100px;
+}
+
+.card > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.removed {
+  left: 320px;
+  height: 300px;
+  width: 600px;
+  margin-bottom: -200px;
+  animation: ease-in-out 1s forwards in;
+}
+
+.active {
+  animation: ease-in-out 1s forwards out;
+}
+
+@keyframes out {
+  0% {left: 0; height: 100px; width: 300px; margin-bottom: 0}
+  60% {left: 320px; height: 100px; width: 600px; margin-bottom: 0}
+  100% {left: 320px; height: 300px; width: 600px; margin-bottom: -200px}
+}
+
+@keyframes in {
+   0% {left: 320px; height: 300px; width: 600px; margin-bottom: -200px}
+  60% {left: 320px; height: 30px; width: 600px; margin-bottom: 0}
+  100% {left: 0; height: 30px; width: 300px; margin-bottom: 0}
+}
+
+.active + .card {
+  margin-top: -102px; 
+}
+
+.desc p {
+  width: 200px;
+}
+
+.desc {
+  position: absolute;
+  padding-left: 15px;
+  height: 200%;
+  width: 100%;
+  background: linear-gradient(90deg,
+    hsl(200, 50%, 10%),
+    hsl(200, 50%, 10%, 90%) 20%,
+    hsl(200, 50%, 10%, 70%) 40%,
+    transparent 60%
+  );
+  left: -600px;
+  transition: left .75s 1s;
+}
+.active .desc {
+  left: 0;
+}
+.removed .desc {
+  transition: left .5s;
+}
+
+div > h2 {
+  font: italic 2em "Open Sans";
+  margin: 0.5rem 0 0 0;
+}
+
+div > p {
+  margin: 0.5rem 0 1rem 0;
+}

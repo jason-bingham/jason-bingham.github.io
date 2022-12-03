@@ -1,0 +1,136 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: hsl(200, 100%, 10%);
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+#frame {
+  display: grid;
+  height: 80vh;
+  width: 80vw;
+  margin-top: 4vh;
+  border-radius: 40px;
+  box-shadow: -12px -12px 12px #42424299 inset, 12px 12px 12px #FAFAFAAA inset;
+  background-color: #D7CCC8;
+  grid: 6fr 1fr / repeat(5, 1fr);  /* [rows] / [columns] */
+  row-gap: 30px;
+  column-gap: 10px;
+  grid-template-areas: 'screen screen screen screen screen' '. play pause stop power';  /* area names by row */
+  place-items: center;  /* doubles for justify-items and align-items */
+  padding: 40px;
+}
+
+#screen {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background: 
+    linear-gradient(130deg, #FAFAFA22, #111111CC),
+    radial-gradient(ellipse farthest-corner at 25% 25%, lightgrey, grey 1%,  darkslategrey 3%, #424242);
+  border-radius: 30px;
+  grid-area: screen;
+  overflow: hidden;
+  align-items: center;
+}
+#vid {
+  position: absolute;
+  width: 200%;
+  margin: auto;
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+#screen2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background:
+    radial-gradient(transparent, transparent 25%, #111111FF),
+    radial-gradient(ellipse farthest-corner at 25% 25%, lightgrey,  transparent 1.5%);
+  box-shadow: 4px 4px 3px #222222AA inset,-2px -2px 3px #FAFAFA66 inset;
+  border-radius: 30px;
+}
+
+#screen.on {
+  background: 
+    radial-gradient(transparent, #111111CC),
+    radial-gradient(ellipse farthest-corner at 25% 25%, lightSkyBlue,  blue 2%, transparent 10%);
+  background-color: blue;
+  transition: .1s;
+}
+
+.buttons {
+  display: flex;
+  place-content: center;
+  border-radius: 3vmin;
+  height: 100%;
+  min-width: 7rem;
+  width: 100%;
+  max-width:10rem;
+  box-shadow: -2px -2px 4px #42424299 inset, 2px 2px 4px #FAFAFAAA inset;
+}
+
+.buttons svg {
+  overflow: visible;
+}
+
+.buttons path {
+  fill: midnightblue;
+  transition: .1s;
+}
+
+.buttons.clicked path {
+  fill: aqua;
+  filter: drop-shadow(0 0 65px dodgerBlue);
+}
+
+.buttons.clicked {
+  box-shadow: 1px 1px 2px #42424299 inset,
+    -2px -2px 4px #42424299 inset, 2px 2px 4px #FAFAFAAA inset;
+}
+
+#play {
+  grid-area: play;
+}
+
+#pause {
+  grid-area: pause;
+}
+
+#stop {
+  grid-area: stop;
+}
+
+#power {
+  grid-area: power;
+  border-radius: 50%;
+  height: 5vw;
+  min-height: 2.5rem;
+  width: 5vw;
+  min-width: 2.5rem;
+  justify-self: end;
+  background-color: lightgrey;
+}
+
+#vid.playing{
+  opacity: 1;
+  animation: twistzoom 35s ease-in-out infinite;
+}
+
+@keyframes twistzoom {
+  0% {transform: scale(2) rotate(90deg) translate(0, 0);}
+  20% {transform: scale(2.75) rotate(200deg) translate(0, -200);}
+  40% {transform: scale(3) rotate(360deg) translate(180px, -350px);}
+  55% {transform: scale(1.5) rotate(30deg) translate(50px, 50px);}
+  75% {transform: scale(1.75) rotate(160deg) translate(-50px, 30px);}
+  85% {transform: scale(2.5) rotate(260deg) translate(0px, 30px);}
+  100% {transform: scale(2) rotate(90deg) translate(0, 0);}
+}
+
+#vid.paused {
+  animation-play-state: paused;
+}

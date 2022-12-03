@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(110deg, #222, #333, #222);
+}
+
+/* To avoid 'collapsing margins' problem: */
+h1:first-of-type {
+  margin: auto 0;
+  font-size: 3rem;
+}
+
+h3 {
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+/*   border: solid red; */
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  align-items: center;
+  max-width: 1000px;
+}
+
+.container button {
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gitem {
+  position: relative;
+  display: flex;
+  height: 350px;
+  overflow: hidden;
+  transition: opacity .5s ease-in-out, scale .5s ease-in-out;
+}
+
+img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  bottom: 0;
+  transition: scale ease .5s;
+}
+
+.pos-low {
+  object-position: 0 65%;
+}
+
+.pos-lower {
+  object-position: 0 75%;
+}
+
+.grad-left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(110deg, #333E, #333D 30%, #333C 35%, #3337 45%, transparent 55%);
+}
+
+.grad-right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(290deg, #333E, #333D 30%, #333C 35%, #3337 45%, transparent 55%);
+}
+
+.gitem p {
+  z-index: 10;
+  width: 50%;
+  margin: 0;
+  padding: 1rem;
+}
+
+.grad-right + p {
+  position: absolute;
+  text-align: right;
+  bottom: 0;
+  right: 0;
+}
+
+a {
+  margin: 2rem;
+  width: 10rem;
+  background-color: hsl(200, 100%, 30%);
+  padding: 1em;
+  border-radius: 10vmin;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: scale .5s ease;
+}
+
+a:hover, a:focus {
+  background-color: hsl(200, 100%, 25%);
+  scale: 1.1;
+}
+
+@media screen and (min-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+}
+
+.gitem:hover {
+  scale: 1.05 1.07;
+}
+
+.gitem:hover img {
+  scale: 1.08;
+}
+
+.grid:has(.gitem:hover) .gitem:not(:hover) {
+  opacity: .85;
+  scale: 0.95;
+}

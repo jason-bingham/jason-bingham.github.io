@@ -1,0 +1,105 @@
+body {
+  background-color: #333;
+}
+
+.is-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+}
+
+.neon {
+  stroke-dasharray: 0 400;
+  opacity: 0;
+  transition: stroke-dasharray 2s, opacity 2.5s;
+  position: absolute;
+}
+.whiteglow g path {
+  stroke-width: 3.5px;
+}
+
+.whiteglow {
+  stroke: #fff;
+  filter: blur(1px);
+  opacity: 0;
+}
+
+.whiteglow g path {
+  stroke-width: 2px;
+}
+
+.base {
+  position: absolute;
+  opacity: .1;
+  filter: saturate(0);
+}
+
+.animal:hover .neon,
+.animal:hover .whiteglow {
+  stroke-dasharray: 1000 0;
+  opacity: 1;
+  animation: flicker 3s;
+  animation-iteration-count: 1;
+}
+
+#fox {
+  stroke: hsl(45 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(45 100% 50%));
+}
+
+#deer {
+  --dropshadow-clr: hsl(15 100% 50%);
+  stroke: hsl(15 100% 70%);
+  filter: drop-shadow( 0 0 8px var(--dropshadow-clr));
+}
+
+#elephant {
+  stroke: hsl(185 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(185 100% 50%));
+}
+
+#mouse {
+  stroke: hsl(285 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(285 100% 50%));
+}
+
+#owl {
+  stroke: hsl(285 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(285 100% 50%));
+}
+
+#turtle {
+  stroke: hsl(135 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(135 100% 50%));
+}
+
+#wolf {
+  stroke: hsl(70 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(70 100% 50%));
+}
+
+#buffalo {
+  stroke: hsl(360 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(360 100% 50%));
+}
+
+@keyframes flicker {
+  0% {opacity: 1}
+  25% {opacity: 1}
+  25% {opacity: .1}
+  26% {opacity: .1}
+  27% {opacity: 1}
+  38% {opacity: 1}
+  38% {opacity: .1}
+  40% {opacity: .1}
+  40% {opacity: 1}
+  68% {opacity: 1}
+  68% {opacity: .1}
+  70% {opacity: .1}
+  70% {opacity: 1}
+  90% {opacity: 1}
+  90% {opacity: .1}
+  91% {opacity: .1}
+  91% {opacity: 1}
+  100% {opacity: 1}
+}
