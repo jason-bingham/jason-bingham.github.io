@@ -5,7 +5,15 @@ body {
   font-weight: 100;
 }
 
-/* Header */
+a {
+  color: #fff;
+}
+
+a:visited {
+  color: rgb(255, 190, 190);
+}
+
+/* HEADER */
 
 header {
   background-color: #000;
@@ -98,4 +106,17 @@ header p {
   91% {opacity: .1}
   91% {opacity: 1}
   100% {opacity: 1}
+}
+
+
+/* MAIN */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main h3 {
+  margin: 1rem 1rem .25rem 1rem;
 }
