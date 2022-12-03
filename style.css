@@ -1,0 +1,101 @@
+body {
+  background-color: #000;
+  color:#eee;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 100;
+}
+
+/* Header */
+
+header {
+  background-color: #000;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgb(255, 150, 150);
+  filter: drop-shadow(0 0 .25rem rgb(255, 190, 190))
+          drop-shadow(0 0 .5rem rgb(255, 0, 0))
+          drop-shadow(0 0 .75rem rgb(35, 0, 0));
+  box-shadow: inset 0 0 .5rem rgb(255, 190, 190),
+              inset 0 0 1rem rgb(255, 0, 0),
+              inset 0 0 1.5rem rgb(35, 0, 0);
+  padding: 2rem;
+  margin: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 500;
+}
+
+header h1 span {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-style: italic;
+  margin: 0;
+}
+
+.neon {
+  stroke-dasharray: 0 400;
+  opacity: 0;
+  transition: stroke-dasharray 2s, opacity 2.5s;
+  position: absolute;
+}
+.whiteglow g path {
+  stroke-width: 3.5px;
+}
+
+.whiteglow {
+  stroke: #fff;
+  filter: blur(1px);
+  opacity: 0;
+}
+
+.whiteglow g path {
+  stroke-width: 2px;
+}
+
+.base {
+  position: absolute;
+  opacity: .1;
+  filter: saturate(0);
+}
+
+.animal .neon,
+.animal .whiteglow {
+  stroke-dasharray: 1000 0;
+  opacity: 1;
+  animation: flicker 2s;
+  animation-iteration-count: 1;
+}
+
+#buffalo {
+  stroke: hsl(360 100% 70%);
+  filter: drop-shadow( 0 0 8px hsl(360 100% 50%));
+}
+
+@keyframes flicker {
+  0% {opacity: 1}
+  25% {opacity: 1}
+  25% {opacity: .1}
+  26% {opacity: .1}
+  27% {opacity: 1}
+  38% {opacity: 1}
+  38% {opacity: .1}
+  40% {opacity: .1}
+  40% {opacity: 1}
+  68% {opacity: 1}
+  68% {opacity: .1}
+  70% {opacity: .1}
+  70% {opacity: 1}
+  90% {opacity: 1}
+  90% {opacity: .1}
+  91% {opacity: .1}
+  91% {opacity: 1}
+  100% {opacity: 1}
+}
