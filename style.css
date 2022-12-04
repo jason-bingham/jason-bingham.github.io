@@ -30,7 +30,7 @@ header {
               inset 0 0 1rem rgb(255, 0, 0),
               inset 0 0 1.5rem rgb(35, 0, 0);
   padding: 2rem;
-  margin: 2rem;
+  margin: 2rem 2rem 1rem 2rem;
   text-align: center;
 }
 
