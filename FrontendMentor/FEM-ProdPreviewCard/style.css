@@ -9,7 +9,6 @@
 
 img, picture, svg, video {
   display: block;
-  max-width: 100%;
 }
 
 body {
@@ -28,23 +27,29 @@ body {
 }
 
 .prodcard {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   border-radius: .5rem;
   align-items: center;
   width: 92vw;
   margin: 0;
   background-color: white;
+  max-width: 900px;
+  overflow: hidden;
 }
 
-figure {
+.hero-img {
   margin: 0;
-}
-
-img {
   width: 100%;
-  object-fit: contain;
-  border-radius: .5rem .5rem 0 0;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+}
+.hero-img img {
+  flex-grow: 1;
+  object-fit: cover;
 }
 
 .card-text {
@@ -97,9 +102,5 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-}
-
-button img {
-  height: 40%;
-  width: 12%
+  gap: 10px;
 }
