@@ -48,16 +48,17 @@ body {
   }
   .prodcard {
     flex-direction: row;
+    height: 390px;
   }
   .hero-img {
-    height: 386px; 
+    height: 100%; 
     background-image: url("images/image-product-desktop.jpg");
   }
 }
 
 .card-text {
   flex: 1;
-  padding: 1.25rem 1.5rem 0 1.5rem;
+  padding: 1rem 1.5rem 0 1.5rem;
 }
 
 .card-text p:first-child {
@@ -65,7 +66,7 @@ body {
 }
 
 .card-title {
-  margin: .75rem 0;
+  margin: .5rem 0;
   color: hsl(212, 21%, 14%);
 }
 
@@ -76,7 +77,7 @@ body {
 
 .discount-price {
    color: hsl(158, 36%, 37%);
-  margin: .75rem 0;
+  margin: .5rem 0;
 }
 
 .prices {
@@ -112,5 +113,7 @@ button:hover {
 
 footer {
   position: absolute;
+  width: 100%;
   bottom: 1em;
+  text-align: center;
 }
