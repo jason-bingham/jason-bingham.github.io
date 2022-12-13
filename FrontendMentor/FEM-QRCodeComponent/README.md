@@ -54,5 +54,6 @@ To improve/incorporate:
 
 ## Author
 
-- Codepen - [@Jason-Bingham](https://codepen.io/Jason-Bingham)
+- Website - [Jason Bingham](https://jason-bingham.github.io)
 - Frontend Mentor - [@jbingham223](https://www.frontendmentor.io/profile/jbingham223)
+- Codepen - [@Jason-Bingham](https://codepen.io/Jason-Bingham)

@@ -106,7 +106,8 @@ button {
   gap: 10px;
 }
 
-button:hover {
+button:hover, 
+button:focus {
   background-color: hsl(158, 36%, 17%);
   cursor: pointer;
 }
