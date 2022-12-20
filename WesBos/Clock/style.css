@@ -278,8 +278,10 @@ main {
 
 .ffpaths {
   stroke:rgb(146, 255, 113);
-    stroke-dashoffset: 0;
-    stroke-dasharray: 2 1000 2 2000;
+  opacity: 0;
+}
+
+.ffpaths.night {
   animation: fireflies 60s linear infinite both;
 }
 

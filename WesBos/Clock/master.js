@@ -102,6 +102,7 @@ const gradients = document.querySelector(".gradients");
 const markers = document.querySelectorAll(".marker");
 const hands = document.querySelectorAll(".hand");
 const clock = document.querySelector(".clock");
+const fireflies = document.querySelector(".ffpaths");
 
 function setPosition() {
 
@@ -123,10 +124,12 @@ function setPosition() {
     markers.forEach((marker) => marker.classList.add("night"));
     hands.forEach((hand) => hand.classList.add("night"));
     clock.classList.add("night");
+    fireflies.classList.add("night");
   } else {
     markers.forEach((marker) => marker.classList.remove("night"));
     hands.forEach((hand) => hand.classList.remove("night"));
     clock.classList.remove("night");
+    fireflies.classList.remove("night");
   }
 
 }
