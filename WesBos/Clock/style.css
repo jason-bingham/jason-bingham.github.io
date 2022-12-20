@@ -41,15 +41,17 @@ main {
   width: min(30vw, 200px);
   height: min(25vh, 5rem);
   display: grid;
-  grid-template-areas: ". day day day day ."
-                       ". date month month year .";
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "day day day day"
+                       "date month month year";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-items: center;
   font-size: clamp(22px, 4vw, 28px);
   color: rgb(60, 60, 60);
   padding: 5px;
+  padding-left: clamp(15px, 4vw, 25px);
+  padding-right: clamp(15px, 4vw, 25px);
   gap: 2px;
 }
 
