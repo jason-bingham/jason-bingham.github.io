@@ -1,0 +1,477 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1543964198-d54e4f0e44e3?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzEyODA3NjY&ixlib=rb-4.0.3&q=80");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  z-index: 2;
+  position: absolute;
+  top: 10vh;
+  width: min(30vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 100vw;
+  background-color: rgba(0, 0, 0, .1);
+  box-shadow: 0 0 3rem rgba(0, 0, 0, .2) inset;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock.night {
+  background-color: rgba(146, 255, 113, 0.05);
+  box-shadow: 0 0 3rem rgba(146, 255, 113, 0.1) inset;
+}
+
+.hands,
+.markers,
+.hand,
+.marker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hand line {
+  stroke:rgb(60, 60, 60)
+  transition: 
+}
+
+.marker line {
+  stroke:rgb(60, 60, 60);
+}
+
+.night line {
+  stroke:rgb(146, 255, 113);
+}
+
+.second-hand line {
+  stroke: hsl(0, 45%, 50%);
+}
+
+.second-hand {
+  transition: transform .2s;
+  transition-timing-function: cubic-bezier(.46,1.84,0,.94);
+}
+
+.minute-hand {
+  transition: transform 60s linear;
+}
+
+.hour-hand {
+  transition: transform 60s linear;
+}
+
+.transition-off {
+  transition: none;
+}
+
+.marker-two {
+  transform: rotate(30deg);
+}
+
+.marker-three {
+  transform: rotate(60deg);
+}
+
+.marker-four {
+  transform: rotate(90deg);
+}
+
+.marker-five {
+  transform: rotate(120deg);
+}
+
+.marker-six {
+  transform: rotate(150deg);
+}
+
+.marker-seven {
+  transform: rotate(180deg);
+}
+
+.marker-eight {
+  transform: rotate(210deg);
+}
+
+.marker-nine {
+  transform: rotate(240deg);
+}
+
+.marker-ten {
+  transform: rotate(270deg);
+}
+
+.marker-eleven {
+  transform: rotate(300deg);
+}
+
+.marker-twelve {
+  transform: rotate(330deg);
+}
+
+.gradients {
+  position: absolute;
+  width: 500%;
+  height: 500%;
+  background-image: radial-gradient(
+                    circle at 85% 20%,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0.7) 3%,
+                    rgba(255, 255, 250, .3) 5%,
+                    transparent 20%),
+                    radial-gradient(
+                    ellipse at 0% 10%,
+                    rgba(128, 0, 255, 0.4) 0%,
+                    rgba(128, 3, 254, 0.2) 10%,
+                    rgba(214, 47, 47, 0.2) 20%,
+                    rgba(43, 88, 250, .2) 30%,
+                    transparent 40%),
+                    radial-gradient(
+                    ellipse at 10% 100%,
+                    rgba(0, 0, 0, 0.98) 0%,
+                    rgba(0, 0, 0, .98) 10%,
+                    rgba(10, 0, 40, 0.95) 35%,
+                    rgba(10, 0, 40, .5) 45%,
+                    transparent 60%);
+  transition: all 3600s;
+}
+
+.oclock-1 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-2 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-3 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-4 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-5 {
+  right: -400%;
+  top: -200%;
+}
+
+.oclock-6 {
+  right: -300%;
+  top: 0%;
+}
+
+.oclock-7 {
+  right: -200%;
+  top: 0%;
+}
+
+.oclock-8 {
+  right: -170%;
+  top: -20%;
+}
+
+.oclock-9 {
+  right: -140%;
+  top: -40%;
+}
+
+.oclock-10 {
+  right: -110%;
+  top: -60%;
+}
+
+.oclock-11 {
+  right: -80%;
+  top: -80%;
+}
+
+.oclock-12 {
+  right: -50%;
+  top: -100%;
+}
+
+.oclock-13 {
+  right: -50%;
+  top: -100%;
+}
+
+.oclock-14 {
+  right: -80%;
+  top: -80%;
+}
+
+.oclock-15 {
+  right: -110%;
+  top: -60%;
+}
+
+.oclock-16 {
+  right: -140%;
+  top: -40%;
+}
+
+.oclock-17 {
+  right: -170%;
+  top: -20%;
+}
+
+.oclock-18 {
+  right: -200%;
+  top: 0%;
+}
+
+.oclock-19 {
+  right: -300%;
+  top: 0%;
+}
+
+.oclock-20 {
+  right: -400%;
+  top: -200%;
+}
+
+.oclock-21 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-22 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-23 {
+  right: -400%;
+  top: -400%;
+}
+
+.oclock-24 {
+  right: -400%;
+  top: -400%;
+}
+
+.fireflies {
+  z-index: 1;
+}
+
+.ffpaths {
+  stroke:rgb(146, 255, 113);
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2 1000 2 2000;
+  animation: fireflies 60s linear infinite both;
+}
+
+@keyframes fireflies {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2 1500;
+    opacity: 1;
+  }
+  8% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20% {
+    stroke-dashoffset: 200;
+    stroke-dasharray: 2 2200;
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  29% {
+    opacity: 1;
+  }
+  29% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+    stroke-dashoffset: 400;
+    stroke-dasharray: 2 2600;
+  }
+  42% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  56% {
+    opacity: 0;
+  }
+  56% {
+    opacity: 1;
+  60% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2 2200;
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  }
+  63% {
+    opacity: 0;
+  }
+  63% {
+    opacity: 1;
+    stroke-dashoffset: 50;
+    stroke-dasharray: 2 2000;
+  }
+  68% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  76% {
+    opacity: 0;
+  }
+  76% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    stroke-dashoffset: 250;
+    stroke-dasharray: 2 2500;
+  }
+  80% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 0;
+  }
+  89% {
+    opacity: 0;
+  }
+  89% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  97% {
+    opacity: 0;
+  }
+  97% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2 1500;
+  }
+}

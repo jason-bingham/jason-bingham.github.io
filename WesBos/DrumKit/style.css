@@ -53,7 +53,7 @@ kbd {
   height: 100%;
   width: 100%;
   transition: all 100ms;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .play {
