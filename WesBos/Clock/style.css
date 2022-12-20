@@ -2,8 +2,9 @@
   box-sizing: border-box;
 }
 
-body {
+body, p {
   margin: 0;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 main {
@@ -14,28 +15,64 @@ main {
   background-position: center;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.display {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .1);
+  box-shadow: 0 0 3rem rgba(0, 0, 0, .2) inset;
+  backdrop-filter: blur(10px);
 }
 
 .clock {
-  z-index: 2;
-  position: absolute;
   top: 10vh;
   width: min(30vw, 200px);
   aspect-ratio: 1;
   border-radius: 100vw;
-  background-color: rgba(0, 0, 0, .1);
-  box-shadow: 0 0 3rem rgba(0, 0, 0, .2) inset;
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 7vh;
 }
 
-.clock.night {
+.date {
+  border-radius: 1rem;
+  width: min(30vw, 200px);
+  height: min(25vh, 5rem);
+  display: grid;
+  grid-template-areas: ". day day day day ."
+                       ". date month month year .";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  font-size: clamp(22px, 4vw, 28px);
+  color: rgb(60, 60, 60);
+  padding: 5px;
+  gap: 2px;
+}
+
+.day {
+  grid-area: day;
+}
+
+.date-day {
+  grid-area: date;
+}
+
+.month {
+  grid-area: month;
+}
+
+.year {
+  grid-area: year;
+}
+
+.display.night {
   background-color: rgba(146, 255, 113, 0.05);
   box-shadow: 0 0 3rem rgba(146, 255, 113, 0.1) inset;
+  color: rgb(146, 255, 113);
 }
 
 .hands,
@@ -48,8 +85,7 @@ main {
 }
 
 .hand line {
-  stroke:rgb(60, 60, 60)
-  transition: 
+  stroke:rgb(60, 60, 60);
 }
 
 .marker line {
@@ -144,12 +180,12 @@ main {
                     transparent 40%),
                     radial-gradient(
                     ellipse at 10% 100%,
-                    rgba(0, 0, 0, 0.98) 0%,
-                    rgba(0, 0, 0, .98) 10%,
+                    rgba(0, 0, 0, 0.97) 0%,
+                    rgba(0, 0, 0, .96) 10%,
                     rgba(10, 0, 40, 0.95) 35%,
                     rgba(10, 0, 40, .5) 45%,
                     transparent 60%);
-  transition: all 3600s;
+  transition: all 3600s linear;
 }
 
 .oclock-1 {
@@ -272,7 +308,23 @@ main {
   top: -400%;
 }
 
+.gradients.night {
+  right: -400%;
+  top: -400%;
+}
+
+.gradients.sunset {
+  right: -350%;
+  top: -100%;
+}
+
+.gradients.day {
+  right: -50%;
+  top: -100%;
+}
+
 .fireflies {
+  position: absolute;
   z-index: 1;
 }
 
@@ -393,6 +445,7 @@ main {
   }
   56% {
     opacity: 1;
+  }
   60% {
     stroke-dashoffset: 0;
     stroke-dasharray: 2 2200;
@@ -400,7 +453,6 @@ main {
   }
   60% {
     opacity: 0;
-  }
   }
   63% {
     opacity: 0;
@@ -476,4 +528,61 @@ main {
     stroke-dashoffset: 0;
     stroke-dasharray: 2 1500;
   }
+}
+
+.visually-hidden {
+  opacity: 0;
+  position: absolute;
+  bottom: -30px;
+}
+
+.color-picker {
+  z-index: 50;
+  border-radius: 1rem 1rem 0 0;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+}
+
+.color-picker > fieldset {
+  border: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  outline: 1px solid rgb(60, 60, 60);
+  outline-offset: 1px;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: rgb(60, 60, 60);
+}
+
+.night input[type="radio"] {
+  outline: 1px solid rgb(146, 255, 113);
+}
+
+.night input[type="radio"]:checked {
+  background-color: rgb(146, 255, 113);
+}
+
+.radio-icon-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radio-icon-pair path {
+  fill: rgb(60, 60, 60);
+}
+
+.night path {
+  fill: rgb(146, 255, 113);
 }

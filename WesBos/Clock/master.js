@@ -101,34 +101,75 @@ const hourHand = document.querySelector(".hour-hand");
 const gradients = document.querySelector(".gradients");
 const markers = document.querySelectorAll(".marker");
 const hands = document.querySelectorAll(".hand");
-const clock = document.querySelector(".clock");
+const displays = document.querySelectorAll(".display");
 const fireflies = document.querySelector(".ffpaths");
+const timeOfDay = document.querySelectorAll('[name="tod"]');
 
-function setPosition() {
+var days = {
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday"
+};
+var months = {
+  0: "JAN",
+  1: "FEB",
+  2: "MAR",
+  3: "APR",
+  4: "MAY",
+  5: "JUN",
+  6: "JUL",
+  7: "AUG",
+  8: "SEP",
+  9: "OCT",
+  10: "NOV",
+  11: "DEC",
+}
+const today = document.querySelector(".day");
+const todaysDate = document.querySelector(".date-day");
+const month = document.querySelector(".month");
+const year = document.querySelector(".year");
+
+function setClock() {
 
   const now = new Date();
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const hours = now.getHours();
   const secDegs = seconds * 6;
-  const minDegs = minutes * 6;
+  const minDegs = (minutes * 6) + 6; // Added one minute's worth of degree to ensure that the minute hand is in the right position when it strikes, rather than starting the move toward hte ight position
   const hourDegs = hours * 30 + minDegs / 12;
+  const day = now.getDay();
+  const dayOfMonth = now.getDate();
+  const mon = now.getMonth();
+  const y = now.getFullYear().toString().substr(-2);
+
+  today.innerHTML = `${days[day]},`;
+  todaysDate.innerHTML = `${dayOfMonth}`;
+  month.innerHTML = `${months[mon]}`;
+  year.innerHTML = `'${y}`;
 
   secondHand.style.transform = `rotate(${secDegs}deg)`;
   minuteHand.style.transform = `rotate(${minDegs}deg)`;
   hourHand.style.transform = `rotate(${hourDegs}deg)`;
 
   gradients.classList.add(`oclock-${hours + 1}`); // The "+ 1"ensures that the gradient arrives in position at the named hour (This is due to the delay caused by long transition)
+  gradients.classList.remove("night");
+  gradients.classList.remove("sunset");
+  gradients.classList.remove("day");
 
-  if (hours > 19 || hours < 6) {
+  if (hours >= 19 || hours <= 5) {
     markers.forEach((marker) => marker.classList.add("night"));
     hands.forEach((hand) => hand.classList.add("night"));
-    clock.classList.add("night");
+    displays.forEach((display) => display.classList.add("night"));
     fireflies.classList.add("night");
   } else {
     markers.forEach((marker) => marker.classList.remove("night"));
     hands.forEach((hand) => hand.classList.remove("night"));
-    clock.classList.remove("night");
+    displays.forEach((display) => display.classList.remove("night"));
     fireflies.classList.remove("night");
   }
 
@@ -153,14 +194,13 @@ function tick() {
 
 
 function checkMins() {
-
   const now = new Date();
   const minutes = now.getMinutes();
   const hours = now.getHours();
-  const minDegs = minutes * 6;
+  const minDegs = minutes * 6 + 6; // Added one minute's worth of degree to ensure that the minute hand is in the right position when it strikes, rather than starting the move toward hte ight position
   const hourDegs = hours * 30 + minDegs / 12;
 
-  minuteHand.style.transform = `rotate(${minDegs}deg)`
+  minuteHand.style.transform = `rotate(${minDegs}deg)`;
   hourHand.style.transform = `rotate(${hourDegs}deg)`;
 
   if (minutes === 0) {
@@ -169,7 +209,6 @@ function checkMins() {
   } else {
     minuteHand.classList.remove("transition-off");
   }
-
 }
 
 
@@ -188,10 +227,16 @@ function checkHour() {
   gradients.classList.remove(`oclock-${hours}`);
   gradients.classList.add(`oclock-${hours + 1}`);
 
-  if (hours > 19 || hours < 6) {
+  if (hours >= 19 || hours <= 5) {
     markers.forEach((marker) => marker.classList.add("night"));
+    hands.forEach((hand) => hand.classList.add("night"));
+    displays.forEach((display) => display.classList.add("night"));
+    fireflies.classList.add("night");
   } else {
     markers.forEach((marker) => marker.classList.remove("night"));
+    hands.forEach((hand) => hand.classList.remove("night"));
+    displays.forEach((display) => display.classList.remove("night"));
+    fireflies.classList.remove("night");
   }
 
 }
@@ -202,6 +247,40 @@ function removeTransitionOff() {
     hourHand.classList.remove("transition-off");
 }
 
-window.addEventListener("load", setPosition);
+function adjustToD() {
+  const day = document.querySelector("#day");
+  const sunset = document.querySelector("#sunset");
+  const night = document.querySelector("#night");
+  const current = document.querySelector("#current");
+
+  if (day.checked) {
+    fireflies.classList.remove("night");
+    displays.forEach((display) => display.classList.remove("night"));
+    gradients.style.transition = "none";
+    gradients.classList.remove("sunset");
+    gradients.classList.remove("night");
+    gradients.classList.add("day");
+  } else if (sunset.checked) {
+    fireflies.classList.remove("night");
+    displays.forEach((display) => display.classList.add("night"));
+    gradients.style.transition = "none";
+    gradients.classList.remove("day");
+    gradients.classList.remove("night");
+    gradients.classList.add("sunset");
+  } else if (night.checked) {
+    fireflies.classList.add("night");
+    displays.forEach((display) => display.classList.add("night"));
+    gradients.style.transition = "none";
+    gradients.classList.remove("day");
+    gradients.classList.remove("sunset");
+    gradients.classList.add("night");
+  } else {
+    setClock();
+  }
+}
+
+window.addEventListener("load", setClock);
 setInterval(tick, 1000);
 setTimeout(removeTransitionOff, 5000);
+
+timeOfDay.forEach((tod) => tod.addEventListener("click", adjustToD));
