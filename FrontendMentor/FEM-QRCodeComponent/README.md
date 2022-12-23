@@ -22,7 +22,7 @@ This is my first Frontend Mentor Challenge. It was pretty easy in terms of the h
 
 ### Screenshot
 
-![Project Screenshot](/images/screenshot.png)
+![Project Screenshot](./images/screenshot.png)
 
 
 ### Links
