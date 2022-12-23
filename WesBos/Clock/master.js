@@ -281,6 +281,6 @@ function adjustToD() {
 
 window.addEventListener("load", setClock);
 setInterval(tick, 1000);
-setTimeout(removeTransitionOff, 5000);
+setTimeout(removeTransitionOff, 10000);
 
 timeOfDay.forEach((tod) => tod.addEventListener("click", adjustToD));
