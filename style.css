@@ -166,6 +166,30 @@ header p {
   background-color: rgb(115, 136, 96);
 }
 
+.about-svg {
+  transition: all .25s linear;
+}
+
+.topline {
+  transition: all .2s linear;
+  transform-origin: 50%;
+}
+
+.bottomline {
+  transition: all .2s linear;
+  transform-origin: 50%;
+}
+
+button:hover .topline {
+  transform: rotate(-90deg)
+             translateY(25px);
+}
+
+button:hover .bottomline {
+  transform: rotate(90deg)
+             translateY(-25px);
+}
+
 /* MAIN */
 
 main {

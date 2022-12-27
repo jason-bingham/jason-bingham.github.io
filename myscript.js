@@ -1,6 +1,7 @@
 const contactButt = document.querySelector(".contact-button");
 const contactTab = document.querySelector(".contact-tab");
 const aboutButt = document.querySelector(".about-button");
+const aboutButtsvg = document.querySelector(".about-svg");
 const aboutTab = document.querySelector(".about-tab");
 const titleButt = document.querySelector(".title-button");
 const titleTab = document.querySelector(".title-tab");
@@ -33,4 +34,12 @@ titleButt.addEventListener("click", function (e) {
   } else {
     titleTab.classList.add("closed");
   }
+});
+
+
+const topline = document.querySelector(".topline")
+const bottomline = document.querySelector(".bottomline")
+
+aboutButt.addEventListener("click", function (e) {
+  aboutButtsvg.style.transform = "rotate(180deg)";
 });
