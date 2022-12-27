@@ -183,13 +183,13 @@ main {
                     rgba(128, 3, 254, 0.2) 10%,
                     rgba(214, 47, 47, 0.2) 20%,
                     rgba(43, 88, 250, .2) 30%,
-                    transparent 40%),
+                    transparent 50%),
                     radial-gradient(
                     ellipse at 10% 100%,
                     rgba(0, 0, 0, 0.97) 0%,
                     rgba(0, 0, 0, .96) 10%,
-                    rgba(10, 0, 40, 0.95) 35%,
-                    rgba(10, 0, 40, .5) 45%,
+                    rgba(10, 0, 40, 0.95) 30%,
+                    rgba(25, 0, 40, .5) 45%,
                     transparent 60%);
   transition: all 3600s linear;
 }

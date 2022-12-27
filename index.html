@@ -13,12 +13,72 @@
 <body>
   <header>
     <picture>
-      <img class="profile_photo" src="images/profile_foto_desaturated.jpeg" alt="Jason's Profile Photo">
+      <div class="big-circle profile-circle">
+        <img class="profile_photo" src="images/profile_foto_desaturated.jpeg" alt="Jason's Profile Photo"> 
+      </div>
     </picture>
-    <div class="tab contact-tab"></div>
-    <div class="tab about-tab"></div>
-    <div class="tab title-tab">
-      <h1>welcome to<br>the portfolio of<br><span>JASON BINGHAM</span></h1>
+    <div class="tab contact-tab big-circle color1">
+      <div class="tab-content-wrapper">
+        <h2>Contact me</h2>
+        <div class="contact-line">
+          <h3>email:</h3>
+          <p>jbingham223@gmail.com</p>
+        </div>
+        <!-- <div class="contact-line">
+          <h3>phone:</h3>
+          <p>+55 (11) 9 9521-8783</p><p>or</p><p>+1 (310) 625-8170</p>
+        </div> -->
+        <div class="contact-line">
+          <h3>socials:</h3>
+          <p><a href="https://www.linkedin.com/in/jason-bingham-67908421/">LinkedIn</a></p>
+          <p><a href="https://codepen.io/Jason-Bingham/">Codepen</a>
+          </p>
+        </div>
+      </div>
+      <button class="contact-button color1">
+        <svg width="30" height="40" 
+             viewBox="0 0 100 100">
+          <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
+                stroke="#222" stroke-width="15" 
+                fill="none" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="tab about-tab big-circle color2">
+      <div class="tab-content-wrapper about-wrapper">
+        <h2>About me</h2>
+        <p>I am a designer and front-end web developer who creates interactive visual content to inspire, inform and captivate users.<br><br>When I'm not coding you can find me gardening, hiking, reading, teaching English or spending time with my lovely wife and daughter<br><br>I am based bi-locally in São Paulo and California.</p>
+      </div>
+      <button class="about-button color2">
+        <svg width="30" height="40" 
+             viewBox="0 0 100 100">
+          <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
+                stroke="#222" stroke-width="15" 
+                fill="none" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="tab title-tab big-circle color3">
+      <div class="tab-content-wrapper">
+        <h1>welcome to<br>the portfolio of<br><span>JASON BINGHAM</span></h1>
+      </div>
+      <button class="title-button color3">
+        <svg width="30" height="40" 
+             viewBox="0 0 100 100">
+          <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
+                stroke="#222" stroke-width="15" 
+                fill="none" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="header-content-wrapper">
+      <!-- <p>"Run faster. History is a constant race between invention and catastrophe. Education helps but it's never enough. You also must run."</p> -->
+      <!-- <p>"In the jungle of each mind a wandering went on ceaselessly, finding a clearing here, a pool there, all in the murky light of one's sputtering thoughts, half awake, half asleep."<br>-The Ministry for the Future, Kim Stanley Robinson</p><br> -->
+      <p>We know we all live in a village of eight billion neighbors. That's our now. It's all of us succeed or none of us is safe.<br>So we take an interest in how the others are doing.<br>-The Ministry for the Future, Kim Stanley Robinson</p><br>
+      <p>Thank you for visiting.</p>
     </div>
   </header>
   <main>
@@ -52,5 +112,8 @@
       </ol>
     </ul>
   </main>
+
+<script src="myscript.js"></script>
+
 </body>
 </html>

@@ -11,11 +11,11 @@ body {
 }
 
 a {
-  color: #fff;
+  color: #222;
 }
 
 a:visited {
-  color: rgb(115, 136, 96);
+  color: #222;
 }
 
 /* HEADER */
@@ -23,22 +23,14 @@ a:visited {
 header {
   display: flex;
   align-items: center;
+  justify-content: end;
   width: 100vw;
   border-radius: 0;
   height: 350px;
   overflow:hidden;
   position: relative;
   box-shadow: 0 0 1rem #333;
-  background-color: hsl(23, 10%, 31%);
-}
-
-.profile_photo {
-  position: absolute;
-  left: 0;
-  top: -90px;
-  border-radius: 0 50% 50% 0;
-  box-shadow: 0 0 1rem #333;
-  z-index: 5;
+  background-color: hsl(220, 15%, 25%);
 }
 
 header h1 {
@@ -55,6 +47,125 @@ header p {
   margin: 0;
 }
 
+.header-content-wrapper {
+  width: calc(91vw - 370px);
+  text-align: center;
+  color: #ddd;
+  padding: 10vw
+}
+
+.big-circle {
+  position: absolute;
+  top: -575px;
+  height: 1500px;
+  width: 2000px;
+  border-radius: 0 50% 50% 0;
+  box-shadow: 0 0 1rem #333;
+  text-align: center;
+  display: flex;
+  justify-content: end;
+}
+
+.profile-circle {
+  left: -1630px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.profile_photo {
+  position: absolute;
+  right: -30px;
+  top: 490px;
+  box-shadow: 0 0 1rem #333;
+}
+
+.tab-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(90vw - 430px);
+  position: relative;
+}
+
+.about-wrapper {
+  padding: 5vw
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+}
+
+.tab button {
+  position: relative;
+  left: 15px;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 0 45% 45% 0;
+  box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+}
+
+.title-tab {
+  right: 10vw;
+}
+
+.title-tab.closed {
+  right: calc(97vw - 370px); 
+  /* 97vw b/c I want a 3vw offset. 370px is about the width of the profile photo. */
+}
+
+.title-tab.closed .tab-content-wrapper{
+  right: 25vw;
+}
+
+.about-tab {
+  right: 7vw;
+}
+
+.about-tab.closed {
+  right: calc(94vw - 370px); 
+  /* 94vw b/c I want a 3vw + 3vw offset. 370px is about the width of the profile photo. */
+}
+
+.contact-tab {
+  right: 4vw;
+}
+
+.contact-tab.closed {
+  right: calc(91vw - 370px); 
+  /* 91vw b/c I want a 3vw + 3vw + 3vw offset. 370px is about the width of the profile photo. */
+}
+
+.contact-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+}
+
+.contact-line h3 {
+  margin: .25rem;
+}
+
+.contact-tab a,
+.contact-tab a:visited {
+  color: #222;
+}
+
+.color1 {
+  background-color: rgb(141, 103, 117);
+}
+
+.color2 {
+  background-color: rgb(100, 136, 136);
+}
+
+.color3 {
+  background-color: rgb(115, 136, 96);
+}
+
 /* MAIN */
 
 main {
@@ -68,29 +179,22 @@ main h3 {
 }
 
 .tab {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 1rem #333;
-  height: 250%;
-  width: 90%;
-  border-radius: 0 50% 50% 0;
+  height: 100%;
   position: absolute;
-  padding-left: 400px;
+  width: 90vw; */
 }
 
 .title-tab {
-  background-color: rgb(115, 136, 96);
+  /* background-color: rgb(115, 136, 96);
   right: 200px;
-  text-align: center;
+  text-align: center; */
 }
 
 .about-tab {
-  background-color: rgb(100, 136, 136);
-  right: 150px;
-}
-
-.contact-tab {
-  background-color: rgb(141, 103, 117);
-  right: 100px;
+  /* background-color: rgb(100, 136, 136);
+  right: 150px; */
 }
