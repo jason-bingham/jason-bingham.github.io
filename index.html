@@ -6,19 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,500;1,100;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,500;1,100;1,600&family=Taviraj:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Jason's Site</title>
 </head>
 <body>
-  <header>
+  <header class="color4">
     <picture>
-      <div class="big-circle profile-circle">
+      <div class="big-circle profile-circle color4">
         <img class="profile_photo" src="images/profile_foto_desaturated.jpeg" alt="Jason's Profile Photo"> 
       </div>
     </picture>
     <div class="tab contact-tab big-circle color1">
-      <div class="tab-content-wrapper">
+      <div class="tab-content-wrapper contact-wrapper">
         <h2>Contact me</h2>
         <div class="contact-line">
           <h3>email:</h3>
@@ -38,28 +38,34 @@
       <button class="contact-button color1">
         <svg width="30" height="40" 
              viewBox="0 0 100 100">
-          <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
-                stroke="#222" stroke-width="15" 
-                fill="none" stroke-linecap="round"
-                stroke-linejoin="round"></path>
+          <line class="topline" x1="85" y1="20" 
+            x2="50" y2="50"
+            stroke-width="15" 
+            stroke="#222"
+            stroke-linecap="round"/>
+          <line class="bottomline" x1="50" y1="50" 
+            x2="85" y2="80"
+            stroke-width="15" 
+            stroke="#222"
+            stroke-linecap="round"/>
         </svg>
       </button>
     </div>
     <div class="tab about-tab big-circle color2">
       <div class="tab-content-wrapper about-wrapper">
         <h2>About me</h2>
-        <p>I am a designer, frontend web developer and lifelong learner who is passionate about creating interactive visual content that inspires, informs and captivates users.<br><br>My background is in landscape design, but I discovered a love for web design during the pandemic and have been cultivating my skills ever since.<br><br>Thank you for taking the time to visit my digital portfolio. Enjoy!</p>
+        <p>I am a designer and frontend web developer who is passionate about creating interactive visual content that inspires, informs and captivates users.<br><br>I have a background in landscape & graphic design, and developed an interest in web design during the pandemic which I have been cultivating ever since.</p>
       </div>
       <button class="about-button color2">
-        <svg class="about-svg" width="30" height="40" 
+        <svg width="30" height="40" 
             viewBox="0 0 100 100">
-          <line class="topline" x1="50" y1="20" 
-            x2="85" y2="50"
+          <line class="topline" x1="85" y1="20" 
+            x2="50" y2="50"
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
-          <line class="bottomline" x1="85" y1="50" 
-            x2="50" y2="80"
+          <line class="bottomline" x1="50" y1="50" 
+            x2="85" y2="80"
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
@@ -77,18 +83,24 @@
       <button class="title-button color3">
         <svg width="30" height="40" 
              viewBox="0 0 100 100">
-          <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
-                stroke="#222" stroke-width="15" 
-                fill="none" stroke-linecap="round"
-                stroke-linejoin="round"></path>
+          <line class="topline" x1="85" y1="20" 
+            x2="50" y2="50"
+            stroke-width="15" 
+            stroke="#222"
+            stroke-linecap="round"/>
+          <line class="bottomline" x1="50" y1="50" 
+            x2="85" y2="80"
+            stroke-width="15" 
+            stroke="#222"
+            stroke-linecap="round"/>
         </svg>
       </button>
     </div>
     <div class="header-content-wrapper">
       <!-- <p>"Run faster. History is a constant race between invention and catastrophe. Education helps but it's never enough. You also must run."</p> -->
       <!-- <p>"In the jungle of each mind a wandering went on ceaselessly, finding a clearing here, a pool there, all in the murky light of one's sputtering thoughts, half awake, half asleep."<br>-The Ministry for the Future, Kim Stanley Robinson</p><br> -->
-      <p>We know we all live in a village of eight billion neighbors. That's our now. It's all of us succeed or none of us is safe.<br>So we take an interest in how the others are doing.<br>-The Ministry for the Future, Kim Stanley Robinson</p><br>
-      <p>Thank you for visiting.</p>
+      <!-- <p>We know we all live in a village of eight billion neighbors. That's our now. It's all of us succeed or none of us is safe.<br>So we take an interest in how the others are doing.<br><br>-The Ministry for the Future, Kim Stanley Robinson</p> -->
+      <p>“Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.”<br>–John Chris Jones</p>
     </div>
   </header>
   <main>

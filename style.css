@@ -1,3 +1,14 @@
+/* TOC */
+
+/* 1. GENERAL STYLES */
+/* 2. UTILITIES */
+/* 3. SITEWIDE */
+/* 4. HEADER */
+  /* TYPOGRAPHY */
+
+
+/* ~~ 1. GENERAL STYLES */
+
 * {
   box-sizing: border-box;
 }
@@ -5,9 +16,18 @@
 body {
   background-color: #eee;
   color:#222;
-  font-family: 'Libre Franklin', sans-serif;
   font-weight: 100;
-  margin: 0;;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+}
+
+p {
+  font-family: 'Taviraj', serif;
+  line-height: clamp(.8rem, 1.8vw, 1.2rem);
 }
 
 a {
@@ -18,7 +38,32 @@ a:visited {
   color: #222;
 }
 
-/* HEADER */
+/* ~~ */
+
+/* ~~ 2. UTILITIES */
+
+.color1 {
+  background-color: rgb(141, 103, 117);
+}
+
+.color2 {
+  background-color: rgb(100, 136, 136);
+}
+
+.color3 {
+  background-color: rgb(115, 136, 96);
+}
+
+.color4 {
+  background-color: hsl(220, 15%, 25%);
+}
+
+/* ~~ */
+
+/* ~~ 3. SITEWIDE */
+/* ~~ */
+
+/* ~~ 4. HEADER */
 
 header {
   display: flex;
@@ -30,28 +75,36 @@ header {
   overflow:hidden;
   position: relative;
   box-shadow: 0 0 1rem #333;
-  background-color: hsl(220, 15%, 25%);
 }
 
 header h1 {
   margin: 0;
-  font-weight: 500;
+  font-size: clamp(1.5rem, 3.25vw, 2rem);
 }
 
 header h1 span {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+header h2 {
+  margin-bottom: clamp(.25rem, 1.5vw, 1.5rem);
+  margin-top: clamp(.25rem, 1.5vw, 1.5rem);
+}
+
+header h3 {
+  font-size: 1rem;
 }
 
 header p {
-  font-style: italic;
   margin: 0;
+  font-size: clamp(.8rem, 1.8vw, 1rem);
 }
 
 .header-content-wrapper {
   width: calc(91vw - 370px);
   text-align: center;
   color: #ddd;
-  padding: 10vw
+  padding: 10vw;
 }
 
 .big-circle {
@@ -89,12 +142,13 @@ header p {
 }
 
 .about-wrapper {
-  padding: 5vw
+  padding: 0 5vw;
 }
 
 .tab {
   display: flex;
   align-items: center;
+  transition: all .3s cubic-bezier(.73,1.34,.53,.95);
 }
 
 .tab button {
@@ -154,40 +208,262 @@ header p {
   color: #222;
 }
 
-.color1 {
-  background-color: rgb(141, 103, 117);
-}
-
-.color2 {
-  background-color: rgb(100, 136, 136);
-}
-
-.color3 {
-  background-color: rgb(115, 136, 96);
-}
-
-.about-svg {
-  transition: all .25s linear;
-}
-
 .topline {
-  transition: all .2s linear;
+  transition: all .3s linear;
   transform-origin: 50%;
 }
 
 .bottomline {
-  transition: all .2s linear;
+  transition: all .3s linear;
   transform-origin: 50%;
 }
 
-button:hover .topline {
+.tab.closed .topline {
   transform: rotate(-90deg)
              translateY(25px);
 }
 
-button:hover .bottomline {
+.tab.closed .bottomline {
   transform: rotate(90deg)
              translateY(-25px);
+}
+
+/* ~~ MEDIA QUERIES */
+
+@media screen and (max-width: 740px) {
+  header {
+    height: calc(470px + 12vh);
+    justify-content: end;
+    align-items: end;
+  }
+
+header p {
+  font-size: 1.2rem;
+}
+
+p {
+  line-height: 1.2rem;
+}
+
+  .big-circle {
+    height: 2000px;
+    width: 2000px;
+    border-radius: 50%;
+    align-items: end;
+    justify-content: center;
+  }
+
+  .profile-circle {
+    left: calc(-500px + 50vw);
+    height: 500px;
+    width: 500px;
+    top: -100px;
+    border-radius: 50%;;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .profile_photo {
+    position: absolute;
+    top: 50px;
+    box-shadow: 0 0 1rem #333;
+  }
+  
+  .contact-tab {
+    left: calc(-1000px + 50vw);
+    top: calc(-1530px + 8vh);
+  }
+
+  .contact-tab.closed {
+    top: calc(-100px - 6vh);
+    left: calc(-500px + 44vw);
+    width: calc(500px + 12vh);
+    height: calc(500px + 12vh);
+    transform: rotate(-60deg);
+  }
+
+  .about-tab {
+    left: calc(-1000px + 50vw);
+    top: calc(-1530px + 4vh);
+  }
+
+  .about-tab.closed {
+    top: calc(-100px - 4vh);
+    left: calc(-500px + 46vw);
+    width: calc(500px + 8vh);
+    height: calc(500px + 8vh);
+    transform: rotate(-70deg);
+  }
+  .about-tab.closed .tab-content-wrapper {
+    opacity: 0;
+  }
+
+  .title-tab {
+    left: calc(-1000px + 50vw);
+    top: -1530px;
+  }
+
+  .title-tab.closed {
+    top: calc(-100px - 2vh);
+    left: calc(-500px + 48vw);
+    width: calc(500px + 4vh);
+    height: calc(500px + 4vh);
+    transform: rotate(-80deg);
+  }
+
+  .tab button {
+    position: relative;
+    transform: rotate(90deg);
+    top: 15px;
+    left: 0;
+    border-radius: 0 45% 45% 0;
+    box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+  }
+
+  .tab-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: calc(470px + 4vh);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    padding: 3rem;
+    transition: all .3s linear;
+  }
+
+  .contact-wrapper {
+    height: calc(89vh - 415px);
+    left: 49%;
+  }
+
+  .header-content-wrapper {
+    width: 50vw;
+    height: calc(91vh - 415px);
+    padding: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 530px) {
+
+  header {
+    height: 100vh;
+    justify-content: center;
+    align-items: end;
+  }
+
+  header h2 {
+  font-size: 1.25rem;
+  }
+
+header p {
+  margin: 0;
+  font-size: clamp(.8rem, 1.8vw, 1rem);
+}
+
+  .big-circle {
+    left: calc(-500px + 50vw);
+    height: 1000px;
+    width: 1000px;
+    border-radius: 0 0 50% 50%;
+    align-items: end;
+    justify-content: center;
+  }
+
+  .profile-circle {
+    top: -585px;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .profile_photo {
+    position: absolute;
+    top: 515px;
+    left: calc(500px - 50vw);
+    box-shadow: 0 0 1rem #333;
+    width: 100vw;
+    aspect-ratio: 1:1;
+  }
+
+  /* -585px is the height from the top to bottom of profile pic */
+  
+  .contact-tab {
+    top: calc(-1000px + 97vh);
+  }
+
+  .contact-tab.closed {
+    top: calc(-585px + 9vh);
+    left: auto;
+    right: auto;
+    width: 1000px;
+    height: 1000px;
+    transform: rotate(0deg);
+  }
+
+  .about-tab {
+    top: calc(-1000px + 94vh);
+  }
+
+  .about-tab.closed {
+    top: calc(-585px + 6vh);
+    left: auto;
+    right: auto;
+    width: 1000px;
+    height: 1000px;
+    transform: rotate(0deg);
+  }
+
+  .title-tab {
+    top: calc(-1000px + 91vh);
+  }
+
+  .title-tab.closed {
+    top: calc(-585px + 3vh);
+    left: auto;
+    right: auto;
+    width: 1000px;
+    height: 1000px;
+    transform: rotate(0deg);
+  }
+
+  .tab button {
+    position: relative;
+    transform: rotate(90deg);
+    top: 15px;
+    left: 0;
+    border-radius: 0 45% 45% 0;
+    box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+  }
+
+  .tab-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: calc(93vh - 415px);
+    position: absolute;
+    left: calc(500px - 50vw);
+    bottom: 0;
+    padding-bottom: 10px;
+  }
+
+  .about-wrapper {
+    padding: 0 10vw 10px 10vw;
+  }
+
+  .header-content-wrapper {
+    width: auto;
+    height: calc(91vh - 415px);
+    padding: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 /* MAIN */
@@ -200,25 +476,4 @@ main {
 
 main h3 {
   margin: 1rem 1rem .25rem 1rem;
-}
-
-.tab {
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 1rem #333;
-  height: 100%;
-  position: absolute;
-  width: 90vw; */
-}
-
-.title-tab {
-  /* background-color: rgb(115, 136, 96);
-  right: 200px;
-  text-align: center; */
-}
-
-.about-tab {
-  /* background-color: rgb(100, 136, 136);
-  right: 150px; */
 }
