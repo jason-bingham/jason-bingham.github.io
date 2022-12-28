@@ -38,6 +38,10 @@ a:visited {
   color: #222;
 }
 
+button {
+  z-index: 1;
+}
+
 /* ~~ */
 
 /* ~~ 2. UTILITIES */
@@ -56,6 +60,10 @@ a:visited {
 
 .color4 {
   background-color: hsl(220, 15%, 25%);
+}
+
+.hidden {
+  opacity: 0;
 }
 
 /* ~~ */
@@ -360,10 +368,10 @@ p {
   font-size: 1.25rem;
   }
 
-header p {
-  margin: 0;
-  font-size: clamp(.8rem, 1.8vw, 1rem);
-}
+  header p {
+    margin: 0;
+    font-size: clamp(.8rem, 1.8vw, 1rem);
+  }
 
   .big-circle {
     left: calc(-500px + 50vw);
@@ -392,11 +400,11 @@ header p {
   /* -585px is the height from the top to bottom of profile pic */
   
   .contact-tab {
-    top: calc(-1000px + 97vh);
+    top: calc(-1000px + 96vh);
   }
 
   .contact-tab.closed {
-    top: calc(-585px + 9vh);
+    top: calc(-585px + 12vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -405,11 +413,11 @@ header p {
   }
 
   .about-tab {
-    top: calc(-1000px + 94vh);
+    top: calc(-1000px + 92vh);
   }
 
   .about-tab.closed {
-    top: calc(-585px + 6vh);
+    top: calc(-585px + 8vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -418,11 +426,11 @@ header p {
   }
 
   .title-tab {
-    top: calc(-1000px + 91vh);
+    top: calc(-1000px + 88vh);
   }
 
   .title-tab.closed {
-    top: calc(-585px + 3vh);
+    top: calc(-585px + 4vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -452,7 +460,13 @@ header p {
   }
 
   .about-wrapper {
-    padding: 0 10vw 10px 10vw;
+    padding: 0 5vw;
+    height: calc(90vh - 415px);
+  }
+
+  .about-wrapper p {
+    font-size: clamp(.8rem, 3vw, 1rem);
+    line-height: .8rem;
   }
 
   .header-content-wrapper {
