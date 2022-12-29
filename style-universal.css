@@ -1,0 +1,75 @@
+/* TOC */
+
+/* 1. GENERAL STYLES */
+/* 2. UTILITIES */
+/* 3. SITEWIDE */
+/* 4. HEADER */
+  /* TYPOGRAPHY */
+
+
+/* ~~ 1. GENERAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  color:#222;
+  font-weight: 100;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+}
+
+p {
+  font-family: 'Taviraj', serif;
+  line-height: clamp(.8rem, 1.8vw, 1.2rem);
+}
+
+a {
+  color: #222;
+}
+
+a:visited {
+  color: #222;
+}
+
+button {
+  z-index: 1;
+}
+
+/* ~~ */
+
+/* ~~ 2. UTILITIES */
+
+.color1 {
+  background-color: rgb(141, 103, 117);
+}
+
+.color2 {
+  background-color: rgb(100, 136, 136);
+}
+
+.color3 {
+  background-color: rgb(115, 136, 96);
+}
+
+.color4 {
+  background-color: hsl(220, 15%, 25%);
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* ~~ */
+
+/* ~~ 3. SITEWIDE */
+/* ~~ */
+
+
+
