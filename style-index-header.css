@@ -1,16 +1,29 @@
-/* ~~ 4. HEADER */
+/* TOC */
+
+/* 1. GENERAL */
+/* 2. TYPOGRAPHY */
+/* 3. LAYOUT OVERALL */
+/* 4. BUTTONS */
+/* 5. CONTENTS */
+
+
+/* ~~ 1. GENERAL */
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  position: relative;
+  height: 350px;
   width: 100vw;
   border-radius: 0;
-  height: 350px;
   overflow:hidden;
-  position: relative;
   box-shadow: 0 0 1rem #333;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
+
+/* */
+
+/* ~~ 2. TYPOGRAPHY */
 
 header h1 {
   margin: 0;
@@ -18,16 +31,19 @@ header h1 {
 }
 
 header h1 span {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
 }
 
 header h2 {
-  margin-bottom: clamp(.25rem, 1.5vw, 1.5rem);
-  margin-top: clamp(.25rem, 1.5vw, 1.5rem);
+  margin: clamp(.25rem, 1.5vw, 1.5rem) 0;
 }
 
 header h3 {
   font-size: 1rem;
+}
+
+.contact-line h3 {
+  margin: .25rem;
 }
 
 header p {
@@ -35,14 +51,11 @@ header p {
   font-size: clamp(.8rem, 1.8vw, 1rem);
 }
 
-.header-content-wrapper {
-  width: calc(91vw - 370px);
-  text-align: center;
-  color: #ddd;
-  padding: 10vw;
-}
+/* */
 
-.big-circle {
+/* ~~ 3. LAYOUT OVERALL */
+
+.tab {
   position: absolute;
   top: -575px;
   height: 1500px;
@@ -51,7 +64,9 @@ header p {
   box-shadow: 0 0 1rem #333;
   text-align: center;
   display: flex;
+  align-items: center;
   justify-content: end;
+  transition: all .3s cubic-bezier(.73,1.34,.53,.95);
 }
 
 .profile-circle {
@@ -60,40 +75,14 @@ header p {
   z-index: 5;
 }
 
-.profile_photo {
+.profile-photo {
   position: absolute;
-  right: -30px;
-  top: 490px;
-  box-shadow: 0 0 1rem #333;
-}
-
-.tab-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: calc(90vw - 430px);
-  position: relative;
-}
-
-.about-wrapper {
-  padding: 0 5vw;
-}
-
-.tab {
-  display: flex;
-  align-items: center;
-  transition: all .3s cubic-bezier(.73,1.34,.53,.95);
-}
-
-.tab button {
-  position: relative;
-  left: 15px;
-  border: none;
-  height: 40px;
-  cursor: pointer;
-  border-radius: 0 45% 45% 0;
-  box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+  right: 0;
+  height: 350px;
+  width: 370px;
+  background-image: url("images/profile_foto_desaturated.jpeg");
+  background-size: cover;
+  background-position: 50%;
 }
 
 .title-tab {
@@ -103,10 +92,6 @@ header p {
 .title-tab.closed {
   right: calc(97vw - 370px); 
   /* 97vw b/c I want a 3vw offset. 370px is about the width of the profile photo. */
-}
-
-.title-tab.closed .tab-content-wrapper{
-  right: 25vw;
 }
 
 .about-tab {
@@ -127,28 +112,21 @@ header p {
   /* 91vw b/c I want a 3vw + 3vw + 3vw offset. 370px is about the width of the profile photo. */
 }
 
-.contact-line {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1vw;
+/* */
+
+/* ~~ 4. BUTTONS */
+
+.tab button {
+  position: relative;
+  left: 15px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 0 45% 45% 0;
+  box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
 }
 
-.contact-line h3 {
-  margin: .25rem;
-}
-
-.contact-tab a,
-.contact-tab a:visited {
-  color: #222;
-}
-
-.topline {
-  transition: all .3s linear;
-  transform-origin: 50%;
-}
-
-.bottomline {
+.topline, .bottomline {
   transition: all .3s linear;
   transform-origin: 50%;
 }
@@ -163,26 +141,54 @@ header p {
              translateY(-25px);
 }
 
+/* */
+
+/* ~~ 5. CONTENTS */
+
+.header-content-wrapper {
+  width: calc(91vw - 370px);
+  text-align: center;
+  padding: 0 10vw;
+}
+
+.tab-content-wrapper {
+  position: relative;
+  width: calc(90vw - 430px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s linear;
+}
+
+.about-wrapper {
+  padding: 0 5vw;
+}
+
+.contact-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+}
+
 /* ~~ MEDIA QUERIES */
 
 @media screen and (max-width: 740px) {
+
   header {
     height: calc(470px + 12vh);
     justify-content: end;
     align-items: end;
   }
 
-header p {
-  font-size: 1.2rem;
-}
+  header p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
 
-p {
-  line-height: 1.2rem;
-}
-
-  .big-circle {
+  .tab {
     height: 2000px;
-    width: 2000px;
     border-radius: 50%;
     align-items: end;
     justify-content: center;
@@ -193,44 +199,20 @@ p {
     height: 500px;
     width: 500px;
     top: -100px;
-    border-radius: 50%;;
-    overflow: hidden;
-    z-index: 5;
+  }
+
+  .profile-photo {
+    position: absolute;
+    right: 0;
+    height: 400px;
+    width: 50vw;
+    background-image: url("images/profile_foto_desaturated.jpeg");
+    background-size: cover;
+    background-position: 50%;
   }
 
   .profile_photo {
-    position: absolute;
     top: 50px;
-    box-shadow: 0 0 1rem #333;
-  }
-  
-  .contact-tab {
-    left: calc(-1000px + 50vw);
-    top: calc(-1530px + 8vh);
-  }
-
-  .contact-tab.closed {
-    top: calc(-100px - 6vh);
-    left: calc(-500px + 44vw);
-    width: calc(500px + 12vh);
-    height: calc(500px + 12vh);
-    transform: rotate(-60deg);
-  }
-
-  .about-tab {
-    left: calc(-1000px + 50vw);
-    top: calc(-1530px + 4vh);
-  }
-
-  .about-tab.closed {
-    top: calc(-100px - 4vh);
-    left: calc(-500px + 46vw);
-    width: calc(500px + 8vh);
-    height: calc(500px + 8vh);
-    transform: rotate(-70deg);
-  }
-  .about-tab.closed .tab-content-wrapper {
-    opacity: 0;
   }
 
   .title-tab {
@@ -246,36 +228,55 @@ p {
     transform: rotate(-80deg);
   }
 
+  .about-tab {
+    left: calc(-1000px + 50vw);
+    top: calc(-1530px + 4vh);
+  }
+
+  .about-tab.closed {
+    top: calc(-100px - 4vh);
+    left: calc(-500px + 46vw);
+    width: calc(500px + 8vh);
+    height: calc(500px + 8vh);
+    transform: rotate(-70deg);
+  }
+  
+  .contact-tab {
+    left: calc(-1000px + 50vw);
+    top: calc(-1530px + 8vh);
+  }
+
+  .contact-tab.closed {
+    top: calc(-100px - 6vh);
+    left: calc(-500px + 44vw);
+    width: calc(500px + 12vh);
+    height: calc(500px + 12vh);
+    transform: rotate(-60deg);
+  }
+
   .tab button {
-    position: relative;
     transform: rotate(90deg);
     top: 15px;
     left: 0;
-    border-radius: 0 45% 45% 0;
-    box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
   }
 
   .tab-content-wrapper {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 50vw;
     height: calc(470px + 4vh);
     position: absolute;
     left: 50%;
     bottom: 0;
     padding: 3rem;
-    transition: all .3s linear;
   }
 
   .contact-wrapper {
-    height: calc(89vh - 415px);
+    height: 70vh;
     left: 49%;
   }
 
   .header-content-wrapper {
     width: 50vw;
-    height: calc(91vh - 415px);
+    height: 70vh;
     padding: 5vw;
     display: flex;
     justify-content: center;
@@ -300,7 +301,7 @@ p {
     font-size: clamp(.8rem, 1.8vw, 1rem);
   }
 
-  .big-circle {
+  .tab {
     left: calc(-500px + 50vw);
     height: 1000px;
     width: 1000px;
@@ -310,28 +311,26 @@ p {
   }
 
   .profile-circle {
-    top: -585px;
+    top: calc(-1000px + 55vh);
     overflow: hidden;
     z-index: 5;
   }
 
-  .profile_photo {
-    position: absolute;
-    top: 515px;
-    left: calc(500px - 50vw);
-    box-shadow: 0 0 1rem #333;
+  .profile-photo {
+    height: 55vh;
     width: 100vw;
-    aspect-ratio: 1:1;
+    background-image: url("images/profile_foto_desaturated.jpeg");
+    background-size: cover;
+    background-position: 50%;
+    right: auto;
   }
-
-  /* -585px is the height from the top to bottom of profile pic */
   
   .contact-tab {
     top: calc(-1000px + 96vh);
   }
 
   .contact-tab.closed {
-    top: calc(-585px + 12vh);
+    top: calc(-1000px + 67vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -344,7 +343,7 @@ p {
   }
 
   .about-tab.closed {
-    top: calc(-585px + 8vh);
+    top: calc(-1000px + 63vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -357,7 +356,7 @@ p {
   }
 
   .title-tab.closed {
-    top: calc(-585px + 4vh);
+    top: calc(-1000px + 59vh);
     left: auto;
     right: auto;
     width: 1000px;
@@ -375,20 +374,17 @@ p {
   }
 
   .tab-content-wrapper {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100vw;
-    height: calc(93vh - 415px);
+    height: 35vh;
     position: absolute;
     left: calc(500px - 50vw);
     bottom: 0;
-    padding-bottom: 10px;
   }
 
   .about-wrapper {
     padding: 0 5vw;
-    height: calc(90vh - 415px);
+    height: 31vh;
   }
 
   .about-wrapper p {
@@ -398,11 +394,12 @@ p {
 
   .header-content-wrapper {
     width: auto;
-    height: calc(91vh - 415px);
+    height: 35vh;
     padding: 5vw;
-    display: flex;
+  }
+
+  .contact-line {
     justify-content: center;
-    align-items: center;
   }
 
 }

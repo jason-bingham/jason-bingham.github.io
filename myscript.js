@@ -31,6 +31,7 @@ aboutButt.addEventListener("click", function (e) {
     aboutTab.classList.remove("closed");
     aboutWrap.classList.remove("hidden");
     contactTab.classList.remove("closed");
+    contactWrap.classList.add("hidden");
     headWrap.classList.add("hidden");
   } else {
     aboutTab.classList.add("closed");
