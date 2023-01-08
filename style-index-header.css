@@ -15,7 +15,6 @@ header {
   width: 100vw;
   border-radius: 0;
   overflow:hidden;
-  box-shadow: 0 0 1rem #333;
   display: flex;
   justify-content: end;
   align-items: center;

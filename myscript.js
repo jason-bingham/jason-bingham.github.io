@@ -59,9 +59,36 @@ titleButt.addEventListener("click", function (e) {
 });
 
 
-const topline = document.querySelector(".topline")
-const bottomline = document.querySelector(".bottomline")
+const topline = document.querySelector(".topline");
+const bottomline = document.querySelector(".bottomline");
 
 aboutButt.addEventListener("click", function (e) {
   aboutButtsvg.style.transform = "rotate(180deg)";
 });
+
+
+
+// BOOKSHELF
+
+const books = document.querySelectorAll(".book-bg");
+const backs = document.querySelectorAll(".back");
+
+function openBook(book) {
+  book.addEventListener("click", function () {
+    this.classList.add("active");
+  });
+};
+
+function closeBook(book) {
+  console.log("innerfunction")
+  book.classList.remove("active");
+};
+
+function addClickEvent(back) {
+  back.addEventListener("click", function () {
+    books.forEach(closeBook);
+  });
+};
+
+books.forEach(openBook);
+backs.forEach(addClickEvent);

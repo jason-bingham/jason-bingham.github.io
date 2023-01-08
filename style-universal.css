@@ -39,6 +39,8 @@ p {
 
 a {
   color: var(--dark);
+  cursor: pointer;
+  position: relative;
 }
 
 a:visited {
@@ -54,14 +56,14 @@ a:visited {
 }
 
 .bg-light {
-  color: var(--light);
+  background-color: var(--light);
 }
 
 .dark {
   color: var(--dark);
 }
 .bg-dark {
-  color: var(--dark);
+  background-color: var(--dark);
 }
 
 .color1 {
