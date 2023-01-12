@@ -2,6 +2,7 @@ const secondHand = document.querySelector(".second-hand");
 const minuteHand = document.querySelector(".minute-hand");
 const hourHand = document.querySelector(".hour-hand");
 const gradients = document.querySelector(".gradients");
+const gradientDay = document.querySelector(".gradient-day");
 const markers = document.querySelectorAll(".marker");
 const hands = document.querySelectorAll(".hand");
 const displays = document.querySelectorAll(".display");
@@ -63,6 +64,11 @@ function setClock() {
   gradients.classList.remove("night");
   gradients.classList.remove("sunset");
   gradients.classList.remove("day");
+
+  gradientDay.classList.add(`oclock-${hours + 1}`); // The "+ 1"ensures that the gradient arrives in position at the named hour (This is due to the delay caused by long transition)
+  gradientDay.classList.remove("night");
+  gradientDay.classList.remove("sunset");
+  gradientDay.classList.remove("day");
 
   if (hours >= 19 || hours <= 5) {
     markers.forEach((marker) => marker.classList.add("night"));
@@ -130,6 +136,9 @@ function checkHour() {
   gradients.classList.remove(`oclock-${hours}`);
   gradients.classList.add(`oclock-${hours + 1}`);
 
+  gradientDay.classList.remove(`oclock-${hours}`);
+  gradientDay.classList.add(`oclock-${hours + 1}`);
+
   if (hours >= 19 || hours <= 5) {
     markers.forEach((marker) => marker.classList.add("night"));
     hands.forEach((hand) => hand.classList.add("night"));
@@ -162,6 +171,12 @@ function adjustToD() {
     gradients.classList.remove("sunset");
     gradients.classList.remove("night");
     gradients.classList.add("day");
+
+    gradientDay.style.transition = "all 3s linear";
+    gradientDay.classList.remove("sunset");
+    gradientDay.classList.remove("night");
+    gradientDay.classList.add("day");
+
   } else if (sunset.checked) {
     fireflies.classList.remove("night");
     displays.forEach((display) => display.classList.add("night"));
@@ -169,6 +184,12 @@ function adjustToD() {
     gradients.classList.remove("day");
     gradients.classList.remove("night");
     gradients.classList.add("sunset");
+
+    gradientDay.style.transition = "all 3s linear";
+    gradientDay.classList.remove("day");
+    gradientDay.classList.remove("night");
+    gradientDay.classList.add("sunset");
+
   } else if (night.checked) {
     fireflies.classList.add("night");
     displays.forEach((display) => display.classList.add("night"));
@@ -176,8 +197,17 @@ function adjustToD() {
     gradients.classList.remove("day");
     gradients.classList.remove("sunset");
     gradients.classList.add("night");
+
+    gradientDay.style.transition = "all 3s linear";
+    gradientDay.classList.remove("day");
+    gradientDay.classList.remove("sunset");
+    gradientDay.classList.add("night");
+
   } else {
     gradients.style.transition = "all 3s linear";
+
+    gradientDay.style.transition = "all 3s linear";
+
     setClock();
   }
 }
@@ -192,3 +222,7 @@ gradients.addEventListener("transitionend", function (e) {
   gradients.style.transition = "all 3600s linear";
 }
 )
+
+gradientDay.addEventListener("transitionend", function (e) {
+  gradientDay.style.transition = "all 3600s linear";
+});

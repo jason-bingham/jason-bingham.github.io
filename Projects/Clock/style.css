@@ -172,12 +172,6 @@ main {
   width: 500%;
   height: 500%;
   background-image: radial-gradient(
-                    circle at 85% 20%,
-                    rgba(255, 255, 255, 1) 0%,
-                    rgba(255, 255, 255, 0.7) 3%,
-                    rgba(255, 255, 250, .3) 5%,
-                    transparent 20%),
-                    radial-gradient(
                     ellipse at 0% 10%,
                     rgba(128, 0, 255, 0.4) 0%,
                     rgba(128, 3, 254, 0.2) 10%,
@@ -191,6 +185,20 @@ main {
                     rgba(10, 0, 40, 0.95) 30%,
                     rgba(25, 0, 40, .5) 45%,
                     transparent 60%);
+  transition: all 3600s linear;
+  mix-blend-mode: multiply;
+}
+
+.gradient-day {
+  position: absolute;
+  width: 500%;
+  height: 500%;
+  background-image: radial-gradient(
+                    circle at 85% 20%,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0.7) 3%,
+                    rgba(255, 255, 255, .15) 5%,
+                    transparent 20%);
   transition: all 3600s linear;
 }
 
@@ -319,12 +327,27 @@ main {
   top: -400%;
 }
 
+.gradient-day.night {
+  right: -400%;
+  top: -400%;
+}
+
 .gradients.sunset {
   right: -350%;
   top: -100%;
 }
 
+.gradient-day.sunset {
+  right: -350%;
+  top: -100%;
+}
+
 .gradients.day {
+  right: -50%;
+  top: -100%;
+}
+
+.gradient-day.day {
   right: -50%;
   top: -100%;
 }
