@@ -26,7 +26,7 @@ main {
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  width: clamp(365px, 80vw, 600px);
+  width: clamp(365px, 80vw, 500px);
 }
 
 /* */

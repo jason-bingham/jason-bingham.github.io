@@ -108,10 +108,43 @@
   </header>
   <main class="bg-dark">
     <div id='shelf'>
+
+      <div class='book-bg web'>
+        <div class='book'>
+          <div id='book-shading'></div>
+          <h2 class="title web-title">Web Design</h2>
+          <h2 class="title web-title web-title-sub"> 1.0</h2>
+          <div class='contents'>
+            <div class='back' onclick="event.stopPropagation()">
+              <p>BACK</p>
+              <svg width="10" height="10" 
+                   viewBox="0 0 100 100">
+                <path stroke-width="15" 
+                  stroke="#222"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                  d="M75,15 L15, 50 L75, 85"/>
+              </svg>
+            </div>
+            <div id='page-shading'></div>
+            <div class='page'>
+              <h3>Web Design</h3>
+              <p class='text'>&emsp;I began to teach myself frontend web design as a hobby in 2020, and have since learned to love the process of creating dynamic digital content from pure code. I have produced most of my frontend work to date using vanilla HTML, CSS and Javascript, but also have experience with Django, Bootstrap, Sass, JQuery, and Pug. I am currently learning React.</p>
+              <p class='text'>&emsp;Follow <a href="page_web.html">this link</a> to see some of my other projects.</p>
+            </div>
+            <div class='page'>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1608760000795-547e78bfc003?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDgyMTI&ixlib=rb-1.2.1&q=80)'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class='book-bg graphic'>
         <div class='book'>
           <div id='book-shading'></div>
-          <h2 class="title graphic-title graphic-title-sub">Fundamentals of</h2>
+          <h2 class="title graphic-title graphic-title-sub">the Fundamentals of</h2>
           <h2 class="title graphic-title">Graphic Design</h2>
           <div class='contents'>
             <div class='back' onclick="event.stopPropagation()">
@@ -146,7 +179,8 @@
           </a>
         </div>
       </div>
-      <div class='book-bg data'>
+
+      <!-- <div class='book-bg data'>
         <div class='book'>
           <div id='book-shading'></div>
           <h2 class="title data-title">Data Visualization, a Primer</h2>
@@ -181,7 +215,8 @@
             <div id='page-shading'></div>
           </div>
         </div>
-      </div>
+      </div> -->
+
       <div class='book-bg photo'>
         <div class='book'>
           <div id='book-shading'></div>
@@ -214,6 +249,7 @@
           </div>
         </div>
       </div>
+
       <div class='book-bg landscape'>
         <div class='book'>
           <div id='book-shading'></div>
@@ -246,6 +282,7 @@
           </div>
         </div>
       </div>
+
       <div class='book-bg writing'>
         <div class='book'>
           <div id='book-shading'></div>
@@ -281,37 +318,7 @@
           </div>
         </div>
       </div>
-      <div class='book-bg web'>
-        <div class='book'>
-          <div id='book-shading'></div>
-          <h2 class="title web-title">Web Design</h2>
-          <h2 class="title web-title web-title-sub"> 1.0</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
-            </div>
-            <div id='page-shading'></div>
-            <div class='page'>
-              <h3>Web Design</h3>
-              <p class='text'>&emsp;I began to teach myself frontend web design as a hobby in 2020, and have since learned to love the process of creating dynamic digital content from pure code. I have produced most of my frontend work to date using vanilla HTML, CSS and Javascript, but also have experience with Django, Bootstrap, Sass, JQuery, and Pug. I am currently learning React</p>
-              <p class='text'>&emsp;Follow <a href="page_web.html">this link</a> to see some of my other projects.</p>
-            </div>
-            <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1608760000795-547e78bfc003?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDgyMTI&ixlib=rb-1.2.1&q=80)'>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   <script src="myscript.js"></script>
   </main>

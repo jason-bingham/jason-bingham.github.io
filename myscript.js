@@ -10,6 +10,7 @@ const headWrap = document.querySelector(".header-content-wrapper");
 const titleWrap = document.querySelector(".title-wrapper");
 
 
+
 contactButt.addEventListener("click", function (e) {
   if (contactTab.classList.contains("closed")) {
     contactTab.classList.remove("closed");
@@ -92,3 +93,5 @@ function addClickEvent(back) {
 
 books.forEach(openBook);
 backs.forEach(addClickEvent);
+
+
