@@ -5,6 +5,7 @@
 /* 3. LAYOUT OVERALL */
 /* 4. BUTTONS */
 /* 5. CONTENTS */
+/* 6. LINKS */
 
 
 /* ~~ 1. GENERAL */
@@ -402,3 +403,14 @@ header p {
   }
 
 }
+
+/*  */
+
+/* ~~ 6. LINKS */
+
+header a,
+header a:visited {
+  color: var(--dark);
+}
+
+/*  */

@@ -117,19 +117,3 @@ a:visited {
 }
 
 /* */
-
-
-/* ~~ 3. NAVBARS */
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-}
-
-.go-home {
-  gap: 1rem;
-}
-
-/* */

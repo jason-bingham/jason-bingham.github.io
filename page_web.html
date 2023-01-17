@@ -4,81 +4,101 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,500;1,100;1,600;900&family=Taviraj:wght@200&family=Fredericka+the+Great&family=Inconsolata:wght@200;400&family=Lora&family=Nothing+You+Could+Do&family=Unica+One&family=Smooch+Sans:wght@600&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Inconsolata:wght@200;400&family=Libre+Franklin:ital,wght@0,100;0,500;0,600;0,900;1,100&family=Lora&family=Nothing+You+Could+Do&family=Smooch+Sans:wght@600&family=Taviraj:wght@200&family=Unica+One&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon_16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicons/favicon_48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicons/favicon_64x64.png">
+
   <link rel="stylesheet" href="style-universal.css">
-  <link rel="stylesheet" href="style-hamburger.css">
-  <link rel="stylesheet" href="style__page-web.css">
-  <title>Jason Bingham's Web Design 1.0</title>
+  <link rel="stylesheet" href="style--page-web.css">
+  <link rel="stylesheet" href="style--nav.css">
+  <title>Jason Bingham | Web Design 1.0</title>
 </head>
 <body>
-  <header class="bg-dark">
+  <header class="flex flex-center-justified bg-dark">
     <nav class='navbar'>
-      <a class="light flex go-home" href="index.html">
-        <div class='container'>
-            <img src="/images/electrons_small.png" alt="logo">
+      <a class="light flex flex-center-justified go-home" href="index.html">
+        <div class="flex flex-center-justified">
+            <img class="logo" src="/images/logos/logo.svg" alt="logo">
         </div>
-        <h2 class="light">Home</h2>
       </a>
-      <h1 class="light">Web Design</h1>
-      <!-- <button id="ham-main" aria-controls="primary-nav"
-              aria-expanded="false" class="preload light">
-        <svg class="ham" viewBox="0 0 100 100" width="30"">
-          <line class="line top"
-                x1="15" x2="85" y1="30" y2="30"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line top right"
-                x1="85" x2="15" y1="30" y2="30"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line middle"
-                x1="15" x2="85" y1="50" y2="50"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line bottom"
-                x1="15" x2="85" y1="70" y2="70"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line bottom right"
-                x1="85" x2="15" y1="70" y2="70"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line x"
-                x1="70" x2="30" y1="30" y2="70"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line x"
-                x1="30" x2="70" y1="70" y2="30"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line x"
-                x1="30" x2="70" y1="30" y2="70"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-          <line class="line x"
-                x1="70" x2="30" y1="70" y2="30"
-                stroke="var(--light)"
-                stroke-width="8"
-                stroke-linecap="round">
-          </line>
-        </svg>
-      </button> -->
+      <h1 class="light flex flex-center-justified">Web Design</h1>
+      <div class="ham flex flex-center-justified">
+        <div class="ham-menu" aria-expanded="false">
+          <ul>
+            <a href="#"><li>Graphic Design</li></a>
+            <a href="#"><li>Photography</li></a>
+            <a href="#"><li>Landscape Design</li></a>
+            <a href="#"><li>Creative Writing</li></a>
+            <a href="#"><li>Home</li></a>
+          </ul>
+        </div>
+        <button class="ham-main preload light"      
+                aria-controls="primary-nav"
+                aria-expanded="false">
+          <svg viewBox="0 0 100 100" width="30">
+            <line class="ham-line top"
+                  x1="15" x2="85" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line top right"
+                  x1="85" x2="15" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line middle"
+                  x1="15" x2="85" y1="50" y2="50"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom"
+                  x1="15" x2="85" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom right"
+                  x1="85" x2="15" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+          </svg>
+        </button>
+      </div>
     </nav>
   </header>
   <main class="flex flex-center-justified">
@@ -145,22 +165,12 @@
           <h2 class="project-title">Product Preview</h2>
         </div>
       </a>
-      <a class="project-card" href="https://jason-bingham.github.io/Projects/FEM-ProdPreviewCard/index.html">
-        <div class="project-card--screenshots project-card__prodpreview--screenshot1"></div>
-        <div class="project-title-background">
-          <h2 class="project-title">Product Preview</h2>
-        </div>
-      </a>
       <a class="project-card" href="https://jason-bingham.github.io/Projects/flexchallenge04/index.html">
         <div class="project-card--screenshots project-card__flex04--screenshot1"></div>
         <div class="project-title-background">
           <h2 class="project-title">Responsive Layout</h2>
         </div>
       </a>
-      <!-- 
-        <li><a href="https://jason-bingham.github.io/Projects/flexchallenge03/index.html">Flex Challenge 3</a></li>
-        <li><a href="https://jason-bingham.github.io/Projects/flexchallenge04/index.html">Flex Challenge 4</a></li>
-      </ol> -->
     </div>
   </main>
 
