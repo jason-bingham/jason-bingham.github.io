@@ -14,16 +14,9 @@
 /* 12. OPEN BOOK */
 /* 13. BACK ARROW */
 
-
-main {
-  width: 100vw;
-}
-
 /* ~~ 1. SHELF */
 
-#shelf {
-  display: flex;
-  justify-content: center;
+.bookshelf {  /* BEM Block */
   padding-top: 3rem;
   padding-bottom: 3rem;
   width: clamp(365px, 80vw, 500px);
@@ -33,7 +26,7 @@ main {
 
 /* ~~ 2. BOOK BINDINGS */
 
-.book-bg {
+.bookshelf--bg {
   overflow: hidden;
   height: 32rem;
   margin: 2px;
@@ -42,34 +35,16 @@ main {
   border-radius: 5px;
   box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, 0.4);
   order: 200;
-  background: url(../images/leather_texture.jpg);
+  background-image: url(../images/leather_texture.jpg);
   background-size: auto 100%;
   background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-basis: 100%;  /* <-- This was the key to ending weird book behavior on hover or after click */
 }
-.book-bg:hover {
+.bookshelf--bg:hover {
   box-shadow: 0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4);
   z-index: 10;
   margin-top: -15px;
   transform: scale(1.03, 1.03);
-}
-
-.book {
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-image: 
-    linear-gradient(
-      to right,
-      #333,
-      #333 15%,
-      antiquewhite 30%,
-      antiquewhite 70%,
-      #333 85%,
-      #333);
-  border-image-slice: 1;
-  background-blend-mode:multiply;
 }
 
 /* */
@@ -91,7 +66,7 @@ main {
 .writing {
   flex-grow: 4;
 }
-.web {
+.bg--web {
   flex-grow: 5;
 }
 
@@ -111,7 +86,9 @@ main {
 
 /* ~~ 5. DEFAULT BOOK ATTRIBUTES */
 
-.book {
+.bookshelf--book {
+  position: relative;
+
   display: flex;
   height: 100%;
   width: 100%;
@@ -120,6 +97,20 @@ main {
   justify-content: center;
   align-items: center;
   writing-mode: vertical-rl;
+
+
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-image: 
+    linear-gradient(
+      to right,
+      #333,
+      #333 15%,
+      antiquewhite 30%,
+      antiquewhite 70%,
+      #333 85%,
+      #333);
+  border-image-slice: 1;
 }
 
 .title {
@@ -128,6 +119,8 @@ main {
 }
 
 .contents {
+  display: flex;
+  position: absolute;
   opacity: 0;
   width: 0;
 }
@@ -148,7 +141,7 @@ main {
   font-size: clamp(.75rem, 3vw, 1rem);
 }
 
-.graphic .book {
+.graphic .bookshelf--book {
   flex-direction: column;
   background: radial-gradient(
       ellipse at top,
@@ -168,7 +161,7 @@ main {
   font-size: clamp(1.5rem, 4.5vw, 2rem);
 }
 
-.data .book {
+.data .bookshelf--book {
   background: radial-gradient(
       ellipse at top,
       rgba(50, 10, 87, 0.55),
@@ -181,7 +174,7 @@ main {
 
 /* ~~ 8. PHOTOGRAPHY */
 
-.photo .book {
+.photo .bookshelf--book {
   background: radial-gradient(
       ellipse at top,
       rgba(189, 147, 189, 0.55),
@@ -199,7 +192,7 @@ main {
 
 /* ~~ 9. LANDSCAPE DESIGN */
 
-.landscape .book {
+.landscape .bookshelf--book {
   flex-direction: column;
   align-items: start;
   background: radial-gradient(
@@ -224,7 +217,7 @@ main {
 
 /* ~~ 10. CREATIVE WRITING */
 
-.writing .book {
+.writing .bookshelf--book {
   gap: .5rem;
   background: radial-gradient(
       ellipse at top,
@@ -247,7 +240,7 @@ main {
 
 /* ~~ 11. WEB DESIGN */
 
-.web .book {
+.book--web {
   gap: .75rem;
   background: radial-gradient(
       ellipse at top,
@@ -270,7 +263,7 @@ main {
 
 /* ~~ 12. OPEN BOOK */
 
-.book-bg.active {
+.bookshelf--bg.active {
   box-shadow: 0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4);
   position: absolute;
   width: min(50rem,95vw);
@@ -281,22 +274,21 @@ main {
   cursor: auto;
 }
 
-.book-bg.active:hover {
-  z-index: 10;
+.bookshelf--bg.active:hover {
   margin-top: -22px;
-  transform: none;}
+  transform: none;
+}
 
-.book-bg.active .book {
+.bookshelf--bg.active .bookshelf--book {
   border-top-width: 0;
   align-items: center;
 }
 
-.contents {
-  display: flex;
-  position: absolute;
+.bookshelf--bg.active .title {
+  opacity: 0;
 }
 
-.book-bg.active .contents {
+.bookshelf--bg.active .contents {
   background-color: antiquewhite;
   opacity: 100;
   width: calc(100% - min(6vw, 50px));
@@ -348,11 +340,11 @@ main {
   margin-bottom: clamp(.5rem, 2vw, 1rem);
   margin-left: 0;
   margin-right: 0;
-  font-size: clamp(.85rem, 3vw,1rem);
-  /* margin: 1rem 0; */
+  font-size: clamp(.85rem, 3vw, 1rem);
+  line-height: clamp(.85rem, 3vw, 1.5rem);
 }
 
-#page-shading {
+.page-shading {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -369,7 +361,7 @@ main {
   );
 }
 
-.book-bg.active #book-shading {
+.bookshelf--bg.active .book-shading {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -407,7 +399,7 @@ main {
   width: 0;
 }
 
-.book-bg.active .back {
+.bookshelf--bg.active .back {
   width: auto;
 }
 

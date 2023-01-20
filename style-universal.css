@@ -3,6 +3,7 @@
 /* 1. GENERAL STYLES */
 /* 2. UTILITY CLASSES */
 /* 3. NAVBARS */
+/* 4. CREDIT */
 
 
 /* ~~ 1. GENERAL STYLES */
@@ -35,7 +36,6 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: 'Taviraj', serif;
-  line-height: clamp(.8rem, 1.8vw, 1.2rem);
 }
 
 a {
@@ -108,12 +108,60 @@ a:visited {
   display: flex;
 }
 
-.flex-center-justified {
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
   justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-c {
+  justify-content: center;
+}
+
+.flex-align-c {
+  align-items: center;
 }
 
 .text-small {
   font-size: .9rem;
 }
 
+.test-red {
+  border: 1px solid red;
+}
+
+.test-yellow {
+  border: 1px solid yellow;
+}
+
+.test-green {
+  border: 1px solid green;
+}
+
+.test-blue {
+  border: 1px solid blue;
+}
+
 /* */
+
+/* ~~ 4. CREDIT */
+
+.credit {
+  margin: .5rem 0;
+  font: .75rem "Libre Franklin", sans-serif;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.credit:visited {
+  color: var(--light);
+}
+
+.credit:hover {
+  text-decoration: underline;
+}
+
+/*  */

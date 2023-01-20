@@ -16,7 +16,6 @@
 
   <link rel="stylesheet" href="style-universal.css">
   <link rel="stylesheet" href="style-index-header.css">
-  <link rel="stylesheet" href="style-index.css">
   <link rel="stylesheet" href="style-bookshelf.css">
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Jason Bingham - Portfolio</title>
@@ -32,7 +31,7 @@
         <h2>Contact me</h2>
         <div class="contact-line">
           <h3>email:</h3>
-          <p>jbingham223@gmail.com</p>
+          <p><a href="mailto:jbingham223@gmail.com">jbingham223@gmail.com</a></p>
         </div>
         <!-- <div class="contact-line">
           <h3>phone:</h3>
@@ -63,8 +62,8 @@
     </div>
     <div class="tab about-tab bg-color2">
       <div class="tab-content-wrapper about-wrapper hidden">
-        <h2>About me</h2>
-        <p>I am a designer and frontend web developer who is passionate about creating interactive visual content that inspires, informs and captivates users.<br><br>I have a background in landscape & graphic design, and developed an interest in web design during the pandemic which I have been cultivating ever since.</p>
+        <h2>Hello!</h2>
+        <p>I'm a designer and frontend web developer, and I created this site as a home for everything I produce.<br><br>Thank you for visiting. I hope you find something here to enjoy and have a wonderful day!</p>
       </div>
       <button class="about-button bg-color2">
         <svg width="30" height="40" 
@@ -79,10 +78,6 @@
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
-          <!-- <path class="title_butt" d="M 50 20 L 85 50 L 50 80" 
-                stroke="#222" stroke-width="15" 
-                fill="none" stroke-linecap="round"
-                stroke-linejoin="round"></path> -->
         </svg>
       </button>
     </div>
@@ -106,19 +101,20 @@
         </svg>
       </button>
     </div>
-    <div class="header-content-wrapper light hidden">
+    <div class="header-content-wrapper light hidden flex flex-center">
+      <img class="header-logo" src="/images/favicons/favicon_16x16.png" alt="Jason's Logo">
       <!-- <p>"Run faster. History is a constant race between invention and catastrophe. Education helps but it's never enough. You also must run."</p> -->
       <!-- <p>"In the jungle of each mind a wandering went on ceaselessly, finding a clearing here, a pool there, all in the murky light of one's sputtering thoughts, half awake, half asleep."<br>-The Ministry for the Future, Kim Stanley Robinson</p><br> -->
       <!-- <p>We know we all live in a village of eight billion neighbors. That's our now. It's all of us succeed or none of us is safe.<br>So we take an interest in how the others are doing.<br><br>-The Ministry for the Future, Kim Stanley Robinson</p> -->
       <p>“Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.”<br>–John Chris Jones</p>
     </div>
   </header>
-  <main class="bg-dark">
-    <div id='shelf'>
+  <main class="flex flex-column flex-center bg-dark">
+    <div class='bookshelf flex flex-center'>
 
-      <div class='book-bg web'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <div class='bookshelf--bg bg--web'>
+        <div class='bookshelf--book book--web'>
+          <div class='book-shading'></div>
           <h2 class="title web-title">Web Design</h2>
           <h2 class="title web-title web-title-sub"> 1.0</h2>
           <div class='contents'>
@@ -134,23 +130,23 @@
                   d="M75,15 L15, 50 L75, 85"/>
               </svg>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
             <div class='page'>
               <h3>Web Design</h3>
               <p class='text'>&emsp;I began to teach myself frontend web design as a hobby in 2020, and have since learned to love the process of creating dynamic digital content from pure code. I have produced most of my frontend work to date using vanilla HTML, CSS and Javascript, but also have experience with Django, Bootstrap, Sass, JQuery, and Pug. I am currently learning React.</p>
               <p class='text'>&emsp;Follow <a href="page_web.html">this link</a> to see some of my other projects.</p>
             </div>
             <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1608760000795-547e78bfc003?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDgyMTI&ixlib=rb-1.2.1&q=80)'>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1628258334105-2a0b3d6efee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMwOTM&ixlib=rb-4.0.3&q=80&w=400)'>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class='book-bg graphic'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <div class='bookshelf--bg graphic'>
+        <div class='bookshelf--book'>
+          <div class='book-shading'></div>
           <h2 class="title graphic-title graphic-title-sub">the Fundamentals of</h2>
           <h2 class="title graphic-title">Graphic Design</h2>
           <div class='contents'>
@@ -171,25 +167,25 @@
                 <h3>Graphic Design</h3>
                 <p class='text'>&emsp;Primitivism gothic art situationist international neoclassicism neo-impressionism multiculturalism postmodernism primitivism, postmodern art dada hyperrealism existentialism neue slowenische kunst renaissance.</p>
               </div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1618004912476-29818d81ae2e?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE1NTI1MjY&ixlib=rb-1.2.1&q=80)'>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1541701494587-cb58502866ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMxOTg&ixlib=rb-4.0.3&q=80&w=400)'>
               </div>
             </div>
             <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1659034638032-3a0e9b7ac8d0?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE0NTUzMjM&ixlib=rb-1.2.1&q=80)'>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1580610447943-1bfbef5efe07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMyNjY&ixlib=rb-4.0.3&q=80&w=400)'>
               </div>
               <div>
                 <p class='text'>&emsp;Modernipsum dolor sit amet renaissance situationist international metaphysical art, deformalism manierism op art social realism neo-minimalism. Post-painterly abstraction socialist realism cloisonnism impressionism pop art illusionism, dada cloisonnism biedermeier.</p>
               </div>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
           </div>
           </a>
         </div>
       </div>
 
-      <!-- <div class='book-bg data'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <!-- <div class='bookshelf--bg data'>
+        <div class='bookshelf--book'>
+          <div class='book-shading'></div>
           <h2 class="title data-title">Data Visualization, a Primer</h2>
           <div class='contents'>
             <div class='back' onclick="event.stopPropagation()">
@@ -219,14 +215,14 @@
               <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1584291527935-456e8e2dd734?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDQyMTY&ixlib=rb-1.2.1&q=80)'>
               </div>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
           </div>
         </div>
       </div> -->
 
-      <div class='book-bg photo'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <div class='bookshelf--bg photo'>
+        <div class='bookshelf--book'>
+          <div class='book-shading'></div>
           <h2 class="title photo-title">Photography 101</h2>
           <div class='contents'>
             <div class='back' onclick="event.stopPropagation()">
@@ -242,24 +238,24 @@
               </svg>
             </div>
             <div class='page is-grid'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1659974751348-81f2acd062cc?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzAxNTU&ixlib=rb-1.2.1&q=80); grid-column: 1 / 4'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1659256955381-4e6636e3aa56?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzAxMzI&ixlib=rb-1.2.1&q=80); grid-row: 2 / 4'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzA3NTU&ixlib=rb-1.2.1&q=80); grid-column: 2 / 4; grid-row: 2 / 4'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672627667545-e07869963d87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMzODM&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 4'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1671488151311-472802f68f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-row: 2 / 4'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672729425843-f0cf27fa8f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-column: 2 / 4; grid-row: 2 / 4'></div>
             </div>
             <div class='page is-grid'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1649554007580-aeba20951028?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzA1NjU&ixlib=rb-1.2.1&q=80); grid-column: 1 / 3; grid-row: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1661546135630-bae33b1bf310?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzA1NjU&ixlib=rb-1.2.1&q=80); grid-row: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1660296444901-253891bb61c0?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzA4Mjc&ixlib=rb-1.2.1&q=80); grid-column: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1660219927145-40fb8403995b?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MzAxNTU&ixlib=rb-1.2.1&q=80)'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673560437416-7f8558024c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3; grid-row: 1 / 3'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673643680616-2c614c4c716e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-row: 1 / 3'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672827863846-1837c32d7d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1MzA&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3'></div>
+              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673120770434-37d148312261?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1NjA&ixlib=rb-4.0.3&q=80&w=400)'></div>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
           </div>
         </div>
       </div>
 
-      <div class='book-bg landscape'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <div class='bookshelf--bg landscape'>
+        <div class='bookshelf--book'>
+          <div class='book-shading'></div>
           <h2 class="title landscape-title landscape-title-sub">An Introduction to</h2>
           <h2 class="title landscape-title">Landscape Design</h2>
           <div class='contents'>
@@ -285,14 +281,14 @@
                 <p class='text'>&emsp;Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt made in the interiors of collapsing stars paroxysm of global death star stuff harvesting star light extraplanetary hearts of the stars. Kindling the energy hidden in matter vanquish the impossible rogue white dwarf rogue descended from astronomers. Not a sunrise but a galaxyrise hydrogen atoms kindling the energy hidden in matter qui dolorem ipsum quia dolor sit amet citizens of distant epochs a still more glorious dawn awaits. Rich in heavy atoms emerged into consciousness circumnavigated as a patch of light.</p>
               </div>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
           </div>
         </div>
       </div>
 
-      <div class='book-bg writing'>
-        <div class='book'>
-          <div id='book-shading'></div>
+      <div class='bookshelf--bg writing'>
+        <div class='bookshelf--book'>
+          <div class='book-shading'></div>
           <h2 class="title writing-title">Creative Writing,</h2>
           <h2 class="title writing-title writing-title-sub"> for Dummies</h2>
           <div class='contents'>
@@ -321,13 +317,18 @@
                 <p class='text'>Something incredible is waiting<br>to be known<br>vastness is bearable only through love<br>star stuff harvesting star light<br>a billion trillion hearts<br>of the stars<br>quis nostrum exercitationem<br>ullam corporis suscipit laboriosam.<br>Encyclopaedia galactica intelligent beings<br>ship of the imagination<br>with pretty stories<br>for which there's little good evidence<br>Apollonius of Perga<br>stirred by starlight?</p>
               </div>
             </div>
-            <div id='page-shading'></div>
+            <div class='page-shading'></div>
           </div>
         </div>
       </div>
-
     </div>
-  <script src="myscript.js"></script>
   </main>
+  
+  <footer class="bg-dark flex flex-justify-c">
+    <a href="/index.html" class="credit light">Website designed, produced and maintained by Jason Bingham</a>
+  </footer>
+
+  <script src="myscript.js"></script>
+
 </body>
 </html>

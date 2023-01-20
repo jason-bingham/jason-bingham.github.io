@@ -18,6 +18,16 @@ nav a:visited {
   color: var(--light);
 }
 
+.ham-link {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.page-title {
+  cursor: default;
+}
+
 /*  */
 
 /* ~~ 2. Hamburger */
@@ -164,12 +174,17 @@ button:hover {
   padding-right: 1rem;
   line-height: 1.5rem;
   opacity: 0;
-  transition: all .5s ease-out;
+  transition: opacity .5s ease-out;
 }
 
 .ham-menu[aria-expanded = "true"] {
   top: 3.5rem;
   opacity: 1;
+}
+
+.ham-link--inactive {
+  cursor: default;
+  color: grey;
 }
 
 /*  */
