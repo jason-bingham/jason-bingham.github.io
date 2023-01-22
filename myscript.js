@@ -71,7 +71,7 @@ aboutButt.addEventListener("click", function (e) {
 
 // BOOKSHELF
 
-const books = document.querySelectorAll(".bookshelf--bg");
+const books = document.querySelectorAll(".book");
 const backs = document.querySelectorAll(".back");
 
 function openBook(book) {
