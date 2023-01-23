@@ -126,212 +126,205 @@
     <div class='bookshelf flex flex-center'>
 
       <div class='book book--web'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title web-title">Web Design</h2>
-          <h2 class="title web-title web-title-sub"> 1.0</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
+        <div class='book__shading book__shading--web'></div>
+        <h2 class="book__title book__title--web">Web Design</h2>
+        <h2 class="book__title book__title--web book__title--web_sub"> 1.0</h2>
+        <div class='book__inside_shading'></div>
+        <div class='book__contents'>
+          <div class='book__page-shading'></div>
+          <div class='book__page'>
+            <h3>Web Design</h3>
+            <p class='book__text'>&emsp;I began to teach myself frontend web design as a hobby in 2020, and have since learned to love the process of creating dynamic digital content from pure code. I have produced most of my frontend work to date using vanilla HTML, CSS and Javascript, but also have experience with Django, Bootstrap, Sass, JQuery, and Pug. I am currently learning React.</p>
+            <p class='book__text'>&emsp;Follow <a href="page_web.html">this link</a> to see some of my other projects.</p>
+          </div>
+          <div class='book__page'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1628258334105-2a0b3d6efee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMwOTM&ixlib=rb-4.0.3&q=80&w=400)'>
             </div>
-            <div class='page-shading'></div>
-            <div class='page'>
-              <h3>Web Design</h3>
-              <p class='text'>&emsp;I began to teach myself frontend web design as a hobby in 2020, and have since learned to love the process of creating dynamic digital content from pure code. I have produced most of my frontend work to date using vanilla HTML, CSS and Javascript, but also have experience with Django, Bootstrap, Sass, JQuery, and Pug. I am currently learning React.</p>
-              <p class='text'>&emsp;Follow <a href="page_web.html">this link</a> to see some of my other projects.</p>
-            </div>
-            <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1628258334105-2a0b3d6efee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMwOTM&ixlib=rb-4.0.3&q=80&w=400)'>
-              </div>
-            </div>
+          </div>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
           </div>
         </div>
       </div>
 
-      <div class='book book--graphic'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title graphic-title graphic-title-sub">the Fundamentals of</h2>
-          <h2 class="title graphic-title">Graphic Design</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
-            </div>
-            <div class='page'>
-              <div>
-                <h3>Graphic Design</h3>
-                <p class='text'>&emsp;Primitivism gothic art situationist international neoclassicism neo-impressionism multiculturalism postmodernism primitivism, postmodern art dada hyperrealism existentialism neue slowenische kunst renaissance.</p>
-              </div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1541701494587-cb58502866ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMxOTg&ixlib=rb-4.0.3&q=80&w=400)'>
-              </div>
-            </div>
-            <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1580610447943-1bfbef5efe07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMyNjY&ixlib=rb-4.0.3&q=80&w=400)'>
-              </div>
-              <div>
-                <p class='text'>&emsp;Modernipsum dolor sit amet renaissance situationist international metaphysical art, deformalism manierism op art social realism neo-minimalism. Post-painterly abstraction socialist realism cloisonnism impressionism pop art illusionism, dada cloisonnism biedermeier.</p>
-              </div>
-            </div>
-            <div class='page-shading'></div>
+      <div class='book book--graphic flex-column unpublished'>
+        <div class='book__shading book__shading--graphic'></div>
+        <div class='book__inside_shading'></div>
+        <h2 class="book__title graphic-title graphic-title-sub">the Fundamentals of</h2>
+        <h2 class="book__title graphic-title">Graphic Design</h2>
+        <div class='book__contents'>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
           </div>
-          </a>
+          <div class='book__page'>
+            <div>
+              <h3>Graphic Design</h3>
+              <p class='book__text'>&emsp;Primitivism gothic art situationist international neoclassicism neo-impressionism multiculturalism postmodernism primitivism, postmodern art dada hyperrealism existentialism neue slowenische kunst renaissance.</p>
+            </div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1541701494587-cb58502866ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMxOTg&ixlib=rb-4.0.3&q=80&w=400)'>
+            </div>
+          </div>
+          <div class='book__page'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1580610447943-1bfbef5efe07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMyNjY&ixlib=rb-4.0.3&q=80&w=400)'>
+            </div>
+            <div>
+              <p class='book__text'>&emsp;Modernipsum dolor sit amet renaissance situationist international metaphysical art, deformalism manierism op art social realism neo-minimalism. Post-painterly abstraction socialist realism cloisonnism impressionism pop art illusionism, dada cloisonnism biedermeier.</p>
+            </div>
+          </div>
+          <div class='book__page-shading'></div>
         </div>
       </div>
 
-      <!-- <div class='book book--data'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title data-title">Data Visualization, a Primer</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
-            </div>
-            <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1642516303080-431f6681f864?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDU5MzU&ixlib=rb-1.2.1&q=80)'>
-              </div>
-              <div>
-                <h3 style='margin-top: 1rem'>Data Visualization</h3>
-                <p class='text'>&emsp;Rig Veda qui dolorem ipsum quia dolor sit amet vanquish the impossible shores of the cosmic ocean Rig Veda venture?</p>
-              </div>
-            </div>
-            <div class='page'>
-              <div>
-                <p class='text'>&emsp;Two ghostly white figures in coveralls and helmets are softly dancing emerged into consciousness are creatures of the cosmos white dwarf as a patch of light muse about? Intelligent beings the only home we've ever known explorations.</p>
-              </div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1584291527935-456e8e2dd734?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDQyMTY&ixlib=rb-1.2.1&q=80)'>
-              </div>
-            </div>
-            <div class='page-shading'></div>
+      <div class='book book--data unpublished'>
+        <div class='book__shading book__shading--data'></div>
+        <div class='book__inside_shading'></div>
+        <h2 class="book__title data-title">Data Visualization, a Primer</h2>
+        <div class='book__contents'>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
           </div>
-        </div>
-      </div> -->
-
-      <div class='book book--photo'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title photo-title">Photography 101</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
+          <div class='book__page'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1642516303080-431f6681f864?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDU5MzU&ixlib=rb-1.2.1&q=80)'>
             </div>
-            <div class='page is-grid'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672627667545-e07869963d87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMzODM&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 4'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1671488151311-472802f68f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-row: 2 / 4'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672729425843-f0cf27fa8f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-column: 2 / 4; grid-row: 2 / 4'></div>
+            <div>
+              <h3 style='margin-top: 1rem'>Data Visualization</h3>
+              <p class='book__text'>&emsp;Rig Veda qui dolorem ipsum quia dolor sit amet vanquish the impossible shores of the cosmic ocean Rig Veda venture?</p>
             </div>
-            <div class='page is-grid'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673560437416-7f8558024c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3; grid-row: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673643680616-2c614c4c716e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-row: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1672827863846-1837c32d7d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1MzA&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3'></div>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1673120770434-37d148312261?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1NjA&ixlib=rb-4.0.3&q=80&w=400)'></div>
-            </div>
-            <div class='page-shading'></div>
           </div>
+          <div class='book__page'>
+            <div>
+              <p class='book__text'>&emsp;Two ghostly white figures in coveralls and helmets are softly dancing emerged into consciousness are creatures of the cosmos white dwarf as a patch of light muse about? Intelligent beings the only home we've ever known explorations.</p>
+            </div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1584291527935-456e8e2dd734?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDQyMTY&ixlib=rb-1.2.1&q=80)'>
+            </div>
+          </div>
+          <div class='book__page-shading'></div>
         </div>
       </div>
 
-      <div class='book book--landscape'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title landscape-title landscape-title-sub">An Introduction to</h2>
-          <h2 class="title landscape-title">Landscape Design</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
-            </div>
-            <div class='page'>
-              <div class='illus' style='background-image: url(https://images.unsplash.com/photo-1610989653808-2303456a25e6?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDYxNzU&ixlib=rb-1.2.1&q=80)'>
-              </div>
-            </div>
-            <div class='page'>
-              <div>
-                <h3>Landscape Design</h3>
-                <p class='text'>&emsp;Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt made in the interiors of collapsing stars paroxysm of global death star stuff harvesting star light extraplanetary hearts of the stars. Kindling the energy hidden in matter vanquish the impossible rogue white dwarf rogue descended from astronomers. Not a sunrise but a galaxyrise hydrogen atoms kindling the energy hidden in matter qui dolorem ipsum quia dolor sit amet citizens of distant epochs a still more glorious dawn awaits. Rich in heavy atoms emerged into consciousness circumnavigated as a patch of light.</p>
-              </div>
-            </div>
-            <div class='page-shading'></div>
+      <div class='book book--photo unpublished'>
+        <div class='book__shading book__shading--photo'></div>
+        <div class='book__inside_shading'></div>
+        <h2 class="book__title photo-title">Photography 101</h2>
+        <div class='book__contents'>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
           </div>
+          <div class='book__page book__page--grid'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1672627667545-e07869963d87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDMzODM&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 4'></div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1671488151311-472802f68f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-row: 2 / 4'></div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1672729425843-f0cf27fa8f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0MzE&ixlib=rb-4.0.3&q=80&w=400); grid-column: 2 / 4; grid-row: 2 / 4'></div>
+          </div>
+          <div class='book__page book__page--grid'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1673560437416-7f8558024c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3; grid-row: 1 / 3'></div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1673643680616-2c614c4c716e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM0OTQ&ixlib=rb-4.0.3&q=80&w=400); grid-row: 1 / 3'></div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1672827863846-1837c32d7d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1MzA&ixlib=rb-4.0.3&q=80&w=400); grid-column: 1 / 3'></div>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1673120770434-37d148312261?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQwMDM1NjA&ixlib=rb-4.0.3&q=80&w=400)'></div>
+          </div>
+          <div class='book__page-shading'></div>
         </div>
       </div>
 
-      <div class='book book--writing'>
-        <div class='bookshelf--book'>
-          <div class='book-shading'></div>
-          <h2 class="title writing-title">Creative Writing,</h2>
-          <h2 class="title writing-title writing-title-sub"> for Dummies</h2>
-          <div class='contents'>
-            <div class='back' onclick="event.stopPropagation()">
-              <p>BACK</p>
-              <svg width="10" height="10" 
-                   viewBox="0 0 100 100">
-                <path stroke-width="15" 
-                  stroke="#222"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  d="M75,15 L15, 50 L75, 85"/>
-              </svg>
-            </div>
-            <div class='page'>
-              <div>
-                <h3 style='text-align: center'>Creative</h3>
-                <p class='text'>&emsp;Something incredible is waiting to be known vastness is bearable only through love star stuff harvesting star light a billion trillion hearts of the stars quis nostrum exercitationem ullam corporis suscipit laboriosam. Encyclopaedia galactica intelligent beings for which there's little good evidence Apollonius of Perga stirred by starlight?</p>
-                <p class='text'>&emsp;The carbon in our apple pies autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur laws of physics courage of our questions sed quia non numquam eius modi tempora incidunt.</p>
-              </div>
-            </div>
-            <div class='page'>
-              <div style='text-align: center'>
-                <h3>Writing</h3>
-                <p class='text'>Something incredible is waiting<br>to be known<br>vastness is bearable only through love<br>star stuff harvesting star light<br>a billion trillion hearts<br>of the stars<br>quis nostrum exercitationem<br>ullam corporis suscipit laboriosam.<br>Encyclopaedia galactica intelligent beings<br>ship of the imagination<br>with pretty stories<br>for which there's little good evidence<br>Apollonius of Perga<br>stirred by starlight?</p>
-              </div>
-            </div>
-            <div class='page-shading'></div>
+      <div class='book book--landscape flex-column unpublished'>
+        <div class='book__shading book__shading--landscape'></div>
+        <div class='book-shading'></div>
+        <h2 class="book__title landscape-title landscape-title-sub">An Introduction to</h2>
+        <h2 class="book__title landscape-title">Landscape Design</h2>
+        <div class='book__contents'>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
           </div>
+          <div class='book__page'>
+            <div class='book__illus' style='background-image: url(https://images.unsplash.com/photo-1610989653808-2303456a25e6?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE3MDYxNzU&ixlib=rb-1.2.1&q=80)'>
+            </div>
+          </div>
+          <div class='book__page'>
+            <div>
+              <h3>Landscape Design</h3>
+              <p class='book__text'>&emsp;Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt made in the interiors of collapsing stars paroxysm of global death star stuff harvesting star light extraplanetary hearts of the stars. Kindling the energy hidden in matter vanquish the impossible rogue white dwarf rogue descended from astronomers. Not a sunrise but a galaxyrise hydrogen atoms kindling the energy hidden in matter qui dolorem ipsum quia dolor sit amet citizens of distant epochs a still more glorious dawn awaits. Rich in heavy atoms emerged into consciousness circumnavigated as a patch of light.</p>
+            </div>
+          </div>
+          <div class='book__page-shading'></div>
+        </div>
+      </div>
+
+      <div class='book book--writing unpublished'>
+        <div class='book__shading book__shading--writing'></div>
+        <div class='book__inside_shading'></div>
+        <h2 class="book__title writing-title">Creative Writing,</h2>
+        <h2 class="book__title writing-title writing-title-sub"> for Dummies</h2>
+        <div class='book__contents'>
+          <div class='btn btn--back' onclick="event.stopPropagation()">
+            <p>BACK</p>
+            <svg width="10" height="10" 
+                  viewBox="0 0 100 100">
+              <path stroke-width="15" 
+                stroke="#222"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+                d="M75,15 L15, 50 L75, 85"/>
+            </svg>
+          </div>
+          <div class='book__page'>
+            <div>
+              <h3 style='text-align: center'>Creative</h3>
+              <p class='book__text'>&emsp;Something incredible is waiting to be known vastness is bearable only through love star stuff harvesting star light a billion trillion hearts of the stars quis nostrum exercitationem ullam corporis suscipit laboriosam. Encyclopaedia galactica intelligent beings for which there's little good evidence Apollonius of Perga stirred by starlight?</p>
+              <p class='text'>&emsp;The carbon in our apple pies autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur laws of physics courage of our questions sed quia non numquam eius modi tempora incidunt.</p>
+            </div>
+          </div>
+          <div class='book__page'>
+            <div style='text-align: center'>
+              <h3>Writing</h3>
+              <p class='book__text'>Something incredible is waiting<br>to be known<br>vastness is bearable only through love<br>star stuff harvesting star light<br>a billion trillion hearts<br>of the stars<br>quis nostrum exercitationem<br>ullam corporis suscipit laboriosam.<br>Encyclopaedia galactica intelligent beings<br>ship of the imagination<br>with pretty stories<br>for which there's little good evidence<br>Apollonius of Perga<br>stirred by starlight?</p>
+            </div>
+          </div>
+          <div class='book__page-shading'></div>
         </div>
       </div>
     </div>

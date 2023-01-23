@@ -13,6 +13,7 @@
 /* 11. WEB DESIGN */
 /* 12. OPEN BOOK */
 /* 13. BACK ARROW */
+/* 14. UTILITY CLASSES */
 
 /* ~~ 1. SHELF */
 
@@ -27,15 +28,24 @@
 
 .book {                   /* <-- BEM Block */
   position: relative;
-  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 10%;  /* <-- 100% flex-basis was the key to ending weird book behavior on hover or after click, but once I refactored and moved some properties from child to parent, this actually stopped the sizes from varying. I don't understand the behavior. Adding an event listener in JS seems to affect the behavior and make it more erratic, but, for now at least, the 10% flex-basis is working.*/
+  
   height: 32rem;
+
+  overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
   box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, 0.4);
+
   background-image: url(../images/leather_texture.jpg);
   background-size: auto 100%;
-  flex-basis: 10%;  /* <-- 100% flex-basis was the key to ending weird book behavior on hover or after click, but once I refactored and moved some properties from child to parent, this actually stopped the sizes from varying. I don't understand the behavior. Adding an event listener in JS seems to affect the behavior and make it more erratic, but, for now at least, the 10% flex-basis is working.*/
+
+  writing-mode: vertical-rl;
 }
 
 .book:hover {
@@ -60,23 +70,26 @@
 }
 .book--landscape {
   flex-grow: 6;
+  align-items: start;
 }
 .book--writing {
   flex-grow: 4;
+  gap: .5rem;
 }
 .book--web {
   flex-grow: 5;
+  gap: .75rem;
 }
 
 /* */
 
 /* ~~ 4. TITLE SHADOWS */
 
-.title {
+.book__title {
   text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-.web-title {
+.book__title--web {
   text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.6);
 }
 
@@ -84,17 +97,14 @@
 
 /* ~~ 5. DEFAULT BOOK ATTRIBUTES */
 
-.bookshelf--book {
-  /* position: relative; */
+.book__shading {
+  position: absolute;
 
-  display: flex;
   height: 100%;
   width: 100%;
   box-shadow: inset -0.35rem 0 0.5rem rgba(0, 0, 0, 0.4),
     inset 0.35rem 0 0.5rem rgba(0, 0, 0, 0.4);
-  justify-content: center;
-  align-items: center;
-  writing-mode: vertical-rl;
+  /* writing-mode: vertical-rl; */
 
 
   border-top-style: solid;
@@ -109,14 +119,16 @@
       #333 85%,
       #333);
   border-image-slice: 1;
+
 }
 
-.title {
+.book__title {
   font-size: clamp(1.4rem, 4.5vw, 2rem);
   margin: 0;
+  z-index: 10;
 }
 
-.contents {
+.book__contents {
   display: flex;
   position: absolute;
   opacity: 0;
@@ -126,6 +138,15 @@
 /* */
 
 /* ~~ 6. GRAPHIC DESIGN */
+
+.book__shading--graphic {
+  background: radial-gradient(
+      ellipse at top,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.75)
+    ),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
 
 .graphic-title {
   font-size: clamp(1.6rem, 4.5vw, 2rem);
@@ -139,27 +160,11 @@
   font-size: clamp(.75rem, 3vw, 1rem);
 }
 
-.book--graphic .bookshelf--book {
-  flex-direction: column;
-  background: radial-gradient(
-      ellipse at top,
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.75)
-    ),
-    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
-}
-
 /* */
 
 /* ~~ 7. DATA VISUALIZATION */
 
-.data-title {
-  font-family: "Smooch Sans", sans-serif;
-  color: rgb(221, 206, 206);
-  font-size: clamp(1.5rem, 4.5vw, 2rem);
-}
-
-.book--data .bookshelf--book {
+.book__shading--data {
   background: radial-gradient(
       ellipse at top,
       rgba(50, 10, 87, 0.55),
@@ -168,11 +173,17 @@
     radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
 }
 
+.data-title {
+  font-family: "Smooch Sans", sans-serif;
+  color: rgb(221, 206, 206);
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+}
+
 /* */
 
 /* ~~ 8. PHOTOGRAPHY */
 
-.book--photo .bookshelf--book {
+.book__shading--photo {
   background: radial-gradient(
       ellipse at top,
       rgba(189, 147, 189, 0.55),
@@ -190,9 +201,7 @@
 
 /* ~~ 9. LANDSCAPE DESIGN */
 
-.book--landscape .bookshelf--book {
-  flex-direction: column;
-  align-items: start;
+.book__shading--landscape {
   background: radial-gradient(
       ellipse at top,
       rgba(2, 95, 18, 0.55),
@@ -211,12 +220,15 @@
   font-size: clamp(.75rem, 3vw, 1rem);
 }
 
+.book--landscape.active {
+  align-items: center;
+}
+
 /* */
 
 /* ~~ 10. CREATIVE WRITING */
 
-.book--writing .bookshelf--book {
-  gap: .5rem;
+.book__shading--writing {
   background: radial-gradient(
       ellipse at top,
       rgba(94, 15, 6, 0.76),
@@ -238,8 +250,7 @@
 
 /* ~~ 11. WEB DESIGN */
 
-.book--web .bookshelf--book {
-  gap: .75rem;
+.book__shading--web {
   background: radial-gradient(
       ellipse at top,
       rgba(255, 255, 255, 0.63),
@@ -248,12 +259,12 @@
     radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
 }
 
-.web-title {
+.book__title--web {
   font-family: "Inconsolata", monospace;
   color: #222;
 }
 
-.web-title-sub {
+.book__title--web_sub {
   font-size: clamp(1rem, 3vw, 1.25rem);
 }
 
@@ -267,7 +278,7 @@
   width: min(50rem,95vw);
   height: 32rem;
   margin-top: -22px;
-  z-index: 10;
+  z-index: 100;
   border-top-width: 0;
   cursor: auto;
 }
@@ -277,16 +288,12 @@
   transform: none;
 }
 
-.book.active .bookshelf--book {
+.book.active .book__shading {
   border-top-width: 0;
   align-items: center;
 }
 
-.book.active .title {
-  opacity: 0;
-}
-
-.book.active .contents {
+.book.active .book__contents {
   background-color: antiquewhite;
   opacity: 100;
   width: calc(100% - min(6vw, 50px));
@@ -307,7 +314,7 @@
   font-family: "Nothing You Could Do", cursive;
 }
 
-.page {
+.book__page {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -316,25 +323,25 @@
   min-width: 0;
 }
 
-.page h3 {
+.book__page h3 {
   font-size: clamp(1rem, 3vw, 1.2rem);
   margin: 0;
 }
 
-.is-grid {
+.book__page--grid {
   display: grid;
   gap: 5px;
   grid-template: "1fr 1fr 1fr" "1fr 1fr 1fr" "1fr 1fr 1fr";
 }
 
-.illus {
+.book__illus {
   border: 5px solid white;
   flex: 1;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.text {
+.book__text {
   margin-top: clamp(.5rem, 2vw, 1rem);
   margin-bottom: clamp(.5rem, 2vw, 1rem);
   margin-left: 0;
@@ -343,7 +350,7 @@
   line-height: clamp(.85rem, 3vw, 1.5rem);
 }
 
-.page-shading {
+.book__page-shading {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -360,7 +367,7 @@
   );
 }
 
-.book.active .book-shading {
+.book.active .book__inside_shading {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -382,27 +389,30 @@
 
 /* ~~ 13. BACK ARROW */
 
-.back {
+.btn {
+  border: none;
+  cursor: pointer;
+}
+
+.btn--back {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  border: none;
   right: 0;
   top: 0;
   z-index: 10;
   opacity: 85%;
-  cursor: pointer;
   margin: 1%;
   gap: 2px;
   width: 0;
 }
 
-.book.active .back {
+.book.active .btn--back {
   width: auto;
 }
 
-.back p {
+.btn--back p {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   font-size: .8rem;
@@ -410,9 +420,21 @@
   text-align: center;
 }
 
-.back:hover {
+.btn--back:hover {
   opacity: 100%;
   filter: drop-shadow(0px 0px 2px whitesmoke);
 }
 
 /* */
+
+/* ~~ 14. UTILITY CLASSES */
+
+.unpublished {
+  opacity: 0.75;
+}
+
+.unpublished.active {
+  opacity: 1;
+}
+
+/*  */

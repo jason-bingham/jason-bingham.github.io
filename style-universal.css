@@ -10,9 +10,8 @@
 
 /* ~~ 0. RESET */
 
-html {
+* {
   box-sizing: border-box;
-  font-size: 16px;
 }
 
 /*  */
@@ -20,6 +19,7 @@ html {
 /* ~~ 1. GENERAL STYLES */
 
 :root {
+  font-size: 16px;
   --light: #ddd;
   --dark: #222;
   --cor1: rgb(141, 103, 117);

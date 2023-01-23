@@ -1,3 +1,5 @@
+// HEADER
+
 const contactButt = document.querySelector(".contact-button");
 const contactTab = document.querySelector(".contact-tab");
 const aboutButt = document.querySelector(".about-button");
@@ -8,8 +10,6 @@ const aboutWrap = document.querySelector(".about-wrapper");
 const contactWrap = document.querySelector(".contact-wrapper");
 const headWrap = document.querySelector(".header-content-wrapper");
 const titleWrap = document.querySelector(".title-wrapper");
-
-
 
 contactButt.addEventListener("click", function (e) {
   if (contactTab.classList.contains("closed")) {
@@ -71,27 +71,41 @@ aboutButt.addEventListener("click", function (e) {
 
 // BOOKSHELF
 
+// OPENING BOOKS
+
 const books = document.querySelectorAll(".book");
-const backs = document.querySelectorAll(".back");
+const backs = document.querySelectorAll(".btn--back");
+const titles = document.querySelectorAll(".book__title");
 
 function openBook(book) {
   book.addEventListener("click", function () {
     this.classList.add("active");
+    titles.forEach(addHidden);
   });
 };
 
 function closeBook(book) {
-  console.log("innerfunction")
   book.classList.remove("active");
 };
 
 function addClickEvent(back) {
   back.addEventListener("click", function () {
     books.forEach(closeBook);
+    titles.forEach(toggleHidden);
   });
 };
 
+function addHidden(item) {
+  if (item.classList.contains("hidden")) {
+    pass;
+  } else {
+    item.classList.add("hidden");
+  }
+}
+
+function toggleHidden(item) {
+  item.classList.toggle("hidden");
+}
+
 books.forEach(openBook);
 backs.forEach(addClickEvent);
-
-
