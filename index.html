@@ -33,37 +33,36 @@
 <body class="bg-dark">
 
   <header>
-    <picture class="tab profile-circle bg-color4">
-      <div class="profile-photo">
-      </div>
+    <picture class="tab tab--profile">
+      <div class="tab__photo"></div>
     </picture>
-    <div class="tab contact-tab bg-color1">
-      <div class="tab-content-wrapper contact-wrapper hidden">
+    <div class="tab tab--contact">
+      <div class="tab__content tab__content--contact hidden">
         <h2>Contact me</h2>
-        <div class="contact-line">
-          <h3>email:</h3>
+        <div class="tab__contact_line">
+          <h3 class="tab__contact_header">email:</h3>
           <p><a href="mailto:jbingham223@gmail.com">jbingham223@gmail.com</a></p>
         </div>
-        <!-- <div class="contact-line">
-          <h3>phone:</h3>
+        <!-- <div class="tab__contact_line">
+          <h3 class="tab__contact_header">phone:</h3>
           <p>+55 (11) 9 9521-8783</p><p>or</p><p>+1 (310) 625-8170</p>
         </div> -->
-        <div class="contact-line">
-          <h3>socials:</h3>
+        <div class="tab__contact_line">
+          <h3 class="tab__contact_header">socials:</h3>
           <p><a href="https://www.linkedin.com/in/jason-bingham-67908421/">LinkedIn</a></p>
           <p><a href="https://codepen.io/Jason-Bingham/">Codepen</a>
           </p>
         </div>
       </div>
-      <button class="contact-button bg-color1">
+      <button class="btn btn--contact">
         <svg width="30" height="40" 
              viewBox="0 0 100 100">
-          <line class="topline" x1="85" y1="20" 
+          <line class="btn__topline" x1="85" y1="20" 
             x2="50" y2="50"
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
-          <line class="bottomline" x1="50" y1="50" 
+          <line class="btn__bottomline" x1="50" y1="50" 
             x2="85" y2="80"
             stroke-width="15" 
             stroke="#222"
@@ -71,20 +70,20 @@
         </svg>
       </button>
     </div>
-    <div class="tab about-tab bg-color2">
-      <div class="tab-content-wrapper about-wrapper hidden">
+    <div class="tab tab--about">
+      <div class="tab__content tab__content--about hidden">
         <h2>Hello!</h2>
-        <p>I'm a designer and frontend web developer, and I created this site as a home for everything I produce.<br><br>Thank you for visiting. I hope you find something here to enjoy and have a wonderful day!</p>
+        <p class="tab__about_paragraph">I'm a designer and frontend web developer, and I created this site as a home for everything I produce.<br><br>Thank you for visiting. I hope you find something here to enjoy and have a wonderful day!</p>
       </div>
-      <button class="about-button bg-color2">
+      <button class="btn btn--about">
         <svg width="30" height="40" 
             viewBox="0 0 100 100">
-          <line class="topline" x1="85" y1="20" 
+          <line class="btn__topline" x1="85" y1="20" 
             x2="50" y2="50"
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
-          <line class="bottomline" x1="50" y1="50" 
+          <line class="btn__bottomline" x1="50" y1="50" 
             x2="85" y2="80"
             stroke-width="15" 
             stroke="#222"
@@ -92,19 +91,19 @@
         </svg>
       </button>
     </div>
-    <div class="tab title-tab bg-color3">
-      <div class="tab-content-wrapper title-wrapper">
+    <div class="tab tab--title">
+      <div class="tab__content tab__content--title">
         <h1>welcome to<br>the portfolio of<br><span>JASON BINGHAM</span></h1>
       </div>
-      <button class="title-button bg-color3">
+      <button class="btn btn--title">
         <svg width="30" height="40" 
              viewBox="0 0 100 100">
-          <line class="topline" x1="85" y1="20" 
+          <line class="btn__topline" x1="85" y1="20" 
             x2="50" y2="50"
             stroke-width="15" 
             stroke="#222"
             stroke-linecap="round"/>
-          <line class="bottomline" x1="50" y1="50" 
+          <line class="btn__bottomline" x1="50" y1="50" 
             x2="85" y2="80"
             stroke-width="15" 
             stroke="#222"
@@ -112,7 +111,7 @@
         </svg>
       </button>
     </div>
-    <div class="header-content-wrapper light hidden flex flex-center">
+    <div class="tab--back hidden">
       <img class="header-logo" src="/images/favicons/favicon_16x16.png" alt="Jason's Logo">
       <!-- <p>"Run faster. History is a constant race between invention and catastrophe. Education helps but it's never enough. You also must run."</p> -->
       <!-- <p>"In the jungle of each mind a wandering went on ceaselessly, finding a clearing here, a pool there, all in the murky light of one's sputtering thoughts, half awake, half asleep."<br>-The Ministry for the Future, Kim Stanley Robinson</p><br> -->
@@ -121,7 +120,7 @@
     </div>
   </header>
 
-  <main class="flex flex-column flex-center ">
+  <main>
 
     <div class='bookshelf flex flex-center'>
 

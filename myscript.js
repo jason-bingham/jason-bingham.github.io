@@ -1,15 +1,15 @@
 // HEADER
 
-const contactButt = document.querySelector(".contact-button");
-const contactTab = document.querySelector(".contact-tab");
-const aboutButt = document.querySelector(".about-button");
-const aboutTab = document.querySelector(".about-tab");
-const titleButt = document.querySelector(".title-button");
-const titleTab = document.querySelector(".title-tab");
-const aboutWrap = document.querySelector(".about-wrapper");
-const contactWrap = document.querySelector(".contact-wrapper");
-const headWrap = document.querySelector(".header-content-wrapper");
-const titleWrap = document.querySelector(".title-wrapper");
+const contactButt = document.querySelector(".btn--contact");
+const contactTab = document.querySelector(".tab--contact");
+const aboutButt = document.querySelector(".btn--about");
+const aboutTab = document.querySelector(".tab--about");
+const titleButt = document.querySelector(".btn--title");
+const titleTab = document.querySelector(".tab--title");
+const aboutWrap = document.querySelector(".tab__content--about");
+const contactWrap = document.querySelector(".tab__content--contact");
+const headWrap = document.querySelector(".tab--back");
+const titleWrap = document.querySelector(".tab__content--title");
 
 contactButt.addEventListener("click", function (e) {
   if (contactTab.classList.contains("closed")) {
@@ -59,19 +59,7 @@ titleButt.addEventListener("click", function (e) {
   }
 });
 
-
-const topline = document.querySelector(".topline");
-const bottomline = document.querySelector(".bottomline");
-
-aboutButt.addEventListener("click", function (e) {
-  aboutButtsvg.style.transform = "rotate(180deg)";
-});
-
-
-
 // BOOKSHELF
-
-// OPENING BOOKS
 
 const books = document.querySelectorAll(".book");
 const backs = document.querySelectorAll(".btn--back");

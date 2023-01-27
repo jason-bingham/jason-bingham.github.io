@@ -14,7 +14,6 @@ header {
   position: relative;
   height: 350px;
   width: 100vw;
-  border-radius: 0;
   overflow:hidden;
   display: flex;
   justify-content: end;
@@ -42,7 +41,7 @@ header h3 {
   font-size: 1rem;
 }
 
-.contact-line h3 {
+.tab__contact_header {
   margin: .25rem;
 }
 
@@ -70,13 +69,14 @@ header p {
   transition: all .3s cubic-bezier(.73,1.34,.53,.95);
 }
 
-.profile-circle {
+.tab--profile {
   left: -1630px;
   overflow: hidden;
   z-index: 5;
+  background-color: var(--dark);
 }
 
-.profile-photo {
+.tab__photo {
   position: absolute;
   right: 0;
   height: 350px;
@@ -84,31 +84,35 @@ header p {
   background-image: url("images/profile_foto_desaturated.jpeg");
   background-size: cover;
   background-position: 50%;
+  background-repeat: no-repeat;
 }
 
-.title-tab {
+.tab--title {
   right: 10vw;
+  background-color: var(--cor3);
 }
 
-.title-tab.closed {
+.tab--title.closed {
   right: calc(97vw - 370px); 
   /* 97vw b/c I want a 3vw offset. 370px is about the width of the profile photo. */
 }
 
-.about-tab {
+.tab--about {
   right: 7vw;
+  background-color: var(--cor2);
 }
 
-.about-tab.closed {
+.tab--about.closed {
   right: calc(94vw - 370px); 
   /* 94vw b/c I want a 3vw + 3vw offset. 370px is about the width of the profile photo. */
 }
 
-.contact-tab {
+.tab--contact {
   right: 4vw;
+  background-color: var(--cor1);
 }
 
-.contact-tab.closed {
+.tab--contact.closed {
   right: calc(91vw - 370px); 
   /* 91vw b/c I want a 3vw + 3vw + 3vw offset. 370px is about the width of the profile photo. */
 }
@@ -127,38 +131,50 @@ header p {
   box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
 }
 
-.topline, .bottomline {
+.btn__topline, .btn__bottomline {
   transition: all .3s linear;
   transform-origin: 50%;
 }
 
-.tab.closed .topline {
+.tab.closed .btn__topline {
   transform: rotate(-90deg)
              translateY(25px);
 }
 
-.tab.closed .bottomline {
+.tab.closed .btn__bottomline {
   transform: rotate(90deg)
              translateY(-25px);
+}
+
+.btn--contact {
+  background-color: var(--cor1);
+}
+
+.btn--about {
+  background-color: var(--cor2);
+}
+
+.btn--title {
+  background-color: var(--cor3);
 }
 
 /* */
 
 /* ~~ 5. CONTENTS */
 
-.header-content-wrapper {
+.tab--back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   width: calc(91vw - 370px);
   text-align: center;
   padding: 0 10vw;
-  flex-direction: column;
-  align-items: center;
+  color: var(--light);
 }
 
-.header-logo {
-  /* width: 5rem; */
-}
-
-.tab-content-wrapper {
+.tab__content {
   position: relative;
   width: calc(90vw - 430px);
   display: flex;
@@ -168,11 +184,11 @@ header p {
   transition: all .3s linear;
 }
 
-.about-wrapper {
+.tab__content--about {
   padding: 0 5vw;
 }
 
-.contact-line {
+.tab__contact_line {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -201,14 +217,14 @@ header p {
     justify-content: center;
   }
 
-  .profile-circle {
+  .tab--profile {
     left: calc(-500px + 50vw);
     height: 500px;
     width: 500px;
     top: -100px;
   }
 
-  .profile-photo {
+  .tab__photo {
     position: absolute;
     right: 0;
     height: 400px;
@@ -222,12 +238,12 @@ header p {
     top: 50px;
   }
 
-  .title-tab {
+  .tab--title {
     left: calc(-1000px + 50vw);
     top: -1530px;
   }
 
-  .title-tab.closed {
+  .tab--title.closed {
     top: calc(-100px - 2vh);
     left: calc(-500px + 48vw);
     width: calc(500px + 4vh);
@@ -235,12 +251,12 @@ header p {
     transform: rotate(-80deg);
   }
 
-  .about-tab {
+  .tab--about {
     left: calc(-1000px + 50vw);
     top: calc(-1530px + 4vh);
   }
 
-  .about-tab.closed {
+  .tab--about.closed {
     top: calc(-100px - 4vh);
     left: calc(-500px + 46vw);
     width: calc(500px + 8vh);
@@ -248,12 +264,12 @@ header p {
     transform: rotate(-70deg);
   }
   
-  .contact-tab {
+  .tab--contact {
     left: calc(-1000px + 50vw);
     top: calc(-1530px + 8vh);
   }
 
-  .contact-tab.closed {
+  .tab--contact.closed {
     top: calc(-100px - 6vh);
     left: calc(-500px + 44vw);
     width: calc(500px + 12vh);
@@ -267,7 +283,7 @@ header p {
     left: 0;
   }
 
-  .tab-content-wrapper {
+  .tab__content {
     width: 50vw;
     height: calc(470px + 4vh);
     position: absolute;
@@ -276,12 +292,12 @@ header p {
     padding: 3rem;
   }
 
-  .contact-wrapper {
-    height: 70vh;
+  .tab__content--contact {
+    height: 50vh;
     left: 49%;
   }
 
-  .header-content-wrapper {
+  .tab--back {
     width: 50vw;
     height: 70vh;
     padding: 5vw;
@@ -316,13 +332,11 @@ header p {
     justify-content: center;
   }
 
-  .profile-circle {
+  .tab--profile {
     top: calc(-1000px + 55vh);
-    overflow: hidden;
-    z-index: 5;
   }
 
-  .profile-photo {
+  .tab__photo {
     height: 55vh;
     width: 100vw;
     background-image: url("images/profile_foto_desaturated.jpeg");
@@ -331,11 +345,11 @@ header p {
     right: auto;
   }
   
-  .contact-tab {
+  .tab--contact {
     top: calc(-1000px + 96vh);
   }
 
-  .contact-tab.closed {
+  .tab--contact.closed {
     top: calc(-1000px + 67vh);
     left: auto;
     right: auto;
@@ -344,11 +358,11 @@ header p {
     transform: rotate(0deg);
   }
 
-  .about-tab {
+  .tab--about {
     top: calc(-1000px + 92vh);
   }
 
-  .about-tab.closed {
+  .tab--about.closed {
     top: calc(-1000px + 63vh);
     left: auto;
     right: auto;
@@ -357,11 +371,11 @@ header p {
     transform: rotate(0deg);
   }
 
-  .title-tab {
+  .tab--title {
     top: calc(-1000px + 88vh);
   }
 
-  .title-tab.closed {
+  .tab--title.closed {
     top: calc(-1000px + 59vh);
     left: auto;
     right: auto;
@@ -379,7 +393,7 @@ header p {
     box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
   }
 
-  .tab-content-wrapper {
+  .tab__content {
     display: block;
     width: 100vw;
     height: 35vh;
@@ -388,23 +402,23 @@ header p {
     bottom: 0;
   }
 
-  .about-wrapper {
+  .tab__content--about {
     padding: 5vw;
     height: 31vh;
   }
 
-  .about-wrapper p {
+  .tab__about_paragraph {
     font-size: clamp(.8rem, 3vw, 1rem);
     line-height: .8rem;
   }
 
-  .header-content-wrapper {
+  .tab--back {
     width: auto;
     height: 35vh;
     padding: 5vw;
   }
 
-  .contact-line {
+  .tab__contact_line {
     justify-content: center;
   }
 
