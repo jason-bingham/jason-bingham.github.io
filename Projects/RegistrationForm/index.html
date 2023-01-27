@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Inconsolata:wght@200;400&family=Libre+Franklin:ital,wght@0,100;0,500;0,600;0,900;1,100&family=Lora&family=Nothing+You+Could+Do&family=Smooch+Sans:wght@600&family=Taviraj:wght@200&family=Unica+One&display=swap" rel="stylesheet">
+
+  <title>Registration Form</title>
+</head>
+<body>
+  <main>
+    <section class="reg-form flex flex-center flex-column">
+      <h1 id="title">Registration</h1>
+      <p id="description">Please fill out your information here.</p>
+      <form id="survey-form" action="#">
+        <fieldset class="demos flex flex-column">
+          <label id="name-label" for="name">Name: </label><input id="name" type="text" required placeholder="Arkady Darell">
+          <label id="email-label" for="email">Email: </label><input id="email" type="email" required placeholder="arkady@email.com">
+          <label id="number-label" for="number">Age: </label><input id="number" type="number" required min="18" max="120" placeholder="Age">
+        </fieldset>
+        <fieldset class="dropdown flex">
+          <label for="dropdown">How did you hear about us? </label>
+          <select name="reference" id="dropdown">
+            <option value="">(Select one)</option>
+            <option value="television">Television</option>
+            <option value="radio">Radio</option>
+            <option value="friend">A friend</option>
+            <option value="other">Other</option>
+          </select>
+        </fieldset>
+        <fieldset class="flex flex-column" >
+          <p>How likely are you to recommend our services to a friend?</p>
+          <div class="rec_rating flex">
+            <input id="definitely"value="definitely" name="recommendation" type="radio">
+            <label for="definitely">Definitely!</label>
+          </div>
+          <div class="rec_rating flex">
+            <input id="maybe" value="maybe" name="recommendation" type="radio">
+            <label for="maybe">Maybe...</label>
+          </div>
+          <div class="rec_rating flex">
+            <input id="no" value="no" name="recommendation" type="radio">
+            <label for="no">No.</label>
+          </div>
+        </fieldset>
+        <fieldset class="checks">
+          <p>What topics are you interested in learning more about? (select all that apply)</p>
+          <div>
+            <input type="checkbox" name="topics" id="climate_change" value="climate_change">
+            <label for="climate_change">Climate Change</label>
+          </div>
+          <div>
+            <input type="checkbox" name="topics" id="history" value="history">
+            <label for="history">History</label>
+          </div>
+          <div>
+            <input type="checkbox" name="topics" id="science_fiction" value="science_fiction">
+            <label for="science_fiction">Science Fiction</label>
+          </div>
+          <div>
+            <input type="checkbox" name="topics" id="poetry" value="poetry">
+            <label for="poetry">Poetry</label>
+          </div>
+          <div>
+            <input type="checkbox" name="topics" id="technology" value="technology">
+          <label for="technology">Technology</label>        
+          </div>
+          <div>
+            <input type="checkbox" name="topics" id="politics" value="politics">
+            <label for="politics">Politics</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <p>Do you have any additional comments?</p>
+          <textarea name="comments" id="comments" cols="60" rows="10" placeholder="Comments"></textarea>
+        </fieldset>
+        <div class="butt_div flex flex-justify-c">
+          <button id="submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+    
+  <footer class="flex flex-justify-c">
+    <a href="/index.html" class="credit">Website designed, produced and maintained by Jason Bingham</a>
+  </footer>
+
+</body>
+</html>

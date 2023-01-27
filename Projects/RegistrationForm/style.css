@@ -1,0 +1,292 @@
+/* TOC */
+
+/* 0. RESET */
+/* 1. GENERAL STYLES */
+/* 2. UTILITY CLASSES */
+/* 3. NAVBARS */
+/* 4. CREDIT */
+/* 5. TEST CLASSES */
+
+
+/* ~~ 0. RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+/*  */
+
+/* ~~ 1. GENERAL STYLES */
+
+:root {
+  font-size: 16px;
+  --light: #ddd;
+  --dark: #222;
+  --cor1: rgb(141, 103, 117);
+  --cor2: rgb(100, 136, 136);
+  --cor3: rgb(115, 136, 96);
+  --cor4: hsl(220, 15%, 25%);
+  --cor5: hsl(32, 66%, 44%);
+}
+
+body {
+  background-color: var(--light);
+  color: var(--dark);
+  font-weight: 100;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 8vw, 3rem);
+  margin: 0;
+  color: var(--cor1);
+  text-decoration: underline;
+  text-shadow: 0 0 2px var(--cor2);
+}
+
+p {
+  font-family: 'Taviraj', serif;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: .5rem;
+}
+
+a {
+  color: var(--cor2);
+  cursor: pointer;
+  position: relative;
+}
+
+a:visited {
+  color: var(--cor2);
+}
+
+/* */
+
+/* ~~ 2. UTILITY CLASSES */
+
+.light {
+  color: var(--light);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.dark {
+  color: var(--dark);
+}
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.color1 {
+  color: var(--cor1);
+}
+
+.bg-color1 {
+  background-color: var(--cor1);
+}
+
+.color2 {
+  color: var(--cor2);
+}
+
+.bg-color2 {
+  background-color: var(--cor2);
+}
+
+.color3 {
+  color: var(--cor3);
+}
+
+.bg-color3 {
+  background-color: var(--cor3);
+}
+
+.color4 {
+  color: var(--cor4);
+}
+
+.bg-color4 {
+  background-color: var(--cor4);
+}
+
+.hidden {
+  opacity: 0;
+  z-index: -1;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-c {
+  justify-content: center;
+}
+
+.flex-align-c {
+  align-items: center;
+}
+/*  */
+
+/* ~~ 4. CREDIT */
+
+.credit {
+  margin: .5rem 0;
+  font: .75rem "Libre Franklin", sans-serif;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.credit:visited {
+  color: var(--dark);
+}
+
+.credit:hover {
+  text-decoration: underline;
+}
+
+/*  */
+
+/* ~~ 5. TEST CLASSES */
+
+.test-red {
+  border: 1px solid red;
+}
+
+.test-yellow {
+  border: 1px solid yellow;
+}
+
+.test-green {
+  border: 1px solid green;
+}
+
+.test-blue {
+  border: 1px solid blue;
+}
+
+/* */
+
+fieldset {
+  border: none;
+}
+
+.reg-form {
+  margin: 3rem auto;
+  padding: 2rem;
+  width: 80vw;
+  max-width: 600px;
+  background-color: var(--light);
+  border-radius: 1rem;
+  box-shadow: .5rem .5rem 1rem #3333,
+              -.5rem -.5rem 1rem #fffd;
+}
+
+label {
+  font-family: 'Taviraj', serif;
+  font-size: clamp(.9rem, 2.5vw, 1rem);
+  margin-top: .75rem;
+}
+
+.rec_rating {
+  gap: 1rem;
+}
+
+.demos input,
+#dropdown {
+  height: 2rem;
+  background-color: var(--cor2);
+  color: white;
+  border: none;
+  padding: 0 8px;
+  box-shadow: inset 0 0 3px var(--light);
+  margin-bottom: 1rem;
+  font-family: 'Taviraj', serif;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#dropdown {
+  width: 40%;
+  margin: 0;
+}
+
+.dropdown {
+  justify-content: left;
+  gap: 1rem;
+}
+
+.dropdown label {
+  margin: 0;
+}
+
+::placeholder {
+  color: var(--light);
+  opacity: 1;
+  font-family: 'Taviraj', serif;
+}
+
+input[name="recommendation"] {
+  background-color: var(--cor3);
+  margin: 0;
+}
+
+button {
+  margin-top: 1rem;
+  background-color: var(--cor1);
+  border: none;
+  border-radius: 5px;
+  padding: .5rem;
+  color: white;
+}
+
+button:hover {
+  opacity: .95;
+  outline: 1px solid var(--cor2);
+  cursor: pointer;
+}
+
+.butt_div {
+  width: 100%;
+}
+
+textarea {
+  background-color: var(--cor2);
+  padding: 8px;
+  color: white;
+  font-size: .85rem;
+  font-family: 'Taviraj', serif;
+  border: none;
+  box-shadow: inset 0 0 3px var(--light);
+  width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--cor2);
+  margin: 0;
+}
+
+#survey-form {
+  width: 90%;
+}
+
+.rec_rating label {
+  margin: 0;
+}
+
+.checks label {
+  margin-left: .75rem;
+}

@@ -78,6 +78,11 @@ h2 {
   background-position: top;
 }
 
+.project-card__regform--screenshot1 {
+  background-image: url("/Projects/RegistrationForm/screenshots/RegistrationForm.png");
+  background-position: top;
+}
+
 .project-card__retroconsole--screenshot1 {
   background-image: url("/Projects/RetroConsole/screenshots/RetroConsole.png");
   background-position: top;
