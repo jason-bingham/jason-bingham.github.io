@@ -7,6 +7,19 @@
 /* 5. CONTENTS */
 /* 6. LINKS */
 
+:root {
+  font-size: 16px;
+  --light: #ddd;
+  --dark: #222;
+  --grad1: radial-gradient(hsl(340, 5%, 50%), hsl(340, 20%, 50%) 75%);
+  --cor1: hsl(340, 20%, 50%);
+  --grad2: radial-gradient(hsl(180, 5%, 50%), hsl(180, 20%, 50%) 75%);
+  --cor2: hsl(180, 20%, 50%);
+  --grad3: radial-gradient(hsl(90, 5%, 50%), hsl(90, 20%, 50%) 75%);
+  --cor3: hsl(93, 20%, 50%);
+  --cor4: hsl(220, 15%, 25%);
+  --cor5: hsl(32, 66%, 44%);
+}
 
 /* ~~ 1. GENERAL */
 
@@ -89,7 +102,7 @@ header p {
 
 .tab--title {
   right: 10vw;
-  background-color: var(--cor3);
+  background: var(--grad3);
 }
 
 .tab--title.closed {
@@ -99,7 +112,7 @@ header p {
 
 .tab--about {
   right: 7vw;
-  background-color: var(--cor2);
+  background: var(--grad2);
 }
 
 .tab--about.closed {
@@ -109,7 +122,7 @@ header p {
 
 .tab--contact {
   right: 4vw;
-  background-color: var(--cor1);
+  background: var(--grad1);
 }
 
 .tab--contact.closed {
@@ -133,17 +146,20 @@ header p {
 
 .btn__topline, .btn__bottomline {
   transition: all .3s linear;
-  transform-origin: 50%;
+}
+.btn__topline {
+  transform-origin: 50% 30%;
+}
+.btn__bottomline {
+  transform-origin: 50% 70%;
 }
 
 .tab.closed .btn__topline {
-  transform: rotate(-90deg)
-             translateY(25px);
+  transform: rotate(-90deg);
 }
 
 .tab.closed .btn__bottomline {
-  transform: rotate(90deg)
-             translateY(-25px);
+  transform: rotate(90deg);
 }
 
 .btn--contact {
@@ -155,7 +171,7 @@ header p {
 }
 
 .btn--title {
-  background-color: var(--cor3);
+  background: var(--cor3);
 }
 
 /* */
@@ -229,7 +245,6 @@ header p {
     right: 0;
     height: 400px;
     width: 50vw;
-    background-image: url("images/profile_foto_desaturated.jpeg");
     background-size: cover;
     background-position: 50%;
   }
@@ -339,7 +354,6 @@ header p {
   .tab__photo {
     height: 55vh;
     width: 100vw;
-    background-image: url("images/profile_foto_desaturated.jpeg");
     background-size: cover;
     background-position: 50%;
     right: auto;
