@@ -51,6 +51,11 @@ h2 {
   background-image: url("/Projects/Clock/screenshots/mobileNight.png");
 }
 
+.project-card__ari--screenshot1 {
+  background-image: url("/Projects/BioAri/screenshots/screenshotAri.png");
+  background-position: top;
+}
+
 .project-card__drum--screenshot1 {
   background-image: url("/Projects/DrumKit/screenshots/DrumKit.png");
 }
