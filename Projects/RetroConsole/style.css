@@ -1,6 +1,8 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: hsl(200, 100%, 10%);
   font-family: 'Bebas Neue', sans-serif;
 }
@@ -133,4 +135,10 @@ body {
 
 #vid.paused {
   animation-play-state: paused;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw
 }

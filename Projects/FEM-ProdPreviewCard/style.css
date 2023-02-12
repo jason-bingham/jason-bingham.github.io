@@ -115,6 +115,13 @@ button:focus {
 footer {
   position: absolute;
   width: 100%;
-  bottom: 1em;
   text-align: center;
+}
+
+.attribution {
+  bottom: 4em;
+}
+
+.site-footer {
+  bottom: 0;
 }

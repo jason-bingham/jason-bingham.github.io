@@ -7,13 +7,13 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   background-color: hsl(200, 50%, 10%);
-  padding: 1rem;
 }
 
 .is-grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 1rem;
 }
 
 .card {

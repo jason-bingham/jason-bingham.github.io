@@ -130,3 +130,22 @@ a:hover, a:focus {
   opacity: .85;
   scale: 0.95;
 }
+
+.credit {
+  width: 100vw;
+  background-color: revert;
+  padding: revert;
+  border-radius: revert;
+  border: revert;
+  transition: none;
+}
+
+.credit:hover {
+  width: 100vw;
+  background-color: revert;
+  padding: revert;
+  border-radius: revert;
+  border: revert;
+  transition: none;
+  scale: 1;
+}
