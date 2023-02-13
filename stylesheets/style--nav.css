@@ -26,15 +26,12 @@ nav a:visited {
 
 .page-title {
   cursor: default;
+  margin: revert;
 }
 
 /*  */
 
 /* ~~ 2. Hamburger */
-
-.ham {
-  position: reltive;
-}
 
 .preload .ham-line {
   transition: none !important;
@@ -147,11 +144,6 @@ button {
   }
 }
 
-.ham-main[aria-expanded = "true"] {
-  transition: 1s;
-  --button-color: hsl(15 60% 45%);
-}
-
 .ham-main {
   transition: 1s;
 }
@@ -185,6 +177,20 @@ button:hover {
 .ham-link--inactive {
   cursor: default;
   color: grey;
+  text-decoration: line-through;
+}
+
+.ham-link--inactive:visited {
+  color: grey;
+}
+
+[aria-current="page"] {
+  cursor: default;
+  color: darkgrey;
+}
+
+[aria-current="page"]:visited {
+  color: darkgrey;
 }
 
 /*  */

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/style-universal.css">
+  <link rel="stylesheet" href="/stylesheets/style-reset.css">
+  <link rel="stylesheet" href="/stylesheets/style--nav.css">
+  <link rel="stylesheet" href="/stylesheets/style--page-writing.css">
+
+  <title>Jason Bingham | Creative Writing, for Dummies</title>
+</head>
+<body>
+  
+  <header class="flex flex-justify-c bg-dark">
+    <nav class='navbar'>
+      <div class="flex flex-justify-c">
+        <a class="light flex flex-justify-c go-home" href="index.html">
+          <img class="logo" src="/images/logos/logo.svg" alt="logo">
+        </a> 
+      </div>
+      <h1 class="page-title light flex flex-justify-c">Creative Writing</h1>
+      <div class="ham flex flex-justify-c">
+        <div class="ham-menu" aria-expanded="false">
+          <ul id="primary-nav">
+            <a class="ham-link" href="/page_web.html"><li>Web Design</li></a>
+            <a class="ham-link ham-link--inactive" href="#"><li>Graphic Design</li></a>
+            <a class="ham-link ham-link--inactive" href="#"><li>Photography</li></a>
+            <a class="ham-link ham-link--inactive" href="#"><li>Landscape Design</li></a>
+            <a class="ham-link" aria-current="page" href="#"><li>Creative Writing</li></a>
+            <a class="ham-link" href="/index.html"><li>Home</li></a>
+          </ul>
+        </div>
+        <button class="ham-main preload light"      
+                aria-controls="primary-nav"
+                aria-expanded="false">
+          <svg viewBox="0 0 100 100" width="30">
+            <line class="ham-line top"
+                  x1="15" x2="85" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line top right"
+                  x1="85" x2="15" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line middle"
+                  x1="15" x2="85" y1="50" y2="50"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom"
+                  x1="15" x2="85" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom right"
+                  x1="85" x2="15" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <ul class="blurb__list">
+      <li class="blurb">
+        <a href="/writing_samples/theReason.html">
+          <h2>The Reason</h2>
+          <p>A meditation on the meaning of life.</p>
+        </a>
+      </li>
+    </ul>
+  </main>
+    
+  <footer class="bg-dark flex flex-justify-c">
+    <a href="/index.html" class="credit light">Website designed and produced by Jason Bingham</a>
+  </footer>
+
+  <script src="script-hamburger.js"></script>
+
+</body>
+</html>

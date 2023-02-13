@@ -1,0 +1,14 @@
+.blurb__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blurb {
+  text-align: center;
+  margin: 3rem;
+  border: 1px solid var(--dark);
+  padding: 1rem;
+  width: 80vw;
+  max-width: 600px;
+}/*# sourceMappingURL=style--page-writing.css.map */
