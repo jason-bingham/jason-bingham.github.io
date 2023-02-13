@@ -11,12 +11,12 @@
   font-size: 16px;
   --light: #ddd;
   --dark: #222;
-  --grad1: radial-gradient(hsl(340, 5%, 50%), hsl(340, 20%, 50%) 75%);
-  --cor1: hsl(340, 20%, 50%);
-  --grad2: radial-gradient(hsl(180, 5%, 50%), hsl(180, 20%, 50%) 75%);
-  --cor2: hsl(180, 20%, 50%);
-  --grad3: radial-gradient(hsl(90, 5%, 50%), hsl(90, 20%, 50%) 75%);
-  --cor3: hsl(93, 20%, 50%);
+  --grad1: radial-gradient(hsl(340, 0%, 50%), hsl(0, 25%, 50%) 70%);
+  --cor1: hsl(0, 25%, 50%);
+  --grad2: radial-gradient(hsl(180, 0%, 50%), hsl(180, 30%, 50%) 70%);
+  --cor2: hsl(180, 30%, 50%);
+  --grad3: radial-gradient(hsl(90, 0%, 50%), hsl(90, 30%, 50%) 70%);
+  --cor3: hsl(93, 30%, 50%);
   --cor4: hsl(220, 15%, 25%);
   --cor5: hsl(32, 66%, 44%);
 }
@@ -94,7 +94,7 @@ header p {
   right: 0;
   height: 350px;
   width: 370px;
-  background-image: url("/images/profile_foto_desaturated.jpeg");
+  background-image: url("/images/profile_foto_desaturated.png");
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
