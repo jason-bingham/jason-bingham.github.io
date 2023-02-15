@@ -4,9 +4,145 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Inconsolata:wght@200;400&family=Libre+Franklin:ital,wght@0,100;0,500;0,600;0,900;1,100&family=Lora&family=Nothing+You+Could+Do&family=Smooch+Sans:wght@600&family=Taviraj:wght@200&family=Unica+One&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon_16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicons/favicon_48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicons/favicon_64x64.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/style-reset.css">
+  <link rel="stylesheet" href="/stylesheets/style-universal.css">
+  <link rel="stylesheet" href="/graphic_design_assets/stylesheets/style--page_graphic.css">
+  <link rel="stylesheet" href="stylesheets/style--nav.css">
   <title>Jason Bingham | Graphic Design</title>
 </head>
 <body>
-  
+
+  <header class="flex flex-justify-c bg-dark">
+    <nav class='navbar'>
+      <div class="flex flex-justify-c">
+        <a class="light flex flex-justify-c go-home" href="index.html">
+          <img class="logo" src="/images/logos/logo.svg" alt="logo">
+        </a> 
+      </div>
+      <h1 class="page-title light flex flex-justify-c">Graphic Design</h1>
+      <div class="ham flex flex-justify-c">
+        <div class="ham-menu" aria-expanded="false">
+          <ul id="primary-nav">
+            <a class="ham-link" href="/page_web.html"><li>Web Design</li></a>
+            <a class="ham-link" aria-current="page" href="#"><li>Graphic Design</li></a>
+            <a class="ham-link ham-link--inactive" href="#"><li>Photography</li></a>
+            <a class="ham-link ham-link--inactive" href="#"><li>Landscape Design</li></a>
+            <a class="ham-link" href="/page_writing.html"><li>Creative Writing</li></a>
+            <a class="ham-link" href="/index.html"><li>Home</li></a>
+          </ul>
+        </div>
+        <button class="ham-main preload light"      
+                aria-controls="primary-nav"
+                aria-expanded="false">
+          <svg viewBox="0 0 100 100" width="30">
+            <line class="ham-line top"
+                  x1="15" x2="85" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line top right"
+                  x1="85" x2="15" y1="30" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line middle"
+                  x1="15" x2="85" y1="50" y2="50"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom"
+                  x1="15" x2="85" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line bottom right"
+                  x1="85" x2="15" y1="70" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="30" x2="70" y1="30" y2="70"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+            <line class="ham-line x"
+                  x1="70" x2="30" y1="70" y2="30"
+                  stroke="var(--light)"
+                  stroke-width="8"
+                  stroke-linecap="round">
+            </line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+      
+  <main>
+    <div class="card_container">
+      <img class="card card--3_3" src="/graphic_design_assets/images/periodic_table_1000pxx1000px-01.png" alt="">
+      <img class="card card--2_1" src="/graphic_design_assets/images/electrons.png" alt="">
+      <img class="card card--2_3" src="/graphic_design_assets/images/pascals_triangle_vert.jpg" alt="">
+      <img class="card card--2_1" src="/graphic_design_assets/images/color sphere.jpg" alt="">
+      <img class="card card--1_2" src="/graphic_design_assets/images/elephant.jpg" alt="">
+      <img class="card card--2_1" src="/graphic_design_assets/images/matar carta.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/FJU_Logo_v2.jpg" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/RuSIANZ_Logo_v9.png" alt="">
+      <img class="card card--2_1" src="/graphic_design_assets/images/butterfly-blue-monarch.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/Gala-01.jpg" alt="">
+      <img class="card card--4_2" src="/graphic_design_assets/images/weefor_01.jpg" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/ouro_water.jpg" alt="">
+      <img class="card card--3_2" src="/graphic_design_assets/images/best_coast_warehouse.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/WCW Logo 2.jpg" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/WCW Logo.jpg" alt="">
+      <img class="card card--2_2" src="/graphic_design_assets/images/LASPdesign_Logo_sq-02.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/MiniMango_logo_option 2.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/Mommy's Sippy Cup_Flamingos with waves.png" alt="">
+      <img class="card card--3_3" src="/graphic_design_assets/images/Haeckel.jpg" alt="">
+      <img class="card card--2_2" src="/graphic_design_assets/images/PlantNative2.jpg" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/Once-2-01.jpg" alt="">
+      <img class="card card--2_1" src="/graphic_design_assets/images/scene of the crime.jpg" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/pattern1.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/whereTo.png" alt="">
+      <img class="card card--1" src="/graphic_design_assets/images/wallpaper.png" alt="">
+    </div>
+  </main>
+
+  <footer class="bg-dark flex flex-justify-c">
+    <a href="/index.html" class="credit light">Website designed and produced by Jason Bingham</a>
+  </footer>
+
+  <script src="script-hamburger.js"></script>
+
 </body>
 </html>
