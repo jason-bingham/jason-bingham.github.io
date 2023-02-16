@@ -7,8 +7,7 @@ img {
 
 .card_container {
   display: grid;
-  grid: auto-flow dense
-        / repeat(auto-fit, minmax(150px, 1fr));
+  grid: auto-flow dense/repeat(auto-fit, minmax(150px, 1fr));
   margin: 1rem;
   gap: 0.5rem;
   grid-auto-rows: 150px;
@@ -16,16 +15,6 @@ img {
 
 .card {
   display: block;
-}
-
-.card--3_3 {
-  grid-column: span 3;
-  grid-row: span 3;
-}
-
-.card--3_2 {
-  grid-column: span 3;
-  grid-row: span 2;
 }
 
 .card--1_2 {
@@ -48,6 +37,21 @@ img {
   grid-row: span 3;
 }
 
+.card--3_1 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.card--3_2 {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.card--3_3 {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+
 .card--4_2 {
   grid-column: span 4;
   grid-row: span 2;
@@ -57,3 +61,15 @@ img {
   grid-column: span 4;
   grid-row: span 3;
 }
+
+.card--4_4 {
+  grid-column: span 4;
+  grid-row: span 4;
+}
+
+@media screen and (max-width: 650px) {
+  .card {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}/*# sourceMappingURL=style--page_graphic.css.map */
