@@ -5,15 +5,22 @@
   width: 100vw;
   background-color: #233848;
   padding: var(--spc-3xs);
-  color: #fafafa;
+  /* color: #fafafa; */
   font-family: var(--ff-headings);
   filter: drop-shadow(0 0 2px #fafafa);
+}
+
+.navitem {
+  font-size: var(--fs-300);
+  color: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
   .navbar {
   background-color: #fafafa;
-  color: #233848;
+  }
+  .navitem {
+    color: #233848;
   }
 }
 
@@ -22,10 +29,6 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-}
-
-.navitem {
-  font-size: var(--fs-300);
 }
 
 .navimg {

@@ -22,6 +22,7 @@
 
 .affiliatelinks {
   padding: var(--spc-3xs);
+  background-color: white;
 }
 
 .affiliatelinks img {
