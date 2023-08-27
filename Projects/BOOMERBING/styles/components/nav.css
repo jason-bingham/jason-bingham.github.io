@@ -1,0 +1,208 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  background-color: #233848;
+  padding: var(--spc-3xs);
+  color: #fafafa;
+  font-family: var(--ff-headings);
+  filter: drop-shadow(0 0 2px #fafafa);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+  background-color: #fafafa;
+  color: #233848;
+  }
+}
+
+.navlist {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.navitem {
+  font-size: var(--fs-300);
+}
+
+.navimg {
+  max-height: 40px;
+}
+
+
+
+
+
+/* ~~ 2. Hamburger */
+
+.preload .ham-line {
+  transition: none !important;
+  animation: none !important;
+}
+
+button {
+  background: transparent;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.ham-line {
+  transition: stroke 1s;
+}
+
+.bottom,
+.top {
+  animation: to-dots-r .5s both .5s;
+}
+
+.ham-main[aria-expanded = "true"] .bottom,
+.ham-main[aria-expanded = "true"] .top {
+  animation: to-dots .5s forwards;
+}
+
+.middle {
+  animation: to-dots-mid-r .5s both .5s;
+  stroke-dasharray: 70;
+}
+
+.ham-main[aria-expanded = "true"] .middle {
+  animation: to-dots-mid .5s forwards;
+  stroke-dasharray: 70;
+}
+
+.x {
+  animation: to-x-r .5s both;
+}
+
+.x {
+  stroke-dasharray: .1 70;
+}
+
+.ham-main[aria-expanded = "true"] .x {
+  animation: to-x .5s forwards .5s;
+}
+
+
+@keyframes to-dots {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  100% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-dots-r {
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  0% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-x {
+  0% {
+    stroke-dasharray: .1 70;
+  }
+  100% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-x-r {
+  100% {
+    stroke-dasharray: .1 70;
+  }
+  0% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-dots-mid {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+@keyframes to-dots-mid-r {
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  0% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+.ham-main {
+  transition: 1s;
+}
+
+button:hover {
+  opacity: 85%;
+}
+
+/*  */
+
+/* ~~ HAMBURGER MENU */
+
+.ham-menu {
+  background: var(--dark);
+  position: absolute;
+  top: -10rem;
+  color: var(--light);
+  border-radius: 0 0 1rem 1rem;
+  z-index: 8;
+  padding-right: 1rem;
+  line-height: 1.5rem;
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
+
+.ham-menu[aria-expanded = "true"] {
+  top: 3.5rem;
+  opacity: 1;
+}
+
+.ham-link--inactive {
+  cursor: default;
+  color: grey;
+  text-decoration: line-through;
+}
+
+.ham-link--inactive:visited {
+  color: grey;
+}
+
+[aria-current="page"] {
+  cursor: default;
+  color: darkgrey;
+}
+
+[aria-current="page"]:visited {
+  color: darkgrey;
+}
+
+/*  */
+
+/* ~~ LOGO */
+
+.logo {
+  aspect-ratio: 1;
+  width: 50px;
+}

@@ -1,0 +1,35 @@
+main {
+  padding: var(--spc-l) var(--spc-l);
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: var(--spc-l) var(--spc-m);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: var(--spc-l) var(--spc-s);
+  }
+}
+
+main > * {
+  margin: 0 auto;
+}
+
+main img {
+  border-radius: 50vw;
+  filter: drop-shadow(0 0 4px #233848);
+}
+
+main h2, h3 {
+  margin-top: var(--spc-l);
+  margin-bottom: var(--spc-s);
+  text-align: center;
+}
+
+main p {
+  text-align: justify;
+}

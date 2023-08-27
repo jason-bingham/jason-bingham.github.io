@@ -1,0 +1,29 @@
+.hero {
+  padding: var(--spc-3xl);
+  width: 100vw;
+  background-color: #233848;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: var(--spc-2xl);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: var(--spc-l);
+  }
+}
+
+.hero img {
+  margin: 0 auto;
+}
+
+.affiliatelinks {
+  padding: var(--spc-3xs);
+}
+
+.affiliatelinks img {
+  max-height: var(--spc-l);
+}

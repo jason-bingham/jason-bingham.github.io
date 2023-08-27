@@ -17,6 +17,24 @@
 
 /* ~~ 1. SHELF */
 
+.bookshelf__depth {
+  position: absolute;
+  /* border-image: 
+    linear-gradient(
+      black,
+      whitesmoke
+    );
+  border-width: 19rem calc(100vw / 2);
+  border-image-slice: 50%; */
+  border-image-source: linear-gradient(
+      black,
+      whitesmoke
+    );
+border-image-slice: 30;
+border-image-repeat: round;
+border-width: 19rem 50vw;
+}
+
 .bookshelf {  
   padding: 3rem 0;
   width: clamp(365px, 80vw, 500px);

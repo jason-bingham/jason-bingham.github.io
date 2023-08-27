@@ -1,0 +1,135 @@
+:root {
+
+  color-scheme: light dark;
+
+  /* Color palette from realtimecolors.com */
+  --clr-text: #050505;
+  --clr-background: #fafafa;
+  --clr-primary: #233848;
+  --clr-secondary: #d4eef7;
+  --clr-accent: #da5225;
+
+  /* Font pairing from fontpair.co */
+  --ff-headings: 'Arsenal', sans-serif;
+  --ff-body: ;
+
+  /* Font sizes from utopia.fyi */
+  --fs-100: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.70rem);
+  --fs-200: clamp(0.83rem, calc(0.78rem + 0.29vw), 0.94rem);
+  --fs-300: clamp(1.00rem, calc(0.91rem + 0.43vw), 1.25rem);
+  --fs-400: clamp(1.20rem, calc(1.07rem + 0.63vw), 1.67rem);
+  --fs-500: clamp(1.44rem, calc(1.26rem + 0.89vw), 2.22rem);
+  --fs-600: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.96rem);
+  --fs-700: clamp(2.07rem, calc(1.73rem + 1.70vw), 3.95rem);
+  --fs-800: clamp(2.49rem, calc(2.03rem + 2.31vw), 5.26rem);
+
+  /* Spacing from utopia.fyi */
+  --spc-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem);
+  --spc-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+  --spc-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+  --spc-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --spc-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+  --spc-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.50rem);
+  --spc-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
+  --spc-2xl: clamp(4.50rem, calc(4.33rem + 0.87vw), 5.00rem);
+  --spc-3xl: clamp(6.75rem, calc(6.49rem + 1.30vw), 7.50rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Color palette from realtimecolors.com */
+    --clr-text: #fafafa;
+    --clr-background: #233848;
+    --clr-primary: #fafafa;
+    --clr-secondary: #08222b;
+    --clr-accent: #e9977c;
+  }
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--clr-text);
+  font-size: var(--fs-400);
+  line-height: 1.6;
+  background-color: var(--clr-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-headings);
+  line-height: 1.1;
+  /* Progressive enhancement, not fully supported ( but no big deal if it doesn't work) */
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-700);
+  color: var(--clr-primary);
+  --flow-space: 2em;
+  margin-top: 2em;
+}
+
+h2 {
+  font-size: var(--fs-600);
+  color: var(--clr-primary);
+  --flow-space: 1.5em;
+}
+
+h3 {
+  font-size: var(--fs-500);
+}
+
+main {
+  width: min(55ch, 100% - 4rem);
+  margin-inline: auto;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--clr-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--clr-accent);
+}
+
+::marker {
+  color: var(--clr-primary)
+}
+
+.wrapper {
+  width: min (100% - 3rem, 65ch);
+  margin-inline: auto;
+}
+
+.flow > :where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1em);
+}
+
+form {
+  border: solid var(--clr-accent) 2px;
+  padding: .5em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: .25em;
+  margin: auto;
+  text-align: center;
+}
+
+input {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+}
