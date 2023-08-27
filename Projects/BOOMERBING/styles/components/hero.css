@@ -1,18 +1,18 @@
 .hero {
-  padding: var(--spc-3xl);
+  padding: var(--spc-2xl) var(--spc-3xl);
   width: 100vw;
   background-color: #233848;
 }
 
 @media screen and (max-width: 768px) {
   .hero {
-    padding: var(--spc-2xl);
+    padding: var(--spc-xl) var(--spc-2xl);
   }
 }
 
 @media screen and (max-width: 480px) {
   .hero {
-    padding: var(--spc-l);
+    padding: var(--spc-l) var(--spc-xl);
   }
 }
 

@@ -4,19 +4,20 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-  .hero {
+  main {
     padding: var(--spc-l) var(--spc-m);
   }
 }
 
 @media screen and (max-width: 480px) {
-  .hero {
+  main {
     padding: var(--spc-l) var(--spc-s);
   }
 }
 
 main > * {
   margin: 0 auto;
+  max-width: 600px;
 }
 
 main img {
@@ -30,6 +31,15 @@ main h2, h3 {
   text-align: center;
 }
 
+main h2 {
+  font-size: var(--fs-500);
+}
+
+main h3 {
+  font-size: var(--fs-400);
+}
+
 main p {
   text-align: justify;
+  font-size: var(--fs-300);
 }
