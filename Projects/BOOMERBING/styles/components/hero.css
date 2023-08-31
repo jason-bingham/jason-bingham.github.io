@@ -26,5 +26,5 @@
 }
 
 .affiliatelinks img {
-  max-height: var(--spc-l);
+  max-height: min(5vw, var(--spc-l));
 }

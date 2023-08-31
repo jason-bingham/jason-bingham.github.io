@@ -43,3 +43,7 @@ main p {
   text-align: justify;
   font-size: var(--fs-300);
 }
+
+p ~ p {
+  margin-top: var(--spc-xs);
+}
