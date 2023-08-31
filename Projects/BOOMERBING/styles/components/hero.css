@@ -1,23 +1,51 @@
 .hero {
-  padding: var(--spc-2xl) var(--spc-3xl);
   width: 100vw;
+  height: 50vh;
   background-color: #233848;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
+.hero__logo {
+  display: flex;
+  flex: 1 1 50vw;
+  padding: var(--spc-l);
+  margin-left: var(--spc-l);
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__img {
+  flex: 1 1 50vw;
+  background-image: url("../../assets/images/jimi_profile_ext.jpg");
+  background-size: cover;
+  background-position: 50% 25%;
+  box-shadow: inset 3em 0 2em #233848;
+}
+
+@media screen and (max-width: 810px) {
   .hero {
-    padding: var(--spc-xl) var(--spc-2xl);
+    height: 40vh;
+  }
+  .hero__logo {
+    padding: var(--spc-s);
+    margin-left: var(--spc-s);
   }
 }
 
 @media screen and (max-width: 480px) {
   .hero {
-    padding: var(--spc-l) var(--spc-xl);
+    height: 70vh;
+    flex-direction: column;
   }
-}
-
-.hero img {
-  margin: 0 auto;
+  .hero__logo {
+    padding: var(--spc-l);
+    margin-left: 0;
+    margin-top: var(--spc-m);
+  }
+  .hero__img {
+    flex-basis: 80%;
+    box-shadow: inset 0 2em 1em #233848;
+  }
 }
 
 .affiliatelinks {
