@@ -11,7 +11,7 @@
 
   /* Font pairing from fontpair.co */
   --ff-headings: 'Arsenal', sans-serif;
-  --ff-body: ;
+  --ff-body: 'Marcellus', serif;
 
   /* Font sizes from utopia.fyi */
   --fs-100: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.70rem);
@@ -52,6 +52,7 @@ body {
   font-size: var(--fs-400);
   line-height: 1.6;
   background-color: var(--clr-background);
+  font-family: var(--ff-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
