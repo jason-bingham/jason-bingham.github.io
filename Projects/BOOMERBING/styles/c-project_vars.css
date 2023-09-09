@@ -39,9 +39,9 @@
   :root {
     /* Color palette from realtimecolors.com */
     --clr-text: #fafafa;
-    --clr-background: #233848;
-    --clr-primary: #fafafa;
-    --clr-secondary: #08222b;
+    --clr-background: #08222b;
+    --clr-primary: #d4eef7;
+    --clr-secondary: #233848;
     --clr-accent: #e9977c;
   }
 }
@@ -60,19 +60,25 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   /* Progressive enhancement, not fully supported ( but no big deal if it doesn't work) */
   text-wrap: balance;
+  color: var(--clr-primary);
+  text-align: center;
+  margin-top: 1.5em;
 }
 
 h1 {
   font-size: var(--fs-700);
   color: var(--clr-primary);
   --flow-space: 2em;
-  margin-top: 2em;
 }
 
 h2 {
   font-size: var(--fs-600);
   color: var(--clr-primary);
   --flow-space: 1.5em;
+}
+
+h2:first-of-type {
+  margin-top: 0;
 }
 
 h3 {
