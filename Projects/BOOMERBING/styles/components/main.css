@@ -20,7 +20,8 @@ main h3 {
 }
 
 main p {
-  text-align: justify;
+  text-align: left;
+  line-height: 1.55;
   font-size: var(--fs-300);
 }
 
@@ -28,12 +29,14 @@ p ~ p {
   margin-top: var(--spc-xs);
 }
 
-article {
-  max-width: 600px;
-  margin: 0 auto;
+article p {
+  max-width: 35ch;
+  margin-inline: auto;
 }
 
-#about, #events, #affiliates {
+#about,
+#events,
+#affiliates {
   scroll-margin-top: 60px;
 }
 
@@ -66,10 +69,7 @@ article {
   color: var(--clr-background);
   padding: var(--spc-2xs);
   border-radius: 10px;
-  box-shadow: 
-    inset 2px 2px 8px #3a8180,
-    inset -1px -1px 8px #3a8180
-  ;
+  box-shadow: inset 2px 2px 8px #3a8180, inset -1px -1px 8px #3a8180;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -117,8 +117,8 @@ article {
   list-style: disc inside;
   margin-top: var(--spc-xs);
   padding: 0 var(--spc-l);
-  /* overflow: hidden; */
   columns: 2;
+  margin-inline: auto;
 }
 
 .affiliates__topic {
@@ -148,7 +148,7 @@ article {
     content: "";
     display: block;
     width: 100%;
-    border:  1px dashed var(--clr-text);
+    border: 1px dashed var(--clr-text);
   }
 
   .event__when {
