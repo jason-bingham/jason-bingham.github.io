@@ -1,0 +1,504 @@
+@use 'sass:meta'
+	
+// 1. Variables ~~
+$clr-neutral-900: #050505
+$clr-neutral-100: #fafafa
+$color3: #233848
+$color4: #d4eef7
+$color5: #da5225
+$color6: #08222b
+$color7: #e9977c
+
+$clr-text: $clr-neutral-900
+$clr-background: $clr-neutral-100
+$clr-primary: $color3
+$clr-secondary: $color4
+$clr-accent: $color5
+
+$ff-headings: 'Arsenal', sans-serif
+$ff-body: 'Marcellus', serif
+
+$fs-100: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.70rem)
+$fs-200: clamp(0.83rem, calc(0.78rem + 0.29vw), 0.94rem)
+$fs-300: clamp(1.00rem, calc(0.91rem + 0.43vw), 1.25rem)
+$fs-400: clamp(1.20rem, calc(1.07rem + 0.63vw), 1.67rem)
+$fs-500: clamp(1.44rem, calc(1.26rem + 0.89vw), 2.22rem)
+$fs-600: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.96rem)
+$fs-700: clamp(2.07rem, calc(1.73rem + 1.70vw), 3.95rem)
+$fs-800: clamp(2.49rem, calc(2.03rem + 2.31vw), 5.26rem)
+
+$spc-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem)
+$spc-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem)
+$spc-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem)
+$spc-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem)
+$spc-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem)
+$spc-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.50rem)
+$spc-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem)
+$spc-2xl: clamp(4.50rem, calc(4.33rem + 0.87vw), 5.00rem)
+$spc-3xl: clamp(6.75rem, calc(6.49rem + 1.30vw), 7.50rem)
+
+$bp-s: 30em
+$bp-m: 40em
+
+
+
+// 2. Mixins & Extends
+@mixin mq($breakpoint)
+	@media only screen and (min-width: $breakpoint)
+		@content
+
+@mixin pseudo($pos: 'before', $position: absolute, $content: '')
+	@if $pos == 'before'
+		&::before
+			content: $content
+			position: $position
+			@content
+	@else
+		&::after
+			content: $content
+			position: $position
+			@content
+
+
+// 2. Reset ~~
+*
+	margin: 0
+	padding: 0
+	
+*, 
+*::after, 
+*::before 
+	box-sizing: border-box
+
+img 
+	display: block
+	max-width: 100%
+
+ul
+	list-style: none
+
+a
+	text-decoration: none
+
+
+// 3. Composition ~~
+body 
+	font-family: $ff-body
+	color: $clr-text
+	font-size: $fs-400
+	line-height: 1.6
+	background-color: $clr-background
+	font-family: $ff-body
+
+h1, h2, h3, h4, h5, h6 
+	font-family: $ff-headings
+	line-height: 1.1
+	text-wrap: balance
+	color: $clr-primary
+	text-align: center
+	margin-top: 1.5em
+
+h1 
+	font-size: $fs-700
+	color: $clr-primary
+	-flow-space: 2em
+
+h2 
+	font-size: $fs-600
+	font-weight: 700
+	color: $clr-primary
+	-flow-space: 1.5em
+	&:first-of-type 
+		margin-top: 0
+
+h3 
+	font-size: $fs-500
+
+main 
+	width: min(55ch, 100vw - 4rem)
+	margin-inline: auto
+
+img, svg, video 
+	max-width: 100%
+	display: block
+
+a 
+	&:hover, &:focus 
+		color: $clr-accent
+
+.wrapper 
+	width: min(100vw - 3rem, 65ch)
+	margin-inline: auto
+
+.flow > :where(:not(:first-child)) 
+	margin-top: 1em
+
+form 
+	border: solid $clr-accent 2px
+	padding: .5em
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	flex-direction: column
+	gap: .25em
+	margin: auto
+	text-align: center
+
+input 
+	margin-left: 1em
+	margin-right: 1em
+
+.checks 
+	display: flex
+	flex-direction: column
+
+
+// 4. Utility Classes ~~
+.visually-hidden 
+	position: absolute
+	width: 1px
+	height: 1px
+	padding: 0
+	margin: -1px
+	overflow: hidden
+	clip-path: inset(50%)
+
+.hidden 
+	opacity: 0
+	z-index: -1
+
+.flex 
+	display: flex
+
+	&-column 
+		flex-direction: column
+	
+	&-center 
+		justify-content: center
+		align-items: center
+	
+	&-justify-c 
+		justify-content: center
+	
+	&-align-c 
+		align-items: center
+	
+.text-small 
+	font-size: $fs-100
+
+
+// 5. Blocks ~~
+
+	// 5a. Hero ~~
+.hero 
+	width: 100vw
+	height: 70vh
+	background-color: $clr-primary
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	position: relative
+
+	@include mq($bp-m)
+		flex-direction: row
+
+	&__logo 
+		padding-block: $spc-xl $spc-m
+		padding-inline: $spc-s
+		align-items: center
+		justify-content: center
+		border-bottom: 1px solid $clr-primary //To hide potential gap
+		align-self: center
+		justify-self: center
+		max-width: 300px
+
+		@include mq($bp-m)
+			padding-block: $spc-xl $spc-m
+			padding-inline: $spc-l $spc-s
+			max-width: 500px
+			flex: 1 1 50vw
+		
+	
+	&__img 
+		flex: 1 1 50vw
+		background-image: url("https://storage.googleapis.com/msgsndr/FyHHoM7FqOXG2YK6KvBz/media/650c44c415fdd0466b206e9f.jpeg")
+		background-size: cover
+		background-position: 50% 25%
+		box-shadow: inset 0 2em 1.25em $clr-primary
+
+		@include mq($bp-m)
+			box-shadow: inset 2em 0 1.25em $clr-primary
+
+.tenx_link
+	position: absolute
+	width: max(100px, 10vw)
+	height: max(100px, 10vw)
+	right: 10%
+	bottom: 10%
+	display: flex
+	align-content: center
+	justify-content: center
+
+	& img
+		width: max(60px, 8vw)
+		object-fit: contain
+		transition: 200ms
+		filter: drop-shadow(0 0 .5em $clr-primary)
+
+	&:hover img
+		transform: scale(1.1)
+		filter: drop-shadow(0 0 .75em $clr-primary) contrast(105%) 
+
+
+	// 5b. Nav ~~
+.navbar 
+	display: flex
+	justify-content: space-around
+	align-items: center
+	width: 100vw
+	background-color: $clr-primary
+	padding: $spc-3xs
+	font-family: $ff-headings
+	filter: drop-shadow(0 0 2px $clr-neutral-100)
+	position: sticky
+	top: 0
+	z-index: 10
+
+.navitem 
+	font-size: $fs-300
+	color: $clr-neutral-100
+
+.navlist 
+	display: flex
+	justify-content: space-evenly
+	align-items: center
+	width: 100%
+
+
+	// 5c. Main ~~
+main 
+	padding: $spc-l $spc-l
+	margin-bottom: 1rem
+	img 
+		border-radius: 50vw
+		filter: drop-shadow(0 0 4px $color3)
+	
+	h2 
+		margin-top: $spc-l
+		margin-bottom: $spc-s
+		text-align: center
+		font-size: $fs-500
+	
+	h3 
+		font-size: $fs-400
+	
+	p 
+		text-align: left
+		line-height: 1.55
+		font-size: $fs-300
+	
+
+p ~ p 
+	margin-top: $spc-xs
+
+article p 
+	max-width: 35ch
+	margin-inline: auto
+
+#about, #events, #affiliates 
+	scroll-margin-top: 60px
+
+.events 
+	background-color: $clr-secondary
+	padding: $spc-m
+	margin: $spc-l 0
+	border-radius: 12px
+	&__heading 
+		text-align: center
+	
+
+.event 
+	margin: $spc-m 0
+	display: flex
+	gap: $spc-m
+	&:last-of-type 
+		margin-bottom: 0
+	
+	&__when 
+		width: 150px
+		height: 125px
+		flex-shrink: 0
+		background-color: $clr-primary
+		color: $clr-background
+		padding: $spc-2xs
+		border-radius: 10px
+		box-shadow: inset 2px 2px 8px $clr-neutral-900, inset -1px -1px 8px #3a8180
+		justify-content: center
+		display: flex
+		flex-direction: column
+		&__heading 
+			margin: 0 auto
+			text-align: center
+			margin-bottom: $spc-2xs
+			color: $clr-secondary
+		
+	
+	&__what 
+		background-color: $clr-neutral-100
+		padding: $spc-s
+		border-radius: 10px
+		flex-basis: 100%
+		display: flex
+		flex-direction: column
+		justify-content: center
+	
+	&__description 
+		color: $color3
+		font-size: $fs-400
+		font-family: $ff-headings
+		text-align: left
+	
+	&__time 
+		font-size: $fs-200
+	
+	&__signup:hover 
+		color: $clr-accent
+		text-decoration: underline
+	
+	&:not(:last-child)::after 
+		content: ""
+		display: block
+		width: 100%
+		border: 1px dashed $clr-text
+	
+	&__when 
+		width: 100%
+		height: 100px
+
+
+.affiliates 
+	display: flex
+	flex-direction: column
+	&__topics 
+		list-style: disc inside
+		margin-top: $spc-xs
+		padding: 0 $spc-l
+		columns: 2
+		margin-inline: auto
+	
+	&__topic 
+		font-size: $fs-200
+	
+	&__topics 
+		columns: 1
+
+		@include mq($bp-m)
+			columns: 2
+	
+
+.accent-text 
+	color: $clr-accent
+
+.event 
+	flex-direction: column
+
+.call_to_action
+	padding: $spc-s
+	background-color: $clr-secondary
+	color: $clr-primary
+	border-radius: 100vw
+	font-size: $fs-400
+	font-family: $ff-headings
+	margin-top: $spc-s
+	align-self: center
+	h4 
+		margin: 0
+	
+
+	// 5d. Footer ~~
+.footer 
+	display: flex
+	flex-direction: column
+	background-color: $clr-primary
+	align-items: center
+	justify-content: center
+	padding-top: $spc-m
+	padding-bottom: $spc-xs
+	color: $clr-neutral-100
+	gap: $spc-2xs
+	&__logo 
+		height: 100px
+	
+
+.copyright 
+	font-size: $fs-100
+
+
+	// 5e. GEM Hero
+.gem__container
+	display: flex
+	align-items: center
+	margin-inline: auto
+	margin-block: auto
+	gap: 0.5rem
+
+.svg__box
+	width: 100px
+	align-self: end
+
+.gem__logo
+	stroke-linecap: round
+	stroke-linejoin: round
+	stroke-width: 0.75
+	animation: gemin 2s ease 9s forwards
+	stroke-dasharray: 0 1000
+	opacity: 0
+
+@keyframes gemin
+	0%
+		stroke-dasharray: 1 200
+		opacity: 0
+	100%
+		stroke-dasharray: 200
+		opacity: 1
+
+.gem__topline
+	color: $clr-accent
+	font-size: 2rem
+
+.gem__disappearing
+	opacity: 1
+	animation: appear 1.5s ease-out 3s reverse forwards
+
+.gem__matter
+	opacity: 0
+	animation: appear 1.5s ease-in 4.5s forwards
+
+@keyframes appear
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+.shrinking
+	animation: shrink 2s ease 7s forwards
+
+.growing
+	animation: grow 2s ease 7s forwards
+
+@keyframes shrink
+	0%
+		font-size: 2rem
+		opacity: 1
+	100%
+		font-size: 0
+		opacity: 0
+
+@keyframes grow
+	0%
+		font-size: 2rem
+	100%
+		font-size: 4.5rem
+
+
+// 6. Exceptions ~~

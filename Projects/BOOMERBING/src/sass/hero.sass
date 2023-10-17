@@ -1,0 +1,42 @@
+@use 'vars.sass' as *
+
+.hero 
+	width: 100vw
+	height: 50vh
+	background-color: $clr-primary
+	overflow: hidden
+	&__logo 
+		display: flex
+		flex: 1 1 50vw
+		padding: var($spc-l)
+		margin-left: var($spc-l)
+		align-items: center
+		justify-content: center
+	
+	&__img 
+		flex: 1 1 50vw
+		background-image: url("../assets/images/jimi_profile_ext.jpg")
+		background-size: cover
+		background-position: 50% 25%
+		box-shadow: inset 3em 0 2em $color1
+	
+	&__logo 
+		padding: var($spc-s)
+		margin-left: var($spc-s)
+	
+	&__logo 
+		padding: var($spc-l)
+		margin-left: 0
+		margin-top: var($spc-m)
+	
+	&__img 
+		flex-basis: 80%
+		box-shadow: inset 0 2em 1em $clr-primary
+
+.affiliatelinks 
+	padding: var($spc-3xs)
+	background-color: white
+	img 
+		max-height: min(5vw, var($spc-l))
+	
+

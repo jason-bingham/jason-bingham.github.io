@@ -1,0 +1,139 @@
+@use 'vars.sass' as *
+@use 'sass:color'
+
+main 
+	padding: $spc-l $spc-l
+	margin-bottom: 1rem
+	img 
+		border-radius: 50vw
+		filter: drop-shadow(0 0 4px $color3)
+	
+	h2 
+		margin-top: $spc-l
+		margin-bottom: $spc-s
+		text-align: center
+		font-size: $fs-500
+	
+	h3 
+		font-size: $fs-400
+	
+	p 
+		text-align: left
+		line-height: 1.55
+		font-size: $fs-300
+	
+
+p ~ p 
+	margin-top: $spc-xs
+
+article p 
+	max-width: 35ch
+	margin-inline: auto
+
+#about, #events, #affiliates 
+	scroll-margin-top: 60px
+
+.events 
+	background-color: $clr-secondary
+	padding: $spc-m
+	margin: $spc-l 0
+	border-radius: 12px
+	&__heading 
+		text-align: center
+	
+
+.event 
+	margin: $spc-m 0
+	display: flex
+	gap: $spc-m
+	&:last-of-type 
+		margin-bottom: 0
+	
+	&__when 
+		width: 150px
+		height: 125px
+		flex-shrink: 0
+		background-color: $clr-primary
+		color: $clr-background
+		padding: $spc-2xs
+		border-radius: 10px
+		box-shadow: inset 2px 2px 8px $color1, inset -1px -1px 8px #3a8180
+		justify-content: center
+		display: flex
+		flex-direction: column
+		&__heading 
+			margin: 0 auto
+			text-align: center
+			margin-bottom: $spc-2xs
+			color: $clr-secondary
+		
+	
+	&__what 
+		background-color: $clr-neutral-100
+		padding: $spc-s
+		border-radius: 10px
+		flex-basis: 100%
+		display: flex
+		flex-direction: column
+		justify-content: center
+	
+	&__description 
+		color: $color3
+		font-size: $fs-400
+		font-family: $ff-headings
+		text-align: left
+	
+	&__time 
+		font-size: $fs-200
+	
+	&__signup:hover 
+		color: $clr-accent
+		text-decoration: underline
+	
+	&:not(:last-child)::after 
+		content: ""
+		display: block
+		width: 100%
+		border: 1px dashed $clr-text
+	
+	&__when 
+		width: 100%
+		height: 100px
+	
+
+.affiliates 
+	display: flex
+	flex-direction: column
+	&__topics 
+		list-style: disc inside
+		margin-top: $spc-xs
+		padding: 0 $spc-l
+		columns: 2
+		margin-inline: auto
+	
+	&__topic 
+		font-size: $fs-200
+	
+	&__topics 
+		columns: 1
+	
+
+.accent-text 
+	color: $clr-accent
+
+.event 
+	flex-direction: column
+
+button 
+	padding: $spc-s
+	background-color: $clr-secondary
+	color: $clr-primary
+	border-radius: 50vw
+	font-size: $fs-400
+	font-family: $ff-headings
+	margin-top: $spc-s
+	align-self: center
+	h4 
+		margin: 0
+	
+

@@ -16,7 +16,7 @@ var days = {
   3: "Wednesday",
   4: "Thursday",
   5: "Friday",
-  6: "Saturday"
+  6: "Saturday",
 };
 var months = {
   0: "JAN",
@@ -31,20 +31,19 @@ var months = {
   9: "OCT",
   10: "NOV",
   11: "DEC",
-}
+};
 const today = document.querySelector(".day");
 const todaysDate = document.querySelector(".date-day");
 const month = document.querySelector(".month");
 const year = document.querySelector(".year");
 
 function setClock() {
-
   const now = new Date();
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const hours = now.getHours();
   const secDegs = seconds * 6;
-  const minDegs = (minutes * 6) + 6; // Added one minute's worth of degree to ensure that the minute hand is in the right position when it strikes, rather than starting the move toward hte ight position
+  const minDegs = minutes * 6 + 6; // Added one minute's worth of degree to ensure that the minute hand is in the right position when it strikes, rather than starting the move toward hte ight position
   const hourDegs = hours * 30 + minDegs / 12;
   const day = now.getDay();
   const dayOfMonth = now.getDate();
@@ -81,12 +80,9 @@ function setClock() {
     displays.forEach((display) => display.classList.remove("night"));
     fireflies.classList.remove("night");
   }
-
 }
 
-
 function tick() {
-
   const now = new Date();
   const seconds = now.getSeconds();
   const secDegs = seconds * 6;
@@ -98,9 +94,7 @@ function tick() {
   } else {
     secondHand.classList.remove("transition-off");
   }
-
 }
-
 
 function checkMins() {
   const now = new Date();
@@ -120,9 +114,7 @@ function checkMins() {
   }
 }
 
-
 function checkHour() {
-
   const now = new Date();
   const hours = now.getHours();
 
@@ -150,13 +142,11 @@ function checkHour() {
     displays.forEach((display) => display.classList.remove("night"));
     fireflies.classList.remove("night");
   }
-
 }
 
-
 function removeTransitionOff() {
-    minuteHand.classList.remove("transition-off");
-    hourHand.classList.remove("transition-off");
+  minuteHand.classList.remove("transition-off");
+  hourHand.classList.remove("transition-off");
 }
 
 function adjustToD() {
@@ -177,6 +167,8 @@ function adjustToD() {
     gradientDay.classList.remove("night");
     gradientDay.classList.add("day");
 
+    hands.forEach((hand) => hand.classList.remove("night"));
+    markers.forEach((marker) => marker.classList.remove("night"));
   } else if (sunset.checked) {
     fireflies.classList.remove("night");
     displays.forEach((display) => display.classList.add("night"));
@@ -189,7 +181,6 @@ function adjustToD() {
     gradientDay.classList.remove("day");
     gradientDay.classList.remove("night");
     gradientDay.classList.add("sunset");
-
   } else if (night.checked) {
     fireflies.classList.add("night");
     displays.forEach((display) => display.classList.add("night"));
@@ -202,7 +193,6 @@ function adjustToD() {
     gradientDay.classList.remove("day");
     gradientDay.classList.remove("sunset");
     gradientDay.classList.add("night");
-
   } else {
     gradients.style.transition = "all 3s linear";
 
@@ -220,8 +210,7 @@ timeOfDay.forEach((tod) => tod.addEventListener("click", adjustToD));
 
 gradients.addEventListener("transitionend", function (e) {
   gradients.style.transition = "all 3600s linear";
-}
-)
+});
 
 gradientDay.addEventListener("transitionend", function (e) {
   gradientDay.style.transition = "all 3600s linear";

@@ -1,0 +1,74 @@
+@use 'vars.sass' as *
+
+body 
+	font-family: $ff-body
+	color: $clr-text
+	font-size: $fs-400
+	line-height: 1.6
+	background-color: $clr-background
+	font-family: $ff-body
+
+  
+
+h1, h2, h3, h4, h5, h6 
+	font-family: $ff-headings
+	line-height: 1.1
+	text-wrap: balance
+	color: $clr-primary
+	text-align: center
+	margin-top: 1.5em
+
+h1 
+	font-size: $fs-700
+	color: $clr-primary
+	-flow-space: 2em
+
+h2 
+	font-size: $fs-600
+	color: $clr-primary
+	-flow-space: 1.5em
+	&:first-of-type 
+		margin-top: 0
+	
+
+h3 
+	font-size: $fs-500
+
+main 
+	width: min(55ch, 100vw - 4rem)
+	margin-inline: auto
+
+img, svg, video 
+	max-width: 100%
+	display: block
+
+a 
+	&:hover, &:focus 
+		color: $clr-accent
+
+.wrapper 
+	width: min(100vw - 3rem, 65ch)
+	margin-inline: auto
+
+.flow > :where(:not(:first-child)) 
+	margin-top: 1em
+
+form 
+	border: solid $clr-accent 2px
+	padding: .5em
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	flex-direction: column
+	gap: .25em
+	margin: auto
+	text-align: center
+
+input 
+	margin-left: 1em
+	margin-right: 1em
+
+.checks 
+	display: flex
+	flex-direction: column
+

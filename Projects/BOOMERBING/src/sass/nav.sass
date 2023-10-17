@@ -1,0 +1,24 @@
+@use 'vars.sass' as *
+
+.navbar 
+	display: flex
+	justify-content: space-around
+	align-items: center
+	width: 100vw
+	background-color: $clr-primary
+	padding: $spc-3xs
+	font-family: $ff-headings
+	filter: drop-shadow(0 0 2px $clr-neutral-100)
+	position: sticky
+	top: 0
+	z-index: 10
+
+.navitem 
+	font-size: $fs-300
+	color: $clr-neutral-100
+
+.navlist 
+	display: flex
+	justify-content: space-evenly
+	align-items: center
+	width: 100%

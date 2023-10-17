@@ -1,0 +1,34 @@
+@use 'vars.sass' as *
+	
+.visually-hidden 
+	position: absolute
+	width: 1px
+	height: 1px
+	padding: 0
+	margin: -1px
+	overflow: hidden
+	clip-path: inset(50%)
+
+.hidden 
+	opacity: 0
+	z-index: -1
+
+.flex 
+	display: flex
+
+	&-column 
+		flex-direction: column
+	
+	&-center 
+		justify-content: center
+		align-items: center
+	
+	&-justify-c 
+		justify-content: center
+	
+	&-align-c 
+		align-items: center
+	
+.text-small 
+	font-size: $fs-100
+
