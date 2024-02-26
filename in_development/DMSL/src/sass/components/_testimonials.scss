@@ -1,0 +1,29 @@
+@use "../abstracts/" as *;
+
+.testimonial {
+  display: grid;
+  gap: $gap-grid;
+  padding: $padding-card-body;
+
+  & .testimonial-image {
+    width: min(100%, 200px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  & .testimonial-text {
+    position: relative;
+    font-style: italic;
+  }
+  & .testimonial-text::before {
+    content: '"';
+    position: absolute;
+    font-size: 7rem;
+    top: -3rem;
+    left: -1.75rem;
+    color: clr(neutral, 250);
+    font-family: $ff-accent;
+    z-index: -1;
+  }
+}

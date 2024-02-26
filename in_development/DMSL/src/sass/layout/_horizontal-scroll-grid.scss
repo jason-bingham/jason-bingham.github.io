@@ -1,0 +1,6 @@
+@use "../abstracts/" as *;
+
+.horizontal-scroll-wrapper {
+  display: grid;
+  grid-gap: var(--gap-grid, $gap-grid);
+}

@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "Kaisei Opti";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/KaiseiOpti-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kaisei Opti";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/KaiseiOpti-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kaisei Opti";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/KaiseiOpti-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Lato-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/Lato-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/Lato-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 100;
+  src: url("/fonts/Lato-ThinItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/Lato-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/fonts/RobotoSlab-VariableFont_wght.ttf") format("truetype");
+}
+
+$ff-sans: "Lato", sans-serif;
+$ff-serif: "Kaisei Opti", serif;
+$ff-base: $ff-sans;
+$ff-accent: $ff-serif;
+$ff-secondary: "Roboto Slab", serif;
+.ff-base {
+  font-family: $ff-sans;
+}
+.ff-accent {
+  font-family: $ff-serif;
+}
+.ff-secondary {
+  font-family: $ff-secondary;
+}
+
+$font-sizes: (
+  900: clamp(2.5rem, 0.5rem + 7vw, 5rem),
+  800: clamp(1.875rem, 0.5rem + 5vw, 3.75rem),
+  700: clamp(0.4rem, 0.5rem + 3.25vw, 2.25rem),
+  600: clamp(1.4rem, 0.5rem + 3vw, 1.6875rem),
+  500: 1.3125rem,
+  400: 1.125rem,
+  300: 1rem,
+  200: 0.75rem,
+);
+
+$fw-thin: 100;
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-black: 900;
+
+.fw-thin {
+  font-weight: $fw-thin;
+}
+
+.fw-light {
+  font-weight: $fw-light;
+}
+
+.fw-regular {
+  font-weight: $fw-regular;
+}
+
+.fw-medium {
+  font-weight: $fw-medium;
+}
+
+.fw-semibold {
+  font-weight: $fw-semibold;
+}
+
+.fw-bold {
+  font-weight: $fw-bold;
+}
+
+.fw-black {
+  font-weight: $fw-black;
+}
+
+.fs-italic {
+  font-style: italic;
+}

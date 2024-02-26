@@ -1,0 +1,456 @@
+@use "../abstracts/" as *;
+@use "sass:math";
+
+header {
+  overflow: hidden;
+}
+
+$padding-hero: clamp(15rem, 15vh, 20rem);
+
+.hero {
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: [left-bar-start logo-start] 1fr [right-bar-start] 60vh [left-bar-end] 1fr [right-bar-end logo-end];
+  grid-template-rows: [left-bar-start logo-start] 7% [right-bar-start] 48% [left-bar-end] 7% [right-bar-end] 1fr [logo-end];
+  justify-content: center;
+}
+
+.orange {
+  background: #ee8230cc;
+  width: 0%;
+  height: 100%;
+
+  &.left {
+    animation: bar-enter 1.5s cubic-bezier(0.57, 1.41, 0.63, 0.99) 1.25s
+      forwards;
+    grid-area: left-bar;
+  }
+
+  &.right {
+    grid-area: right-bar;
+    animation: bar-enter 1.5s cubic-bezier(0.57, 1.41, 0.63, 0.99) 1.25s
+      forwards;
+    position: absolute;
+    right: 0;
+  }
+
+  @keyframes bar-enter {
+    to {
+      width: 100%;
+    }
+  }
+}
+
+//LOGO-ANIMATION
+
+$base-delay: 2s;
+$animation-duration-base: 1s;
+$letter-delay: 200ms;
+$animation-duration: $animation-duration-base + $letter-delay * 3;
+$animation-base-percentage: math.div(
+  $animation-duration-base,
+  $animation-duration
+);
+$letter-delay-percentage: math.div($letter-delay, $animation-duration) * 100%;
+
+.logo-svg {
+  // position: absolute;
+  grid-area: logo;
+  stroke: clr(neutral, 900);
+  fill: clr(neutral, 900);
+  z-index: 1010;
+  height: 100%;
+  max-width: none;
+  justify-self: center;
+}
+
+.line {
+  stroke-width: 3;
+  fill: none;
+}
+
+.fill {
+  stroke-width: 4;
+}
+
+$complete-logo-delay: $animation-duration * 0.9 + $base-delay;
+$complete-logo-duration: $animation-duration * 0.085;
+.logo-complete {
+  opacity: 0;
+  animation: $complete-logo-duration appear $complete-logo-delay forwards;
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+$length-d1: 580;
+$offset-end-d1: -375;
+$length-d2: 277;
+$length-d3: 150;
+$total-length-d: $length-d1 + $length-d2 + $length-d3;
+
+$interval-d-1: (math.div($length-d1, $total-length-d * 1.1) * 100%) *
+  $animation-base-percentage;
+$interval-d-2: (math.div($length-d1 + $length-d2, $total-length-d * 1.1) * 100%) *
+  $animation-base-percentage;
+$interval-d-2fill: $interval-d-2 + 5%;
+
+$d-endstop-1: 90% - $letter-delay-percentage * 3;
+$d-endstop-2: 100% - $letter-delay-percentage * 3;
+
+.d1 {
+  opacity: 1;
+  stroke-dasharray: $length-d1;
+  stroke-dashoffset: $length-d1;
+  animation: $animation-duration draw-d1 $base-delay linear;
+}
+@keyframes draw-d1 {
+  #{$interval-d-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$d-endstop-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$d-endstop-2} {
+    stroke-dashoffset: $offset-end-d1;
+  }
+  100% {
+    stroke-dashoffset: $offset-end-d1;
+  }
+}
+
+.d2 {
+  opacity: 1;
+  stroke-dasharray: $length-d2;
+  stroke-dashoffset: $length-d2;
+  animation: $animation-duration draw-d2 $base-delay linear;
+}
+@keyframes draw-d2 {
+  #{$interval-d-1} {
+    stroke-dashoffset: $length-d2;
+  }
+  #{$interval-d-2} {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.d2fill {
+  opacity: 0;
+  animation: $animation-duration draw-d2fill $base-delay linear;
+}
+@keyframes draw-d2fill {
+  #{$interval-d-2} {
+    opacity: 0;
+  }
+  #{$interval-d-2fill} {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.d3 {
+  opacity: 1;
+  stroke-width: 11;
+  stroke-dasharray: $length-d3;
+  stroke-dashoffset: $length-d3;
+  animation: $animation-duration draw-d3 $base-delay linear;
+}
+@keyframes draw-d3 {
+  #{$interval-d-2} {
+    stroke-dashoffset: $length-d3;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+$m-delay: $letter-delay;
+$m-delay-percentage: math.div($m-delay, $animation-duration) * 100%;
+
+$length-m1: 600;
+$offset-end-m1: -285;
+$length-m2: 162;
+$length-m3: 161;
+$length-m4: 164;
+$total-length-m: $length-m1 + $length-m2 + $length-m3 + $length-m4;
+
+$interval-m-1: (math.div($length-m1, $total-length-d * 1.1) * 100%) *
+  $animation-base-percentage + $m-delay-percentage;
+$interval-m-2: (math.div($length-m1 + $length-m2, $total-length-d * 1.1) * 100%) *
+  $animation-base-percentage + $m-delay-percentage;
+$interval-m-2fill: $interval-m-2 + 5%;
+$interval-m-3: (
+    math.div($length-m1 + $length-m2 + $length-m3, $total-length-m * 1.1) * 100%
+  ) * $animation-base-percentage + $m-delay-percentage;
+
+$m-endstop-1: 90% - $letter-delay-percentage * 2;
+$m-endstop-2: 100% - $letter-delay-percentage * 2;
+
+.m1 {
+  opacity: 1;
+  stroke-dasharray: $length-m1;
+  stroke-dashoffset: $length-m1;
+  animation: $animation-duration draw-m1 $base-delay linear;
+}
+@keyframes draw-m1 {
+  #{$m-delay-percentage} {
+    stroke-dashoffset: $length-m1;
+  }
+  #{$interval-m-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$m-endstop-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$m-endstop-1} {
+    stroke-dashoffset: $offset-end-m1;
+  }
+  100% {
+    stroke-dashoffset: $offset-end-m1;
+  }
+}
+
+.m2 {
+  opacity: 1;
+  stroke-dasharray: $length-m2;
+  stroke-dashoffset: $length-m2;
+  animation: $animation-duration draw-m2 $base-delay linear;
+}
+@keyframes draw-m2 {
+  #{$interval-m-1} {
+    stroke-dashoffset: $length-m2;
+  }
+  #{$interval-m-2} {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.m2fill {
+  opacity: 0;
+  animation: $animation-duration draw-m2fill $base-delay linear;
+}
+@keyframes draw-m2fill {
+  #{$interval-m-2} {
+    opacity: 0;
+  }
+  #{$interval-m-2fill} {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.m3 {
+  opacity: 1;
+  stroke-dasharray: $length-m3;
+  stroke-dashoffset: $length-m3;
+  animation: $animation-duration draw-m3 $base-delay linear;
+}
+@keyframes draw-m3 {
+  #{$interval-m-2} {
+    stroke-dashoffset: $length-m3;
+  }
+  #{$interval-m-3} {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.m4 {
+  opacity: 1;
+  stroke-dasharray: $length-m4;
+  stroke-dashoffset: $length-m4;
+  animation: $animation-duration draw-m4 $base-delay linear;
+}
+@keyframes draw-m4 {
+  #{$interval-m-3} {
+    stroke-dashoffset: $length-m4;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.m4fill {
+  opacity: 0;
+  animation: $animation-duration draw-m4fill $base-delay linear;
+}
+@keyframes draw-m4fill {
+  90% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+$s-delay: $letter-delay * 2;
+$s-delay-percentage: math.div($s-delay, $animation-duration) * 100%;
+
+$s-endstop-1: 90% - $letter-delay-percentage;
+$s-endstop-2: 100% - $letter-delay-percentage;
+
+$length-s1: 1070;
+$offset-end-s1: -687;
+$length-s2: 237;
+$length-s3: 48;
+$total-length-s: ($length-s1 + $length-s2 + $length-s3) * 1.1;
+
+$interval-s-1: (math.div($length-s1, $total-length-s) * 100%) *
+  $animation-base-percentage + $s-delay-percentage;
+$interval-s-2: (math.div($length-s1 + $length-s2, $total-length-s) * 100%) *
+  $animation-base-percentage + $s-delay-percentage;
+$interval-s-2fill: $interval-s-2 + 5%;
+
+.s1 {
+  opacity: 1;
+  stroke-dasharray: $length-s1;
+  stroke-dashoffset: $length-s1;
+  animation: $animation-duration draw-s1 $base-delay linear;
+}
+@keyframes draw-s1 {
+  #{$s-delay-percentage} {
+    stroke-dashoffset: $length-s1;
+  }
+  #{$interval-s-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$s-endstop-1} {
+    stroke-dashoffset: 0;
+  }
+  #{$s-endstop-2} {
+    stroke-dashoffset: $offset-end-s1;
+  }
+  100% {
+    stroke-dashoffset: $offset-end-s1;
+  }
+}
+
+.s2 {
+  opacity: 1;
+  stroke-dasharray: $length-s2;
+  stroke-dashoffset: $length-s2;
+  animation: $animation-duration draw-s2 $base-delay linear;
+}
+@keyframes draw-s2 {
+  #{$interval-s-1} {
+    stroke-dashoffset: $length-s2;
+  }
+  #{$interval-s-2} {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.s2fill {
+  opacity: 0;
+  animation: $animation-duration draw-s2fill $base-delay linear;
+}
+@keyframes draw-s2fill {
+  #{$interval-s-2} {
+    opacity: 0;
+  }
+  #{$interval-s-2fill} {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.s3 {
+  opacity: 1;
+  stroke-dasharray: $length-s3;
+  stroke-dashoffset: $length-s3;
+  animation: $animation-duration draw-s3 $base-delay linear;
+}
+@keyframes draw-s3 {
+  #{$interval-s-2} {
+    stroke-dashoffset: $length-s3;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+$l-delay: $letter-delay * 3;
+$l-delay-percentage: math.div($l-delay, $animation-duration) * 100%;
+
+$length-l1: 620;
+$offset-end-l1: -406;
+$length-l2: 155;
+$total-length-l: ($length-l1 + $length-l2) * 1.1;
+
+$interval-l-1: (math.div($length-l1, $total-length-l) * 100%) *
+  $animation-base-percentage + $l-delay-percentage;
+
+.l1 {
+  opacity: 1;
+  stroke-dasharray: $length-l1;
+  stroke-dashoffset: $length-l1;
+  animation: $animation-duration draw-l1 $base-delay linear;
+}
+@keyframes draw-l1 {
+  #{$l-delay-percentage} {
+    stroke-dashoffset: $length-l1;
+  }
+  #{$interval-l-1} {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: $offset-end-l1;
+  }
+}
+
+.l2 {
+  opacity: 1;
+  stroke-width: 11;
+  stroke-dasharray: $length-l2;
+  stroke-dashoffset: $length-l2;
+  animation: $animation-duration draw-l2 $base-delay linear;
+}
+@keyframes draw-l2 {
+  #{$interval-l-1} {
+    stroke-dashoffset: $length-l2;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

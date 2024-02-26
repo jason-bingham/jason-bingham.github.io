@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/sass/main.scss" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/images/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#1e1e1e" />
+    <meta name="theme-color" content="#ee8130" />
+
+    <title>DMSL Arquitetura - Contato</title>
+  </head>
+  <body>
+    <nav class="nav primary-nav | bg-primary-400">
+      <a href="./index.html">
+        <img
+          class="nav-logo"
+          src="/images/logos/DMSL_logo-nav.svg"
+          alt="DMSL logo for navbar"
+        />
+      </a>
+      <ul class="flex-group mx-auto ff-secondary">
+        <li><a href="./projetos.html">Projetos</a></li>
+        <li><a href="./sobre.html">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <a href="https://www.instagram.com/dmslarquitetos">
+        <img
+          class="ig-logo"
+          src="/images/logos/instagram_logo.svg"
+          alt="IG logo for navbar"
+        />
+      </a>
+    </nav>
+    <main>
+      <section class="container | margin-block-32" data-type="xs">
+        <form
+          action="mailto:jbingham223@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <input
+            type="hidden"
+            name="email"
+            value="jbingham223@gmail.com"
+            tabindex="-1"
+          />
+          <fieldset class="card">
+            <div>
+              <label for="nome">Nome:</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Nome *"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">E-mail:</label>
+              <input
+                type="email"
+                id="email"
+                name="user_email"
+                placeholder="E-mail *"
+                required
+              />
+            </div>
+            <div>
+              <label for="assunto">Assunto:</label>
+              <select name="assunto" id="assunto" required>
+                <option value selected disabled>Seleciona assunto *</option>
+                <option value="Dúvida">Dúvida</option>
+                <option value="Sugestão">Sugestão</option>
+                <option value="Orçamento">Orçamento</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+            <div>
+              <label for="mensagem">Mensagem:</label>
+              <textarea
+                id="mensagem"
+                name="email_mensagem"
+                placeholder="Mensagem *"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <div class="flex-group">
+              <input class="mx-auto" type="submit" value="Submit" />
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="contact-info | container | text-center" data-type="xs">
+        <p>Rua Cotoxó, 611, sala 11<br />Perdizes, São Paulo/SP</p>
+        <p>contato@dmslarquitetos.com.br</p>
+        <p>renata@dmslarquitetos.com.br</p>
+        <p>vinicius@dmslarquitetos.com.br</p>
+        <p>(11) 91427-3893</p>
+      </section>
+    </main>
+  </body>
+  <footer
+    class="flex-group flex-column text-center bg-primary-400 fs-300 fw-light"
+  >
+    <img
+      class="footer-logo"
+      src="/images/logos/DMSL_logo-nav.svg"
+      alt="DMSL logo"
+    />
+    <p>contato@dmslarquitetos.com.br</p>
+    <p>(11) 3801-3497</p>
+  </footer>
+</html>

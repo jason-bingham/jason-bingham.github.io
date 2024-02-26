@@ -1,0 +1,106 @@
+@use "../abstracts/" as *;
+
+.card {
+  display: grid;
+  gap: $gap-grid;
+  padding: $padding-card-body;
+  border-radius: 20px;
+  box-shadow: 12px 12px 24px #bebebe, -12px -12px 24px #f1f1f1;
+  animation: fade-in linear;
+  animation-timeline: view();
+
+  &[data-type="category"] {
+    // For transitions:
+    opacity: 0;
+    position: relative;
+    // transform: scale(0.1);
+
+    // @include mq(medium) {
+    //   grid-template:
+    //     "img title" 20%
+    //     "img text" 1fr / 50%;
+    // }
+    grid-template:
+      "img title" clamp(0.4rem, 0.5rem + 3.25vw, 2.25rem)
+      "img text" 1fr / 50%;
+
+    transition: 500ms ease-out;
+
+    margin-top: 3rem;
+    // left: 50%;
+
+    &:nth-of-type(2n) {
+      grid-template:
+        "title img" 20%
+        "text img" 1fr / 50%;
+      // left: -50%;
+    }
+
+    // &.onscreen {
+    //   left: 0;
+    //   opacity: 1;
+    //   transform: scale(1);
+    // }
+
+    &:last-of-type {
+      margin-bottom: 4rem;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+
+      & .card-title::after {
+        height: 10px;
+      }
+
+      & .card-image {
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  &-image {
+    grid-area: img;
+    filter: grayscale(0.6);
+    transition: 500ms;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  &-title {
+    grid-area: title;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      top: clamp(0.6rem, 0.7rem + 3.25vw, 2.45rem);
+      // bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: clr(primary, 400);
+      content: "";
+      z-index: -1;
+      transition: 500ms;
+    }
+  }
+
+  &-text {
+    grid-area: text;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+  }
+  40% {
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}

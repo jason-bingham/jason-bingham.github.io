@@ -1,0 +1,18 @@
+$sizes: (
+  4: 0.25rem,
+  8: 0.5rem,
+  12: 0.75rem,
+  16: 1rem,
+  20: 1.25rem,
+  24: 1.5rem,
+  28: 1.75rem,
+  32: 2rem,
+  36: 2.25rem,
+  48: 3rem,
+);
+
+$padding-section: clamp(3rem, 10vh, 7rem);
+$padding-card-body: clamp(2rem, 3vw, 5rem);
+
+$gap-grid: 1.5rem;
+$gap-flex-group: 1rem;

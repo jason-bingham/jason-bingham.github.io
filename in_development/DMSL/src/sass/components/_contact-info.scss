@@ -1,0 +1,23 @@
+@use "../abstracts/" as *;
+
+.contact-info {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.contact-info p + p {
+  margin-top: 0.5rem;
+
+  &::before {
+    content: ".";
+    color: clr(primary, 400);
+    //   width: 30px;
+    //   height: 1px;
+    //   background-color: clr(primary, 400);
+    position: absolute;
+    left: 50%;
+    //   margin-left: -15px;
+    margin-top: -22px;
+    // }
+  }
+}
