@@ -1,0 +1,134 @@
+.preload * {
+  transition: none !important;
+  animation: none !important;
+}
+
+button {
+  background: transparent;
+  border-radius: .5rem;
+  border: 2px solid var(--light, pink);
+  cursor: pointer;
+}
+
+.ham {
+  fill: var(--button-color)
+}
+
+
+/* Button 2 */
+
+#ham-main {
+  /* --button-color: hsl(15 70% 25%); */
+}
+
+#ham-main .line {
+  transition: stroke 1s;
+}
+
+#ham-main[aria-expanded = "true"] .bottom,
+#ham-main[aria-expanded = "true"] .top {
+  animation: to-dots .5s forwards;
+}
+
+.bottom,
+.top {
+  animation: to-dots-r .5s both .5s;
+}
+
+#ham-main[aria-expanded = "true"] .middle {
+  animation: to-dots-mid .5s forwards;
+  stroke-dasharray: 70;
+}
+
+.middle {
+  animation: to-dots-mid-r .5s both .5s;
+  stroke-dasharray: 70;
+}
+
+#ham-main[aria-expanded = "true"] .x {
+  animation: to-x .5s forwards .5s;
+}
+
+.x {
+  animation: to-x-r .5s both;
+}
+
+.x {
+  stroke-dasharray: .1 70;
+}
+
+
+@keyframes to-dots {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  100% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-dots-r {
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 70 70;
+  }
+  0% {
+    stroke-dashoffset: -15;
+    stroke-dasharray: .1  70;
+  }
+}
+
+@keyframes to-x {
+  0% {
+    stroke-dasharray: .1 70;
+  }
+  100% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-x-r {
+  100% {
+    stroke-dasharray: .1 70;
+  }
+  0% {
+    stroke-dasharray: 70  70;
+  }
+}
+
+@keyframes to-dots-mid {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+@keyframes to-dots-mid-r {
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  0% {
+    stroke-dasharray: .1 70;
+    stroke-dashoffset: -34.9;
+  }
+}
+
+#ham2[aria-expanded = "true"] {
+  transition: 1s;
+  --button-color: hsl(15 60% 45%);
+}
+
+#ham2 {
+  transition: 1s;
+}
+
+button:hover {
+  opacity: 85%;
+}

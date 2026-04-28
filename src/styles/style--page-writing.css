@@ -1,0 +1,25 @@
+.blurb__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blurb {
+  text-align: center;
+  margin: 3rem;
+  border: 1px solid var(--dark);
+  padding: 1rem;
+  width: 80vw;
+  max-width: 600px;
+}
+
+.writing-page footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+
+a,
+a:visited {
+  color: var(--dark);
+}/*# sourceMappingURL=style--page-writing.css.map */
