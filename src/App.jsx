@@ -4,6 +4,7 @@ import WebDesignPage from './pages/WebDesignPage'
 import GraphicDesignPage from './pages/GraphicDesignPage'
 import WritingPage from './pages/WritingPage'
 import AdminPage from './pages/AdminPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/graphic" element={<GraphicDesignPage />} />
         <Route path="/writing" element={<WritingPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )

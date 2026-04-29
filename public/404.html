@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jason Bingham - Portfolio</title>
+    <script>
+      // Redirect to index.html, encoding the path as a query param so React Router can restore it
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host + '/?p=' +
+        encodeURIComponent(l.pathname + l.search) +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
