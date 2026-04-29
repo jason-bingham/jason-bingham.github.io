@@ -1,5 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/style-index-header.css'
+import { supabase } from '../lib/supabase'
+
+const FALLBACK_QUOTES = [
+  { quote: "Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.", author: "John Chris Jones" },
+  { quote: "The details are not the details. They make the design.", author: "Charles Eames" },
+  { quote: "There are three responses to a piece of design — yes, no, and wow! Wow is the one to aim for.", author: "Milton Glaser" },
+  { quote: "Design is not just what it looks like and feels like. Design is how it works.", author: "Steve Jobs" },
+  { quote: "Good design is as little design as possible.", author: "Dieter Rams" },
+]
 
 const TRANSITIONS = {
   default:   { contact: 'collapsed', about: 'contact',   title: 'about'    },
@@ -19,8 +28,27 @@ function TabButton() {
 
 export default function Header() {
   const [view, setView] = useState('default')
+  const [quotes, setQuotes] = useState(FALLBACK_QUOTES)
+  const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * FALLBACK_QUOTES.length))
+
+  useEffect(() => {
+    supabase.from('quotes').select('quote, author').then(({ data }) => {
+      if (data?.length) {
+        setQuotes(data)
+        setQuoteIndex(Math.floor(Math.random() * data.length))
+      }
+    })
+  }, [])
 
   const go = (btn) => setView(TRANSITIONS[view][btn])
+
+  const prevQuote   = () => setQuoteIndex(i => (i - 1 + quotes.length) % quotes.length)
+  const nextQuote   = () => setQuoteIndex(i => (i + 1) % quotes.length)
+  const randomQuote = () => setQuoteIndex(i => {
+    let next
+    do { next = Math.floor(Math.random() * quotes.length) } while (next === i)
+    return next
+  })
 
   const contactClosed = view === 'collapsed'
   const aboutClosed   = view === 'collapsed' || view === 'contact'
@@ -83,10 +111,15 @@ export default function Header() {
       {/* Back panel (quote) — visible only when collapsed */}
       <div className={`tab--back${view === 'collapsed' ? '' : ' hidden'}`}>
         <img className="header-logo" src="/images/favicons/favicon_16x16.png" alt="Jason's Logo" />
-        <p>
-          "Design everything on the assumption that people are not heartless or
-          stupid but marvelously capable, given the chance."<br />–John Chris Jones
-        </p>
+        <div className="quote-body">
+          <p>"{quotes[quoteIndex].quote}"</p>
+          <p className="quote-author">&mdash;{quotes[quoteIndex].author}</p>
+        </div>
+        <div className="quote-controls">
+          <button onClick={prevQuote} aria-label="Previous quote">&#8592;</button>
+          <button onClick={randomQuote} aria-label="Random quote">&#8635; Random</button>
+          <button onClick={nextQuote} aria-label="Next quote">&#8594;</button>
+        </div>
       </div>
     </header>
   )

@@ -27,7 +27,7 @@ header {
   position: relative;
   height: 350px;
   width: 100vw;
-  overflow:hidden;
+  overflow: hidden;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -47,7 +47,7 @@ header h1 span {
 }
 
 header h2 {
-  margin: clamp(.25rem, 1.5vw, 1.5rem) 0;
+  margin: clamp(0.25rem, 1.5vw, 1.5rem) 0;
 }
 
 header h3 {
@@ -55,7 +55,7 @@ header h3 {
 }
 
 .tab__contact_header {
-  margin: .25rem;
+  margin: 0.25rem;
 }
 
 header p {
@@ -79,7 +79,7 @@ header p {
   display: flex;
   align-items: center;
   justify-content: end;
-  transition: all .3s cubic-bezier(.73,1.34,.53,.95);
+  transition: all 0.3s cubic-bezier(0.73, 1.34, 0.53, 0.95);
 }
 
 .tab--profile {
@@ -106,7 +106,7 @@ header p {
 }
 
 .tab--title.closed {
-  right: calc(97vw - 370px); 
+  right: calc(97vw - 370px);
   /* 97vw b/c I want a 3vw offset. 370px is about the width of the profile photo. */
 }
 
@@ -116,7 +116,7 @@ header p {
 }
 
 .tab--about.closed {
-  right: calc(94vw - 370px); 
+  right: calc(94vw - 370px);
   /* 94vw b/c I want a 3vw + 3vw offset. 370px is about the width of the profile photo. */
 }
 
@@ -126,7 +126,7 @@ header p {
 }
 
 .tab--contact.closed {
-  right: calc(91vw - 370px); 
+  right: calc(91vw - 370px);
   /* 91vw b/c I want a 3vw + 3vw + 3vw offset. 370px is about the width of the profile photo. */
 }
 
@@ -141,11 +141,12 @@ header p {
   cursor: pointer;
   border: none;
   border-radius: 0 45% 45% 0;
-  box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+  box-shadow: 0.5rem 0 0.65rem -0.15rem rgba(51, 51, 51, 0.5);
 }
 
-.btn__topline, .btn__bottomline {
-  transition: all .3s linear;
+.btn__topline,
+.btn__bottomline {
+  transition: all 0.3s linear;
 }
 .btn__topline {
   transform-origin: 50% 30%;
@@ -180,13 +181,14 @@ header p {
 
 .tab--back {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  align-self: stretch;
 
   width: calc(91vw - 370px);
   text-align: center;
-  padding: 0 10vw;
+  padding: 2rem 10vw 1rem;
   color: var(--light);
 }
 
@@ -197,7 +199,7 @@ header p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 .tab__content--about {
@@ -211,10 +213,15 @@ header p {
   gap: 1vw;
 }
 
+.header-logo {
+  width: auto;
+  height: auto;
+  max-width: fit-content;
+}
+
 /* ~~ MEDIA QUERIES */
 
 @media screen and (max-width: 740px) {
-
   header {
     height: calc(470px + 12vh);
     justify-content: end;
@@ -278,7 +285,7 @@ header p {
     height: calc(500px + 8vh);
     transform: rotate(-70deg);
   }
-  
+
   .tab--contact {
     left: calc(-1000px + 50vw);
     top: calc(-1530px + 8vh);
@@ -322,7 +329,6 @@ header p {
 }
 
 @media screen and (max-width: 530px) {
-
   header {
     height: 100vh;
     justify-content: center;
@@ -330,12 +336,12 @@ header p {
   }
 
   header h2 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 
   header p {
     margin: 0;
-    font-size: clamp(.8rem, 1.8vw, 1rem);
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
   }
 
   .tab {
@@ -358,7 +364,7 @@ header p {
     background-position: 50%;
     right: auto;
   }
-  
+
   .tab--contact {
     top: calc(-1000px + 96vh);
   }
@@ -404,7 +410,7 @@ header p {
     top: 15px;
     left: 0;
     border-radius: 0 45% 45% 0;
-    box-shadow: .5rem 0 .65rem -.15rem rgba(51, 51, 51, .5);
+    box-shadow: 0.5rem 0 0.65rem -0.15rem rgba(51, 51, 51, 0.5);
   }
 
   .tab__content {
@@ -422,8 +428,8 @@ header p {
   }
 
   .tab__about_paragraph {
-    font-size: clamp(.8rem, 3vw, 1rem);
-    line-height: .8rem;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    line-height: 0.8rem;
   }
 
   .tab--back {
@@ -435,7 +441,44 @@ header p {
   .tab__contact_line {
     justify-content: center;
   }
+}
 
+/*  */
+
+.quote-body {
+  margin-top: auto;
+}
+
+.quote-body > p:first-child {
+  font-weight: 300;
+  line-height: 1.4rem;
+}
+
+.quote-author {
+  margin-top: 0.5rem;
+  font-weight: 200;
+}
+
+.quote-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-bottom: 1rem;
+}
+
+.quote-controls button {
+  background: transparent;
+  border: 1px solid var(--light);
+  color: var(--light);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.quote-controls button:hover {
+  background: var(--light);
+  color: var(--dark);
 }
 
 /*  */

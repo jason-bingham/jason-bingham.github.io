@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage'
 import WebDesignPage from './pages/WebDesignPage'
 import GraphicDesignPage from './pages/GraphicDesignPage'
 import WritingPage from './pages/WritingPage'
+import AdminPage from './pages/AdminPage'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/web" element={<WebDesignPage />} />
         <Route path="/graphic" element={<GraphicDesignPage />} />
         <Route path="/writing" element={<WritingPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   )
