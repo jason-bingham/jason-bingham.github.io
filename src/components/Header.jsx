@@ -55,7 +55,7 @@ export default function Header() {
   const titleClosed   = view !== 'default'
 
   return (
-    <header>
+    <header className="home-header">
       {/* Profile photo tab */}
       <picture className="tab tab--profile">
         <div className="tab__photo"></div>

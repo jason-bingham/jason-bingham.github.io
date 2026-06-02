@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import WebDesignPage from './pages/WebDesignPage'
+import ProjectPage from './pages/ProjectPage'
 import GraphicDesignPage from './pages/GraphicDesignPage'
 import WritingPage from './pages/WritingPage'
 import AdminPage from './pages/AdminPage'
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/web" element={<WebDesignPage />} />
+        <Route path="/web/:id" element={<ProjectPage />} />
         <Route path="/graphic" element={<GraphicDesignPage />} />
         <Route path="/writing" element={<WritingPage />} />
         <Route path="/admin" element={<AdminPage />} />
