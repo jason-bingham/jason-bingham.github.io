@@ -90,6 +90,9 @@
   flex-grow: 6;
   align-items: start;
 }
+.book--english {
+  flex-grow: 4;
+}
 .book--writing {
   flex-grow: 4;
   gap: 0.5rem;
@@ -258,7 +261,27 @@
 
 /* */
 
-/* ~~ 11. WEB DESIGN */
+/* ~~ 11. ENGLISH EVAL TEST */
+
+.book__shading--english {
+  background:
+    radial-gradient(ellipse at top, rgba(20, 60, 100, 0.55), rgba(0, 0, 0, 0.75)),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.english-title {
+  font-family: "Lora", serif;
+  color: rgb(200, 220, 240);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+}
+
+.english-title-sub {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+/* */
+
+/* ~~ 12. WEB DESIGN */
 
 .book__shading--web {
   background:

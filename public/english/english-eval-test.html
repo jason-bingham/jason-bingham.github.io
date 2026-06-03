@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Evaluation Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #0d9488; --teal-light: #ccfbf1; --teal-mid: #5eead4;
+    --coral: #f97316; --coral-light: #fff7ed; --coral-mid: #fdba74;
+    --violet: #7c3aed; --violet-light: #ede9fe; --violet-mid: #c4b5fd;
+    --amber: #d97706; --amber-light: #fffbeb; --amber-mid: #fcd34d;
+    --slate: #1e293b; --slate-mid: #475569; --slate-light: #f1f5f9;
+    --white: #ffffff;
+    --radius: 14px; --radius-sm: 8px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #f0fdf4;
+    background-image:
+      radial-gradient(circle at 15% 20%, #ccfbf133 0%, transparent 45%),
+      radial-gradient(circle at 85% 70%, #ede9fe33 0%, transparent 45%),
+      radial-gradient(circle at 50% 90%, #fff7ed44 0%, transparent 40%);
+    min-height: 100vh;
+    color: var(--slate);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 2px solid var(--teal-light);
+    padding: 0 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .site-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem; font-weight: 600;
+    color: var(--teal);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--coral); display: inline-block; }
+  .level-switcher { display: flex; gap: 6px; }
+  .lvl-btn {
+    padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    border: 2px solid transparent; cursor: pointer; transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .lvl-btn.a { background: var(--teal-light); color: var(--teal); }
+  .lvl-btn.a.active { background: var(--teal); color: white; border-color: var(--teal); }
+  .lvl-btn.b { background: var(--violet-light); color: var(--violet); }
+  .lvl-btn.b.active { background: var(--violet); color: white; border-color: var(--violet); }
+
+  /* ── Hero ── */
+  .hero {
+    max-width: 860px; margin: 0 auto;
+    padding: 2.5rem 2rem 1rem;
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--amber-light); color: var(--amber);
+    font-size: 12px; font-weight: 800; letter-spacing: 0.07em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600; line-height: 1.2;
+    color: var(--slate); margin-bottom: 10px;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-sub { font-size: 15px; color: var(--slate-mid); max-width: 520px; line-height: 1.7; }
+
+  /* ── Progress bar ── */
+  .progress-strip {
+    max-width: 860px; margin: 1.5rem auto 0;
+    padding: 0 2rem;
+    display: flex; gap: 6px; align-items: center;
+  }
+  .prog-seg {
+    flex: 1; height: 6px; border-radius: 4px;
+    background: #e2e8f0; transition: background 0.3s;
+    cursor: pointer;
+  }
+  .prog-seg.done { background: var(--teal-mid); }
+  .prog-seg.active { background: var(--teal); }
+  .prog-label { font-size: 11px; font-weight: 700; color: var(--slate-mid); margin-left: 8px; white-space: nowrap; }
+
+  /* ── Tabs ── */
+  .tab-nav {
+    max-width: 860px; margin: 1.2rem auto 0;
+    padding: 0 2rem;
+    display: flex; gap: 4px; border-bottom: 2px solid #e2e8f0;
+  }
+  .tab-btn {
+    padding: 10px 18px; font-size: 14px; font-weight: 700;
+    color: var(--slate-mid); border: none; background: none; cursor: pointer;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    transition: all 0.15s; display: flex; align-items: center; gap: 7px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .tab-btn:hover { background: var(--slate-light); color: var(--slate); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); background: var(--teal-light); }
+  .tab-icon { font-size: 16px; }
+
+  /* ── Main content ── */
+  .main { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+  .section { display: none; animation: fadeUp 0.25s ease; }
+  .section.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-header { margin-bottom: 1.5rem; }
+  .section-title {
+    font-family: 'Fraunces', serif; font-size: 1.4rem;
+    font-weight: 600; color: var(--slate); margin-bottom: 4px;
+  }
+  .section-desc { font-size: 14px; color: var(--slate-mid); }
+
+  /* ── Question card ── */
+  .q-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1.5px solid #e2e8f0; padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem; box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s;
+  }
+  .q-card:hover { border-color: var(--teal-mid); }
+  .q-meta {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .q-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--teal-light); color: var(--teal);
+    font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
+  .q-tag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .tag-a { background: var(--teal-light); color: var(--teal); }
+  .tag-b { background: var(--violet-light); color: var(--violet); }
+  .q-text { font-size: 15px; font-weight: 600; color: var(--slate); margin-bottom: 14px; line-height: 1.6; }
+
+  /* ── Passage ── */
+  .passage-card {
+    background: linear-gradient(135deg, #f0fdf4, #f5f3ff);
+    border: 1.5px solid var(--teal-mid); border-radius: var(--radius);
+    padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;
+  }
+  .passage-label {
+    font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--teal); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+  }
+  .passage-text { font-size: 15px; line-height: 1.8; color: var(--slate); }
+
+  /* ── Options ── */
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px; border-radius: var(--radius-sm);
+    border: 1.5px solid #e2e8f0; cursor: pointer;
+    font-size: 14px; font-weight: 600; color: var(--slate);
+    transition: all 0.15s; background: var(--white);
+    user-select: none;
+  }
+  .opt:hover { border-color: var(--teal-mid); background: var(--teal-light); }
+  .opt.selected { border-color: var(--teal); background: var(--teal-light); color: var(--teal); }
+  .opt.correct { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+  .opt.wrong { border-color: #dc2626; background: #fef2f2; color: #dc2626; }
+  .opt input[type=radio] { accent-color: var(--teal); margin-top: 2px; flex-shrink: 0; }
+  .opt-letter {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: #e2e8f0; color: var(--slate-mid);
+    font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .opt.selected .opt-letter { background: var(--teal); color: white; }
+  .opt.correct .opt-letter { background: #16a34a; color: white; }
+  .opt.wrong .opt-letter { background: #dc2626; color: white; }
+
+  /* ── Textarea / inputs ── */
+  .write-textarea {
+    width: 100%; min-height: 100px; resize: vertical;
+    border: 1.5px solid #e2e8f0; border-radius: var(--radius-sm);
+    padding: 12px 14px; font-size: 14px; font-family: 'Nunito', sans-serif;
+    color: var(--slate); background: var(--white); outline: none;
+    transition: border-color 0.2s; line-height: 1.7;
+  }
+  .write-textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-light); }
+
+  /* ── Rubric ── */
+  .rubric-card {
+    background: var(--amber-light); border: 1.5px solid var(--amber-mid);
+    border-radius: var(--radius); padding: 1rem 1.25rem; margin-top: 1rem;
+  }
+  .rubric-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--amber); margin-bottom: 8px; }
+  .rubric-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .rubric-list li { font-size: 13px; color: #92400e; display: flex; gap: 8px; align-items: flex-start; }
+  .rubric-list li::before { content: "✦"; color: var(--amber); flex-shrink: 0; font-size: 11px; margin-top: 2px; }
+
+  /* ── Listening ── */
+  .listen-card {
+    background: linear-gradient(135deg, var(--violet-light), #fdf4ff);
+    border: 1.5px solid var(--violet-mid); border-radius: var(--radius);
+    padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;
+  }
+  .listen-icon-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .listen-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--violet); color: white;
+    display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+  }
+  .listen-desc { font-size: 14px; color: var(--slate-mid); line-height: 1.6; }
+  .transcript-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: var(--violet); cursor: pointer;
+    padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--violet-mid);
+    background: white; margin-top: 10px; transition: all 0.15s;
+  }
+  .transcript-toggle:hover { background: var(--violet-light); }
+  .transcript-box {
+    display: none; margin-top: 12px;
+    background: white; border-radius: var(--radius-sm);
+    border: 1.5px solid var(--violet-mid);
+    padding: 12px 16px; font-size: 14px; font-style: italic;
+    line-height: 1.8; color: var(--slate-mid);
+  }
+  .transcript-box.open { display: block; }
+
+  /* ── Score ── */
+  .score-banner {
+    display: none; background: var(--white);
+    border: 2px solid var(--teal); border-radius: var(--radius);
+    padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow);
+  }
+  .score-banner.visible { display: block; animation: fadeUp 0.3s ease; }
+  .score-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .score-big { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 600; color: var(--teal); line-height: 1; }
+  .score-sub { font-size: 13px; color: var(--slate-mid); margin-top: 4px; }
+  .score-grade {
+    font-size: 14px; font-weight: 700; padding: 8px 18px; border-radius: 20px;
+    background: var(--teal-light); color: var(--teal);
+  }
+  .score-bars { display: flex; flex-direction: column; gap: 8px; }
+  .score-row-item { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .score-row-item span:first-child { width: 100px; color: var(--slate-mid); font-weight: 600; }
+  .mini-bar { flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+  .mini-fill { height: 100%; background: var(--teal); border-radius: 4px; transition: width 0.6s ease; }
+  .score-row-item .pct { font-weight: 700; color: var(--slate); width: 36px; text-align: right; }
+
+  /* ── Footer nav ── */
+  .footer-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1.5rem; border-top: 1.5px solid #e2e8f0; margin-top: 1rem; flex-wrap: wrap; gap: 10px;
+  }
+  .nav-group { display: flex; gap: 8px; }
+  .btn {
+    padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 700;
+    cursor: pointer; border: 2px solid transparent; transition: all 0.18s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .btn-ghost { background: white; border-color: #e2e8f0; color: var(--slate-mid); }
+  .btn-ghost:hover { border-color: var(--slate-mid); color: var(--slate); }
+  .btn-primary { background: var(--teal); color: white; border-color: var(--teal); }
+  .btn-primary:hover { background: #0f766e; border-color: #0f766e; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(13,148,136,0.3); }
+  .btn-submit { background: var(--coral); color: white; border-color: var(--coral); }
+  .btn-submit:hover { background: #ea6c10; border-color: #ea6c10; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(249,115,22,0.3); }
+  .btn-reset { background: white; border-color: var(--coral-mid); color: var(--coral); font-size: 13px; padding: 8px 18px; }
+  .btn-reset:hover { background: var(--coral-light); }
+
+  /* ── Teacher tip ── */
+  .teacher-tip {
+    background: var(--coral-light); border: 1.5px solid var(--coral-mid);
+    border-radius: var(--radius-sm); padding: 10px 14px;
+    font-size: 13px; color: #9a3412; margin-bottom: 1.2rem;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .teacher-tip strong { flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0 1rem; }
+    .main, .hero, .tab-nav, .progress-strip { padding-left: 1rem; padding-right: 1rem; }
+    .tab-btn { padding: 8px 12px; font-size: 13px; }
+    .score-big { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo">
+      <span class="logo-dot"></span>
+      EvalEnglish
+    </div>
+    <div class="level-switcher">
+      <button class="lvl-btn a active" onclick="setLevel('A')">A1–A2 Beginner</button>
+      <button class="lvl-btn b" onclick="setLevel('B')">B1–B2 Intermediate</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-label">📝 English Evaluation Test</div>
+  <h1>Test your <em>English</em> skills</h1>
+  <p class="hero-sub">Four sections — grammar, reading, writing, and listening. Complete all sections then submit to see your results.</p>
+</div>
+
+<div class="progress-strip">
+  <div class="prog-seg active" onclick="goTab(0)" title="Grammar"></div>
+  <div class="prog-seg" onclick="goTab(1)" title="Reading"></div>
+  <div class="prog-seg" onclick="goTab(2)" title="Writing"></div>
+  <div class="prog-seg" onclick="goTab(3)" title="Listening"></div>
+  <div class="prog-label" id="prog-label">1 of 4</div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="goTab(0)"><span class="tab-icon">✏️</span> Grammar</button>
+  <button class="tab-btn" onclick="goTab(1)"><span class="tab-icon">📖</span> Reading</button>
+  <button class="tab-btn" onclick="goTab(2)"><span class="tab-icon">🖊️</span> Writing</button>
+  <button class="tab-btn" onclick="goTab(3)"><span class="tab-icon">🎧</span> Listening</button>
+</div>
+
+<main class="main">
+  <div class="score-banner" id="scorebanner">
+    <div class="score-top">
+      <div>
+        <div class="score-big" id="score-big">–</div>
+        <div class="score-sub">auto-scored questions correct</div>
+      </div>
+      <div>
+        <div class="score-grade" id="score-grade">–</div>
+        <button class="btn btn-reset" onclick="resetTest()" style="margin-top:10px;display:block;">↺ Reset test</button>
+      </div>
+    </div>
+    <div class="score-bars" id="score-bars"></div>
+  </div>
+
+  <div id="sec-0" class="section active"></div>
+  <div id="sec-1" class="section"></div>
+  <div id="sec-2" class="section"></div>
+  <div id="sec-3" class="section"></div>
+
+  <div class="footer-nav">
+    <div class="nav-group">
+      <button class="btn btn-ghost" onclick="prevTab()">← Back</button>
+      <button class="btn btn-primary" onclick="nextTab()">Next →</button>
+    </div>
+    <button class="btn btn-submit" onclick="submitTest()">Submit & Score ✓</button>
+  </div>
+</main>
+
+<script>
+const LETTERS = ['A','B','C','D'];
+const DATA = {
+  A: {
+    grammar: [
+      { q: "Choose the correct word to complete the sentence: She ___ a teacher.", opts: ["is","are","am","be"], ans: 0 },
+      { q: "Choose the correct verb form: I ___ coffee every morning.", opts: ["drink","drinks","drank","drinking"], ans: 0 },
+      { q: "Which sentence is correct?", opts: ["He don't like cats.","He doesn't like cats.","He not like cats.","He didn't likes cats."], ans: 1 },
+      { q: "Fill in the blank: There ___ two apples on the table.", opts: ["is","are","was","have"], ans: 1 },
+      { q: "Choose the correct question form: ___ she from Mexico?", opts: ["Is","Are","Does","Do"], ans: 0 },
+      { q: "Choose the correct option: This is ___ umbrella.", opts: ["a","an","the","–"], ans: 1 },
+    ],
+    reading: {
+      passage: "My name is Ana. I am 25 years old. I live in Madrid with my family. I have one sister and two brothers. I work at a small bakery near my house. Every morning I wake up at 6 o'clock and make bread. I love my job because I like cooking.",
+      qs: [
+        { q: "How old is Ana?", opts: ["20","25","30","35"], ans: 1 },
+        { q: "Where does Ana live?", opts: ["London","Paris","Madrid","Rome"], ans: 2 },
+        { q: "How many brothers does Ana have?", opts: ["One","Two","Three","None"], ans: 1 },
+        { q: "What time does Ana wake up?", opts: ["5 o'clock","6 o'clock","7 o'clock","8 o'clock"], ans: 1 },
+        { q: "Why does Ana love her job?", opts: ["It pays well","She likes cooking","She lives nearby","It's easy"], ans: 1 },
+      ]
+    },
+    writing: [
+      { q: "Write 3–5 sentences about yourself. Include your name, age, and a hobby.", ph: "My name is ... I am ... years old. I like ..." },
+      { q: "Your friend asks: 'What do you do on weekends?' Write your answer in 2–3 sentences.", ph: "On weekends, I usually ..." },
+    ],
+    listening: {
+      transcript: "Hi, I'm Tom. I'm from Australia. I live in Sydney with my dog, Max. I work as a teacher. I teach English at a school. I love swimming and reading books in my free time.",
+      qs: [
+        { q: "Where is Tom from?", opts: ["England","Australia","Canada","Ireland"], ans: 1 },
+        { q: "What is Tom's job?", opts: ["Doctor","Engineer","Teacher","Chef"], ans: 2 },
+        { q: "What is the name of Tom's dog?", opts: ["Rex","Sam","Max","Jack"], ans: 2 },
+        { q: "What does Tom do in his free time?", opts: ["Plays football","Swims and reads","Cooks","Travels"], ans: 1 },
+      ]
+    },
+    rubric: ["Correct use of simple present tense (I like, She is)", "Basic vocabulary used appropriately", "Sentences are logical and complete", "Minimal spelling errors", "Capital letters and periods used correctly"]
+  },
+  B: {
+    grammar: [
+      { q: "Choose the correct verb form: By the time she arrived, we ___ waiting for two hours.", opts: ["had been","have been","were","are"], ans: 0 },
+      { q: "Select the correct option: If I ___ more time, I would travel more.", opts: ["had","have","has","would have"], ans: 0 },
+      { q: "Which sentence uses the passive voice correctly?", opts: ["The book was wrote by him.","The book was written by him.","The book is write by him.","The book written by him."], ans: 1 },
+      { q: "Choose the correct relative pronoun: The person ___ helped me yesterday was very kind.", opts: ["which","what","who","whom"], ans: 2 },
+      { q: "Select the correct modal: You ___ make a reservation — it's not necessary but it helps.", opts: ["must","should","can't","need to"], ans: 1 },
+      { q: "Choose the correct form: She regrets ___ that email.", opts: ["to send","send","sending","to sending"], ans: 2 },
+    ],
+    reading: {
+      passage: "Remote work has transformed the modern workplace. Since 2020, millions of employees around the world have adapted to working from home, often reporting higher productivity and better work-life balance. However, challenges remain. Many workers struggle with isolation, blurred boundaries between professional and personal life, and unreliable technology. Companies are now exploring hybrid models — combining in-office and remote work — as a long-term solution that aims to capture the benefits of both approaches.",
+      qs: [
+        { q: "What does the passage mainly discuss?", opts: ["The history of offices","Changes caused by remote work","Technology problems at work","How to improve productivity"], ans: 1 },
+        { q: "According to the passage, what is one benefit of working from home?", opts: ["Better technology","Free coffee","Higher productivity","More meetings"], ans: 2 },
+        { q: "What is a 'hybrid model' as described in the passage?", opts: ["Working only from home","A new office building","A mix of remote and in-office work","A type of software"], ans: 2 },
+        { q: "Which of the following is listed as a challenge of remote work?", opts: ["Too many colleagues","Isolation","Better commute","More holidays"], ans: 1 },
+        { q: "What does the word 'blurred' mean in this context?", opts: ["Clear","Sharp","Unclear/mixed","Strict"], ans: 2 },
+      ]
+    },
+    writing: [
+      { q: "Write a paragraph (4–6 sentences) describing the advantages and disadvantages of social media.", ph: "Social media has both advantages and disadvantages. On one hand, ..." },
+      { q: "Your colleague missed a team meeting. Write a short message (3–5 sentences) summarizing what was decided and what they need to do next.", ph: "Hi [name], just a quick update from today's meeting ..." },
+    ],
+    listening: {
+      transcript: "Good morning everyone. Today I'd like to talk about time management. One of the biggest challenges for students is balancing study time with personal life. Research shows that breaking tasks into smaller steps and using a planner can significantly reduce stress. It's also important to take regular breaks — working for 25 minutes, then resting for 5, is a proven technique called the Pomodoro method. Try it this week and see if it helps.",
+      qs: [
+        { q: "What is the main topic of the talk?", opts: ["Stress management","Time management","Study techniques","Break schedules"], ans: 1 },
+        { q: "According to the speaker, what can reduce stress?", opts: ["Watching TV","Sleeping more","Breaking tasks into smaller steps","Avoiding planners"], ans: 2 },
+        { q: "What is the Pomodoro method?", opts: ["Studying for 5 min, resting 25","Working 25 min then resting 5","Taking a 30-minute break","Using a study app"], ans: 1 },
+        { q: "Who is the speaker's main audience?", opts: ["Doctors","Business professionals","Students","Teachers"], ans: 2 },
+      ]
+    },
+    rubric: ["Range of vocabulary including less common words", "Complex sentences with correct grammar", "Coherent structure with clear beginning, middle, end", "Appropriate register for the context", "Accurate use of connectives (however, although, therefore)"]
+  }
+};
+
+let level = 'A';
+let tab = 0;
+let answers = {};
+let submitted = false;
+
+function setLevel(l) {
+  level = l;
+  document.querySelectorAll('.lvl-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lvl-btn.${l.toLowerCase()}`).classList.add('active');
+  answers = {}; submitted = false;
+  document.getElementById('scorebanner').classList.remove('visible');
+  renderAll(); goTab(0);
+}
+
+function renderAll() { renderGrammar(); renderReading(); renderWriting(); renderListening(); }
+
+function qTag() {
+  return `<span class="q-tag ${level==='A'?'tag-a':'tag-b'}">${level==='A'?'A1–A2':'B1–B2'}</span>`;
+}
+
+function makeOpts(key, opts, ans) {
+  const sel = answers[key];
+  return opts.map((o, i) => {
+    let cls = 'opt';
+    if (submitted) {
+      if (i === ans) cls += ' correct';
+      else if (sel === i) cls += ' wrong';
+    } else if (sel === i) cls += ' selected';
+    return `<label class="${cls}">
+      <input type="radio" name="${key}" value="${i}" ${sel===i?'checked':''} onchange="pick('${key}',${i})" ${submitted?'disabled':''}>
+      <span class="opt-letter">${LETTERS[i]}</span>
+      <span>${o}</span>
+    </label>`;
+  }).join('');
+}
+
+function renderGrammar() {
+  const qs = DATA[level].grammar;
+  let h = `<div class="section-header"><div class="section-title">Grammar &amp; Vocabulary</div><div class="section-desc">Choose the best answer for each question.</div></div>`;
+  qs.forEach((q, i) => {
+    h += `<div class="q-card">
+      <div class="q-meta"><div class="q-num">${i+1}</div>${qTag()}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${makeOpts('g'+i, q.opts, q.ans)}</div>
+    </div>`;
+  });
+  document.getElementById('sec-0').innerHTML = h;
+}
+
+function renderReading() {
+  const d = DATA[level].reading;
+  let h = `<div class="section-header"><div class="section-title">Reading Comprehension</div><div class="section-desc">Read the passage carefully, then answer the questions.</div></div>
+  <div class="passage-card"><div class="passage-label">📄 Read this passage</div><div class="passage-text">${d.passage}</div></div>`;
+  d.qs.forEach((q, i) => {
+    h += `<div class="q-card">
+      <div class="q-meta"><div class="q-num">${i+1}</div>${qTag()}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${makeOpts('r'+i, q.opts, q.ans)}</div>
+    </div>`;
+  });
+  document.getElementById('sec-1').innerHTML = h;
+}
+
+function renderWriting() {
+  const d = DATA[level];
+  let h = `<div class="section-header"><div class="section-title">Writing Tasks</div><div class="section-desc">Write your responses in the boxes below. These are reviewed by a teacher.</div></div>
+  <div class="teacher-tip"><strong>🍎 Teacher note:</strong> Writing tasks are not auto-scored. Use the rubric at the bottom of this section to evaluate student responses.</div>`;
+  d.writing.forEach((q, i) => {
+    const key = 'w'+i;
+    h += `<div class="q-card">
+      <div class="q-meta"><div class="q-num">${i+1}</div><span class="q-tag" style="background:#fef3c7;color:#92400e">Writing Task</span></div>
+      <div class="q-text">${q.q}</div>
+      <textarea class="write-textarea" placeholder="${q.ph}" onchange="answers['${key}']=this.value" rows="5">${answers[key]||''}</textarea>
+    </div>`;
+  });
+  h += `<div class="rubric-card"><div class="rubric-title">✦ Evaluation Rubric</div><ul class="rubric-list">`;
+  d.rubric.forEach(r => { h += `<li>${r}</li>`; });
+  h += `</ul></div>`;
+  document.getElementById('sec-2').innerHTML = h;
+}
+
+function renderListening() {
+  const d = DATA[level].listening;
+  let h = `<div class="section-header"><div class="section-title">Listening Comprehension</div><div class="section-desc">Listen to the audio, then answer the questions below.</div></div>
+  <div class="listen-card">
+    <div class="listen-icon-row">
+      <div class="listen-icon">🎧</div>
+      <div class="listen-desc">Play the audio recording for students, or — if no recording is available — read the transcript aloud at a natural pace. Students should not read the transcript themselves.</div>
+    </div>
+    <button class="transcript-toggle" onclick="toggleTx(this)">🔒 Show transcript (teacher only) ▾</button>
+    <div class="transcript-box">${d.transcript}</div>
+  </div>`;
+  d.qs.forEach((q, i) => {
+    h += `<div class="q-card">
+      <div class="q-meta"><div class="q-num">${i+1}</div>${qTag()}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${makeOpts('l'+i, q.opts, q.ans)}</div>
+    </div>`;
+  });
+  document.getElementById('sec-3').innerHTML = h;
+}
+
+function toggleTx(btn) {
+  const box = btn.nextElementSibling;
+  box.classList.toggle('open');
+  btn.textContent = box.classList.contains('open') ? '🔓 Hide transcript ▴' : '🔒 Show transcript (teacher only) ▾';
+}
+
+function pick(key, val) {
+  if (submitted) return;
+  answers[key] = val;
+  if (key[0]==='g') renderGrammar();
+  else if (key[0]==='r') renderReading();
+  else if (key[0]==='l') renderListening();
+}
+
+function submitTest() {
+  submitted = true;
+  const d = DATA[level];
+  let correct = 0, total = 0;
+  let gC=0, rC=0, lC=0;
+  d.grammar.forEach((_,i)=>{ total++; if(answers['g'+i]===d.grammar[i].ans){correct++;gC++;} });
+  d.reading.qs.forEach((_,i)=>{ total++; if(answers['r'+i]===d.reading.qs[i].ans){correct++;rC++;} });
+  d.listening.qs.forEach((_,i)=>{ total++; if(answers['l'+i]===d.listening.qs[i].ans){correct++;lC++;} });
+  renderAll();
+  const pct = Math.round(correct/total*100);
+  const grade = pct>=80?'Excellent 🌟':pct>=65?'Good work 👍':pct>=50?'Keep practising 📚':'Needs more review 💪';
+  const banner = document.getElementById('scorebanner');
+  banner.classList.add('visible');
+  document.getElementById('score-big').textContent = correct+'/'+total;
+  document.getElementById('score-grade').textContent = grade;
+  document.getElementById('score-bars').innerHTML = `
+    <div class="score-row-item"><span>Grammar</span><div class="mini-bar"><div class="mini-fill" style="width:${Math.round(gC/d.grammar.length*100)}%"></div></div><span class="pct">${Math.round(gC/d.grammar.length*100)}%</span></div>
+    <div class="score-row-item"><span>Reading</span><div class="mini-bar"><div class="mini-fill" style="width:${Math.round(rC/d.reading.qs.length*100)}%"></div></div><span class="pct">${Math.round(rC/d.reading.qs.length*100)}%</span></div>
+    <div class="score-row-item"><span>Listening</span><div class="mini-bar"><div class="mini-fill" style="width:${Math.round(lC/d.listening.qs.length*100)}%"></div></div><span class="pct">${Math.round(lC/d.listening.qs.length*100)}%</span></div>
+    <div class="score-row-item" style="margin-top:4px;font-size:12px;color:var(--slate-mid);"><span style="width:auto;color:inherit">Writing tasks require manual teacher review.</span></div>`;
+  banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  goTab(0);
+}
+
+function resetTest() {
+  answers = {}; submitted = false;
+  document.getElementById('scorebanner').classList.remove('visible');
+  renderAll();
+}
+
+function goTab(i) {
+  tab = i;
+  document.querySelectorAll('.tab-btn').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+  document.querySelectorAll('.section').forEach((s,idx)=>s.classList.toggle('active',idx===i));
+  document.querySelectorAll('.prog-seg').forEach((s,idx)=>{
+    s.classList.toggle('active', idx===i);
+    s.classList.toggle('done', idx<i);
+  });
+  document.getElementById('prog-label').textContent = (i+1)+' of 4';
+}
+function nextTab() { if(tab<3) goTab(tab+1); }
+function prevTab() { if(tab>0) goTab(tab-1); }
+
+renderAll();
+</script>
+</body>
+</html>

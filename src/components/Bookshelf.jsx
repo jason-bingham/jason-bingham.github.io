@@ -235,6 +235,19 @@ export default function Bookshelf() {
           <div className="book__page-shading"></div>
         </Book>
 
+        {/* English Eval Test */}
+        <Book
+          variant="english"
+          isActive={false}
+          anyActive={anyActive}
+          onOpen={() => window.location.href = '/english/english-eval-test.html'}
+          onClose={close}
+          titles={[
+            { text: 'English', titleClass: 'english-title' },
+            { text: 'Eval Test', titleClass: 'english-title english-title-sub' },
+          ]}
+        />
+
         {/* Creative Writing */}
         <Book
           variant="writing"
