@@ -1,0 +1,730 @@
+/* TOC */
+
+/* 1. SHELF */
+/* 2. BOOK BINDINGS */
+/* 3. BOOK WIDTHS */
+/* 4. TITLE SHADOWS */
+/* 5. DEFAULT BOOK ATTRIBUTES */
+/* 6. GRAPHIC DESIGN */
+/* 7. DATA VISUALIZATION */
+/* 8. PHOTOGRAPHY */
+/* 9. LANDSCAPE DESIGN */
+/* 10. CREATIVE WRITING */
+/* 11. WEB DESIGN */
+/* 12. OPEN BOOK */
+/* 13. BACK ARROW */
+/* 14. UTILITY CLASSES */
+
+/* ~~ 1. SHELF */
+
+.bookshelf__depth {
+  position: absolute;
+  /* border-image:
+    linear-gradient(
+      black,
+      whitesmoke
+    );
+  border-width: 19rem calc(100vw / 2);
+  border-image-slice: 50%; */
+  border-image-source: linear-gradient(black, whitesmoke);
+  border-image-slice: 30;
+  border-image-repeat: round;
+  border-width: 19rem 50vw;
+}
+
+.bookshelf {
+  padding: 3rem 0;
+  width: clamp(600px, 90vw, 1000px);
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-end;
+}
+
+/* */
+
+/* ~~ 2. BOOK BINDINGS */
+
+.book {
+  /* <-- BEM Block */
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 10%; /* <-- 100% flex-basis was the key to ending weird book behavior on hover or after click, but once I refactored and moved some properties from child to parent, this actually stopped the sizes from varying. I don't understand the behavior. Adding an event listener in JS seems to affect the behavior and make it more erratic, but, for now at least, the 10% flex-basis is working.*/
+
+  height: 32rem;
+  min-width: 40px;
+
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, 0.4);
+
+  background-image: url(/images/leather_texture.jpg);
+  background-size: auto 100%;
+
+  writing-mode: vertical-rl;
+
+  a {
+    color: hsl(205, 99%, 40%);
+    text-decoration: underline;
+  }
+
+  &:hover {
+    box-shadow: 0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    transform: translateY(-4px) scale(1.03, 1.02);
+    transform-origin: bottom center;
+  }
+}
+
+/* */
+
+/* ~~ 3. BOOK WIDTHS & HEIGHTS */
+
+.book--graphic {
+  flex-grow: 7;
+  height: 34rem;
+}
+
+.book--data {
+  flex-grow: 4.5;
+  height: 30rem;
+}
+
+.book--photo {
+  flex-grow: 5;
+  height: 32rem;
+}
+
+.book--landscape {
+  flex-grow: 7;
+  height: 35rem;
+  align-items: start;
+}
+
+.book--english {
+  flex-grow: 3.5;
+  height: 31rem;
+  gap: 0.5rem;
+}
+
+.book--writing {
+  flex-grow: 4;
+  height: 29rem;
+  gap: 0.5rem;
+}
+
+.book--web {
+  flex-grow: 5.5;
+  height: 28rem;
+  gap: 0.75rem;
+  transform: translateX(-1.2rem) translateY(-0.15rem) rotate(2.5deg);
+  transform-origin: bottom center;
+}
+
+/* */
+
+/* ~~ 4. TITLE SHADOWS */
+
+.book__title {
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  margin: 0;
+  z-index: 10;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
+
+  &--web {
+    text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* */
+
+/* ~~ 5. DEFAULT BOOK ATTRIBUTES */
+
+.book__shading {
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  box-shadow:
+    inset -0.35rem 0 0.5rem rgba(0, 0, 0, 0.4),
+    inset 0.35rem 0 0.5rem rgba(0, 0, 0, 0.4);
+  /* writing-mode: vertical-rl; */
+
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-image: linear-gradient(
+    to right,
+    #333,
+    #333 15%,
+    antiquewhite 30%,
+    antiquewhite 70%,
+    #333 85%,
+    #333
+  );
+  border-image-slice: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.35) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.25) 100%
+      );
+    z-index: 11;
+    pointer-events: none;
+  }
+}
+
+.book__contents {
+  display: flex;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+
+/* */
+
+/* ~~ 6. GRAPHIC DESIGN */
+
+.book__shading--graphic {
+  background:
+    radial-gradient(ellipse at top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.75)),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.graphic-title {
+  font-size: clamp(1.6rem, 4.5vw, 2rem);
+  align-items: center;
+  font-family: "Unica One", cursive;
+  color: rgb(223, 133, 23);
+  gap: clamp(0rem, 1vw, 0.2rem);
+
+  &-sub {
+    font-size: clamp(0.75rem, 3vw, 1rem);
+  }
+}
+
+/* */
+
+/* ~~ 7. DATA VISUALIZATION */
+
+.book__shading--data {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(50, 10, 87, 0.55),
+      rgba(0, 0, 0, 0.75)
+    ),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.data-title {
+  font-family: "Smooch Sans", sans-serif;
+  color: rgb(221, 206, 206);
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+}
+
+/* */
+
+/* ~~ 8. PHOTOGRAPHY */
+
+.book__shading--photo {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(189, 147, 189, 0.55),
+      rgba(0, 0, 0, 0.85)
+    ),
+    radial-gradient(ellipse at bottom, rgba(185, 154, 154, 0.5), transparent);
+}
+
+.photo-title {
+  font-family: "Nothing You Could Do", cursive;
+  color: #212121;
+}
+
+/* */
+
+/* ~~ 9. LANDSCAPE DESIGN */
+
+.book__shading--landscape {
+  background:
+    radial-gradient(ellipse at top, rgba(2, 95, 18, 0.55), rgba(0, 0, 0, 0.75)),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.landscape-title {
+  font-family: "Fredericka the Great", cursive;
+  color: rgb(246, 236, 218);
+  margin-top: 8rem;
+
+  &-sub {
+    font-size: clamp(0.75rem, 3vw, 1rem);
+  }
+}
+
+.book--landscape.active {
+  align-items: center;
+}
+
+/* */
+
+/* ~~ 10. CREATIVE WRITING */
+
+.book__shading--writing {
+  background:
+    radial-gradient(ellipse at top, rgba(94, 15, 6, 0.76), rgba(0, 0, 0, 0.75)),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.writing-title {
+  font-family: "Lora", serif;
+  color: rgb(242, 223, 223);
+
+  &-sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* */
+
+/* ~~ 11. ENGLISH EVAL TEST */
+
+.book__shading--english {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(20, 60, 100, 0.55),
+      rgba(0, 0, 0, 0.75)
+    ),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.english-title {
+  font-family: "Lora", serif;
+  color: rgb(227, 237, 247);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+
+  &-sub {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+}
+
+/* */
+
+/* ~~ 12. WEB DESIGN */
+
+.book__shading--web {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255, 255, 255, 0.63),
+      rgba(0, 0, 0, 0.75)
+    ),
+    radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+}
+
+.book__title--web {
+  font-family: "Inconsolata", monospace;
+  color: #222;
+
+  &_sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* */
+
+/* ~~ 13. OPEN BOOK */
+
+.book.active {
+  box-shadow:
+    0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4),
+    inset 0.75rem 0 0.25rem -0.5rem rgba(0, 0, 0, 0.5),
+    inset -0.75rem 0 0.25rem -0.5rem rgba(0, 0, 0, 0.5),
+    inset 0 0.75rem 0.25rem -0.5rem rgba(0, 0, 0, 1),
+    inset 0 -0.75rem 0.25rem -0.5rem rgba(0, 0, 0, 1);
+  position: absolute;
+  width: min(50rem, 95vw);
+  height: 32rem;
+  margin-top: -22px;
+  z-index: 100;
+  border-top-width: 0;
+  cursor: auto;
+
+  &:hover {
+    margin-top: -22px;
+    transform: none;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+
+  .book__shading {
+    border-top-width: 0;
+    align-items: center;
+  }
+
+  .book__contents {
+    background-color: antiquewhite;
+    opacity: 100;
+    width: calc(100% - min(6vw, 50px));
+    height: calc(100% - min(6vw, 50px));
+    pointer-events: auto;
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-color: rgb(92, 92, 92);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: antiquewhite;
+    border-bottom-style: groove;
+    border-bottom-color: rgb(155, 153, 153);
+    border-bottom-width: 2px;
+    color: #333;
+    writing-mode: horizontal-tb;
+    font-family: "Nothing You Could Do", cursive;
+  }
+
+  .book__inside_shading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      transparent,
+      transparent 43%,
+      rgba(30, 30, 30, 0.3) 44%,
+      rgba(30, 30, 30, 0.5) 45%,
+      rgba(30, 30, 30, 0.4) 50%,
+      rgba(30, 30, 30, 0.65) 55%,
+      rgba(30, 30, 30, 0.3) 56%,
+      transparent 57%,
+      transparent
+    );
+  }
+
+  .btn--back {
+    width: auto;
+  }
+}
+
+.book__page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: clamp(1rem, 3vw, 2rem);
+  flex: 1 1 0px;
+  min-width: 0;
+
+  h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin: 0;
+  }
+
+  &--grid {
+    display: grid;
+    gap: 5px;
+    grid-template: "1fr 1fr 1fr" "1fr 1fr 1fr" "1fr 1fr 1fr";
+  }
+}
+
+.book__illus {
+  border: 5px solid white;
+  flex: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.book__text {
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  margin-left: 0;
+  margin-right: 0;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+  line-height: clamp(0.85rem, 3vw, 1.5rem);
+}
+
+.book__page-shading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(30, 30, 30, 0.1),
+    transparent 25%,
+    transparent 30%,
+    rgba(30, 30, 30, 0.3) 48%,
+    rgba(30, 30, 30, 0.4) 50%,
+    transparent 50%,
+    rgba(30, 30, 30, 0.3) 70%,
+    transparent
+  );
+}
+
+/* */
+
+/* ~~ 14. BACK ARROW */
+
+.btn {
+  border: none;
+  cursor: pointer;
+
+  &--back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    opacity: 85%;
+    margin: 1%;
+    gap: 2px;
+    width: 0;
+
+    p {
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 500;
+      font-size: 0.8rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    &:hover {
+      opacity: 100%;
+      filter: drop-shadow(0px 0px 2px whitesmoke);
+    }
+  }
+}
+
+/* */
+
+/* ~~ 15. STACKED BOOKS */
+
+.stacked-books {
+  display: flex;
+  flex-direction: column;
+}
+
+.stacked-book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 900%;
+    background-image: url(/images/leather_texture.jpg);
+    background-size: cover;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .stacked-book__shading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    box-shadow:
+      inset 0 -0.35rem 0.5rem rgba(0, 0, 0, 0.4),
+      inset 0 0.35rem 0.5rem rgba(0, 0, 0, 0.4);
+    // border-left-style: solid;
+    // border-left-width: 1px;
+    // border-image: linear-gradient(
+    //   to bottom,
+    //   #333,
+    //   #333 15%,
+    //   antiquewhite 30%,
+    //   antiquewhite 70%,
+    //   #333 85%,
+    //   #333
+    // );
+    // border-image-slice: 1;
+    z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 0%,
+          rgba(0, 0, 0, 0.35) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  .stacked-book__title {
+    position: relative;
+    z-index: 3;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .stacked-book__subtitle {
+    position: relative;
+    z-index: 3;
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.stacked-book-1 {
+  height: 5.5rem;
+  width: 26rem;
+  transform: translateX(1.5rem);
+
+  .stacked-book__shading {
+    background:
+      radial-gradient(
+        ellipse at 50% 30%,
+        rgba(100, 190, 145, 0.887),
+        rgba(0, 0, 0, 0.65)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+  }
+
+  .stacked-book__title {
+    font-family: "Inconsolata", monospace;
+    color: #000000;
+  }
+
+  .stacked-book__subtitle {
+    color: #050505c1;
+  }
+}
+
+.stacked-book-2 {
+  height: 4rem;
+  width: 29rem;
+
+  .stacked-book__shading {
+    background:
+      radial-gradient(
+        ellipse at 50% 30%,
+        rgb(252, 238, 227) 10%,
+        rgba(0, 0, 0, 0.7)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+  }
+
+  .stacked-book__title {
+    font-family: "Lora", serif;
+    color: #272626;
+  }
+
+  .stacked-book__subtitle {
+    color: #272726;
+  }
+}
+
+.stacked-book-3 {
+  height: 4.5rem;
+  width: 29.5rem;
+  transform: translateX(0.5rem);
+
+  .stacked-book__shading {
+    background:
+      radial-gradient(
+        ellipse at 50% 30%,
+        rgba(64, 63, 70, 0.852),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+  }
+
+  .stacked-book__title {
+    font-family: "Fredericka the Great", cursive;
+    color: #e5e4cb;
+  }
+
+  .stacked-book__subtitle {
+    color: #d6d6a6;
+  }
+}
+
+.stacked-book-4 {
+  height: 5rem;
+  width: 28rem;
+
+  .stacked-book__shading {
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(246, 179, 8, 0.911),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+  }
+
+  .stacked-book__title {
+    font-family: "Montserrat", sans-serif;
+    color: #272625;
+  }
+
+  .stacked-book__subtitle {
+    color: #312c0f;
+  }
+}
+
+/* */
+
+/* ~~ 16. UTILITY CLASSES */
+
+.unpublished {
+  opacity: 0.55;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+/*  */

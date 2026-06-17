@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Book from "./Book";
-import "../styles/style-bookshelf.css";
+import "../styles/style-bookshelf.scss";
 
 export default function Bookshelf() {
   const [activeBook, setActiveBook] = useState(null);
@@ -54,55 +54,9 @@ export default function Bookshelf() {
           </div>
         </Book>
 
-        {/* Graphic Design */}
-        <Book
-          variant="graphic"
-          extraClass="flex-column"
-          isActive={activeBook === "graphic"}
-          anyActive={anyActive}
-          onOpen={() => open("graphic")}
-          onClose={close}
-          titles={[
-            {
-              text: "the Fundamentals of",
-              titleClass: "graphic-title graphic-title-sub",
-            },
-            { text: "Graphic Design", titleClass: "graphic-title" },
-          ]}>
-          <div className="book__page-shading"></div>
-          <div className="book__page">
-            <div>
-              <h3>Graphic Design</h3>
-              <p className="book__text">
-                &emsp;Over the years I have experimented with many types of
-                design, from landscapes to logos, and from 3D modeling to simple
-                line drawings. That work has been done by hand, or in Photoshop,
-                Illustrator, InDesign, Sketchup, or even Autocad. You can take a
-                peek at selected pieces <Link to="/graphic">right here!</Link>
-              </p>
-            </div>
-            <div
-              className="book__illus"
-              style={{
-                backgroundImage:
-                  "url(/graphic_design_assets/images/wallpaper.png)",
-              }}></div>
-          </div>
-          <div className="book__page">
-            <div
-              className="book__illus"
-              style={{
-                backgroundImage:
-                  "url(/graphic_design_assets/images/periodic_table_1000pxx1000px-01.png)",
-                backgroundPosition: "center",
-              }}></div>
-          </div>
-        </Book>
-
         {/* Data Visualization */}
-        <Book
+        {/* <Book
           variant="data"
-          unpublished
           isActive={activeBook === "data"}
           anyActive={anyActive}
           onOpen={() => open("data")}
@@ -134,12 +88,11 @@ export default function Bookshelf() {
               }}></div>
           </div>
           <div className="book__page-shading"></div>
-        </Book>
+        </Book> */}
 
         {/* Photography */}
-        <Book
+        {/* <Book
           variant="photo"
-          unpublished
           isActive={activeBook === "photo"}
           anyActive={anyActive}
           onOpen={() => open("photo")}
@@ -200,13 +153,30 @@ export default function Bookshelf() {
               }}></div>
           </div>
           <div className="book__page-shading"></div>
-        </Book>
+        </Book> */}
+
+        {/* English for Students */}
+        <Book
+          variant="english"
+          isActive={false}
+          anyActive={anyActive}
+          onOpen={() =>
+            (window.location.href = "/english/english-eval-test.html")
+          }
+          onClose={close}
+          titles={[
+            { text: "English", titleClass: "english-title" },
+            {
+              text: "for Students",
+              titleClass: "english-title english-title-sub",
+            },
+          ]}
+        />
 
         {/* Landscape Design */}
         <Book
           variant="landscape"
           extraClass="flex-column"
-          unpublished
           isActive={activeBook === "landscape"}
           anyActive={anyActive}
           onOpen={() => open("landscape")}
@@ -229,24 +199,62 @@ export default function Bookshelf() {
           <div className="book__page">
             <div>
               <h3>Landscape Design</h3>
-              <p className="book__text">&emsp;Coming soon.</p>
+              <p className="book__text">
+                &emsp;Follow{" "}
+                <a href="https://jasonbinghamportfolio.wordpress.com/">
+                  this link
+                </a>{" "}
+                for landscape projects
+              </p>
             </div>
           </div>
           <div className="book__page-shading"></div>
         </Book>
 
-        {/* English Eval Test */}
+        {/* Graphic Design */}
         <Book
-          variant="english"
-          isActive={false}
+          variant="graphic"
+          extraClass="flex-column"
+          isActive={activeBook === "graphic"}
           anyActive={anyActive}
-          onOpen={() => window.location.href = '/english/english-eval-test.html'}
+          onOpen={() => open("graphic")}
           onClose={close}
           titles={[
-            { text: 'English', titleClass: 'english-title' },
-            { text: 'Eval Test', titleClass: 'english-title english-title-sub' },
-          ]}
-        />
+            {
+              text: "the Fundamentals of",
+              titleClass: "graphic-title graphic-title-sub",
+            },
+            { text: "Graphic Design", titleClass: "graphic-title" },
+          ]}>
+          <div className="book__page-shading"></div>
+          <div className="book__page">
+            <div>
+              <h3>Graphic Design</h3>
+              <p className="book__text">
+                &emsp;Over the years I have experimented with many types of
+                design, from landscapes to logos, and from 3D modeling to simple
+                line drawings. That work has been done by hand, or in Photoshop,
+                Illustrator, InDesign, Sketchup, or even Autocad. You can take a
+                peek at selected pieces <Link to="/graphic">right here!</Link>
+              </p>
+            </div>
+            <div
+              className="book__illus"
+              style={{
+                backgroundImage:
+                  "url(/graphic_design_assets/images/wallpaper.png)",
+              }}></div>
+          </div>
+          <div className="book__page">
+            <div
+              className="book__illus"
+              style={{
+                backgroundImage:
+                  "url(/graphic_design_assets/images/periodic_table_1000pxx1000px-01.png)",
+                backgroundPosition: "center",
+              }}></div>
+          </div>
+        </Book>
 
         {/* Creative Writing */}
         <Book
@@ -274,19 +282,46 @@ export default function Bookshelf() {
                 vulnerability; exposing myself to ridicule, abuse or, worse yet,
                 indifference.
               </p>
-              <p className="book__text">
-                &emsp;Well, those days are over! Here is a link to my{" "}
-                <a href="https://substack.com/@fleecehunter">Substack</a>!
-              </p>
             </div>
           </div>
           <div className="book__page">
             <div>
               <h3 style={{ textAlign: "center" }}>Writing</h3>
-              <p className="book__text">&emsp;...</p>
+              <p className="book__text">
+                &emsp;Well, those days are over! Here is a link to my{" "}
+                <a href="https://substack.com/@fleecehunter">Substack</a>!
+              </p>
+              <p>
+                I don't get as much time to write as I would like, but more will
+                be coming soon.
+              </p>
             </div>
           </div>
         </Book>
+
+        {/* Stacked Books */}
+        <div className="stacked-books">
+          <div className="stacked-book stacked-book-1">
+            <div className="stacked-book__shading"></div>
+            <div className="stacked-book__title">Design with Nature</div>
+            <div className="stacked-book__subtitle">Ian McHarg</div>
+          </div>
+          <div className="stacked-book stacked-book-2">
+            <div className="stacked-book__shading"></div>
+            <div className="stacked-book__title">Ministry for the Future</div>
+            <div className="stacked-book__subtitle">Kim Stanley Robinson</div>
+          </div>
+          <div className="stacked-book stacked-book-3">
+            <div className="stacked-book__shading"></div>
+            <div className="stacked-book__title">BEHAVE</div>
+            <div className="stacked-book__subtitle">Robert Sapolsky</div>
+          </div>
+          <div className="stacked-book stacked-book-4">
+            <div className="stacked-book__shading"></div>
+            <div className="stacked-book__title">FILHO DOURADO</div>
+            <div className="stacked-book__subtitle">Pierce Brown</div>
+          </div>
+        </div>
       </div>
     </>
   );
